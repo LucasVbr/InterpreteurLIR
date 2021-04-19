@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\title{Résumé de cas d'utilisation --- Sauvegarder le programme dans un fichier}
+\date{} % laisser vide
+\author{} % Laisser vide
+    \begin{document}
+
+        \maketitle
+
+        \section{Acteurs}
+        Programmeur : il entre la commande de sauvegarde `sauve' suivit du chemin vers le nom du fichie dans lequel on veut sauvegarder le programme.
+
+        \section{Objectifs}
+        L'objectif est de sauvegarder le programme rédigé dans l'interpréteur, dans un fichier texte 
+
+        \section{Pré-conditions, Post-conditions}
+
+            \subsection{Pré-Condtions}
+            \begin{itemize}
+            	\item Un programme doit être rédigé (au moins une ligne)
+            	\item Le chemin vers le fichier ne doit pas contenir de caractères spéciaux(pour éviter les erreur)
+        	\end{itemize}
+
+            \subsection{Post-Conditions}
+            \begin{itemize}
+            	\item Le fichier doit être crée (si il n'existe pas déjà)
+            	\item Le fichier doit contenir le programme rédigé par le programmeur
+            \end{itemize}
+
+        \section{Scénario nominal (grandes étapes)}
+        \begin{enumerate}
+        	\item Le programmeur execute la commande de sauvegarde
+        	\item Le programme empèche la saisie à l'utilisateur
+        	\item Le programme sauvegarde le code saisi (en mettant les étiquettes dans l'ordre croissant) et l'enregistre dans un fichier
+        	\item Le programme affiche un message qui indique la fin de la sauvegarde
+        	\item Le programme permet la saisie à l'utilisateur
+    	\end{enumerate}
+
+        \section{Scénarios d'échec}
+        \begin{itemize}
+        	\item Point 2 : Si le chemin du fichier éxécuté dans la commande de sauvegarde contiens des caractères spéciaux;
+        	\begin{enumerate}
+        		\item Affiche un message d'erreur spécifiant qu'il ne faut pas de caractères spéciaux dans le chemin
+        		\item Reprend au point 5
+        	\end{enumerate}
+
+        	\item Point 3 : Si aucun programme n'as été écrit;
+        	\begin{enumerate}
+        		\item Affiche un message d'erreur spécifiant qu'il faut déjà avoir rédigé le programme avant de le sauvegarder
+        		\item Reprend au point 5
+        	\end{enumerate}
+
+           \item Point 3 : Si aucun programme comporte plus de 99999 lignes;
+        	\begin{enumerate}
+        		\item Affiche un message d'erreur spécifiant que le nombre de lignes dépasse la valeur maximale
+        		\item Reprend au point 5
+        	\end{enumerate}
+    	\end{itemize}
+
+    \end{document}
