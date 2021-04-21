@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\title{Résumé de cas d'utilisation --- Charger un programme} % à remplacer
+\date{} % laisser vide
+\author{} % Laisser vide
+\begin{document}
+	
+	\maketitle
+	
+	\section{Acteurs}
+	Programmeur : Il entre la commande "charge" suivie du "chemin"/de l'arborescence du fichier que l'on veut charger.
+	
+	\section{Objectifs}
+	Charger un programme en mémoire, en ayant pour seule indication son arborescence 
+	
+	\section{Pré-conditions, Post-conditions}
+	Il faut que le programme ai été préalablement sauvegardé au stocké en mémoire
+	
+	\subsection{Pré-Condtions}
+	L'interpréteur LIR est en mode édition. 
+	Il faut que le programme ai été préalablement sauvegardé au stocké en mémoire, et qu'il soit un fichier texte.
+	Et que sont chemin/arborescence soit accessible à l'interpréteur.
+	
+	\subsection{Post-Conditions}
+	Le code source a été entièrement chargé sur LIR alors le chargement s'arrête.
+	
+	\section{Scénario nominal (grandes étapes)}
+	\begin{enumerate}
+		\item Le programmeur veut charger un fichier stocké.
+		
+		\item Le programmeur consulte l'arborescence de son fichier.
+		
+		\item Le programmeur entre la commande \verb|charge| suivie de l'arborescence de son fichier.
+		
+		\item L'interpréteur signale au programmeur que le chargement a pu se faire par un "ok". 
+	\end{enumerate}
+	
+	\section{Scénarios d'échec}
+	
+	\paragraph{Point 2 du scénario nominal :} Aucun fichier n'est situé dans l'arborescence signalée 
+	\begin{itemize}
+		\item L'interpréteur en avise le programmeur au moyen d'un message d'erreur.
+		\item Retour au point 1.
+	\end{itemize}
+	
+	\paragraph{Point 3 du scénario nominal :} Le fichier ne correspond pas au type de fichier accepté par LIR.
+	\begin{itemize}
+		\item L'interpréteur affiche un message informant le programmeur.
+		\item Retour au point 1.
+	\end{itemize}
+	
+	\paragraph{Point 4 du scénario nominal :} La ligne de commande est incorrecte.
+	\begin{itemize}
+		\item Un message d'erreur en informe le programmeur
+		\item Retour au point 1.
+	\end{itemize}
+
+	\paragraph{Point 4 du scénario nominal :} Le code source du fichier est corrompu
+	\begin{itemize}
+		\item Un message d'erreur en informe le programmeur
+		\item Retour au point 1.
+	\end{itemize}
+	
+	
+\end{document}
