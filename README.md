@@ -3,7 +3,7 @@ Dans le cadre des projets tuteuré du semestre 2 de première année de DUT
 informatique de l’année 2020-2021, le sujet de l’Interpréteur LIR a été proposé 
 par F. Barrios, un des enseignants de l’IUT de Rodez.
 
-[Trello](https://trello.com/b/yoeJiQOG/tableau-de-bord-kanban)
+[Trello](https://trello.com/b/TJ1FG9mr/tableau-de-bord)
 
 Membres du groupe :
 - Nicolas Caminade
