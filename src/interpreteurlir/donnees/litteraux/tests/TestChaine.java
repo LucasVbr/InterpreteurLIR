@@ -2,7 +2,7 @@
  * TestChaine.java                                    8 mai 2021
  * IUT info1 2020-2021, pas de copyright, aucun droit
  */
-package interpreteurlir.donnees.litteraux.test;
+package interpreteurlir.donnees.litteraux.tests;
 
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Chaine;
@@ -22,9 +22,10 @@ public class TestChaine {
 	public static void testChaine() {
 		
 		final String[] VALIDE = { 
-			"arztyehjklmpoijhghnbghjklmpoiuytrf" + 
-			"ghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu", "","coucou ",
-			Integer.toString(42)
+			"\"arztyehjklmpoijhghnbghjklmpoiuytrf" + 
+			"ghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu\"", 
+			"\"\"","\"coucou \"",
+			"\"" + 42 + "\""
 		};  
 		
 	    final String INVALIDE =
@@ -47,17 +48,17 @@ public class TestChaine {
 	/** test  de compareTo */
 	public static void testCompareTo() {
 		final Chaine[][] EGALITES = { 
-			{new Chaine("coucou"), new Chaine("coucou")}, 
-			{new Chaine(" "), new Chaine(" ")},
-			{new Chaine(""), new Chaine()} 
+			{new Chaine("\"coucou\""), new Chaine("\"coucou\"")}, 
+			{new Chaine("\" \""), new Chaine("\" \"")},
+			{new Chaine("\"\""), new Chaine()} 
 		};
 		
 		final Chaine[][] DIFFERENCES = { 
-			{new Chaine("coucou"), new Chaine("camomille")},
-			{new Chaine("tarentule"), new Chaine("coucou")}, 
-			{new Chaine("coucou"), new Chaine(" ")}, 
-			{new Chaine("coucou"), new Chaine()},
-			{new Chaine(" "), new Chaine()} 
+			{new Chaine("\"coucou\""), new Chaine("\"camomille\"")},
+			{new Chaine("\"tarentule\""), new Chaine("\"coucou\"")}, 
+			{new Chaine("\"coucou\""), new Chaine("\" \"")}, 
+			{new Chaine("\"coucou\""), new Chaine()},
+			{new Chaine("\" \""), new Chaine()} 
 		};
 		
 		System.out.println("test de compareTo(Chaine)\nAvec égalités");
@@ -87,8 +88,10 @@ public class TestChaine {
 	/** test de toString */
 	public static void testToString() {
 		final Chaine[] A_AFFICHER = {
-			new Chaine(), new Chaine(" "), new Chaine("coucou"),
-			new Chaine(" coucou "), new Chaine("coucou monsieur")
+			new Chaine(), new Chaine("\" \""), 
+			new Chaine("\"coucou\""),
+			new Chaine("\" coucou \""), 
+			new Chaine("\"coucou monsieur\"")
 		};
 		
 		final String[] AFFICHAGE_GUILLEMETS = {

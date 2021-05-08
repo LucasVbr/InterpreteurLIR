@@ -4,12 +4,11 @@
  * pas de copyright, aucun droits
  */
 
-package donnees.tests;
+package interpreteurlir.donnees.tests;
 
-import static outils.glg.Assertions.assertEquivalent;
-import static outils.glg.Assertions.echec;
+import static info1.outils.glg.Assertions.*;
 
-import donnees.IdentificateurChaine;
+import interpreteurlir.donnees.IdentificateurChaine;
 
 /**
  * Tests unitaires de la classe donnees.IdentificateurEntier
@@ -87,7 +86,7 @@ public class TestIdentificateurChaine {
         };
     	
     	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
-    		assertEquivalent(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
+    		assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
     	}
     }
 }
