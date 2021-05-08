@@ -7,28 +7,28 @@
 package donnees;
 
 /**
- * Identificateur de chaine
- * @author Lucàs VABRE
- * @author Heïa DEXTER
+ * Identificateur de chaîne
+ * @author Nicolas Caminade
+ * @author Sylvan Courtiol
+ * @author Pierre Debas
+ * @author Heia Dexter
+ * @author Lucas Vabre
  */
 public class IdentificateurChaine extends Identificateur {
 
-	/** Nom identificateur */
-    private String nom;
-	
     /**
-	 * Instantiation d'identificateur de chaine
+	 * Instantiation d'identificateur de chaîne
 	 * @param identificateur a instancier
 	 * @throws IllegalAccessException si l'identificateur est invalide
 	 */
 	public IdentificateurChaine(String identificateur) {
-		super();
+		super(identificateur);
 		
 		if(!isIdentificateurChaine(identificateur)) {
-			throw new IllegalArgumentException(identificateur + " n'est pas un identificateur de chaine");
+			throw new IllegalArgumentException(identificateur
+			                                   + " n'est pas un identificateur"
+			                                   + " de chaine");
 		}
-		
-		this.nom = identificateur;
 	}
 	
 	/**
@@ -37,29 +37,10 @@ public class IdentificateurChaine extends Identificateur {
 	 * @return true si l'identificateur est bien un identificateur d'entier
 	 * 		   false sinon
 	 */
-	private boolean isIdentificateurChaine(String identificateur) {
-		boolean testOk = identificateur != null
-				         && identificateur.length() > 0
-				         && identificateur.charAt(0) == '$';
-				         
-		for (int i = 1 ; testOk && i < identificateur.length() ; i++) {
-			testOk = 'a' <= identificateur.charAt(i)
-					 && identificateur.charAt(i) <= 'z' ;
-		}
-		
-		return testOk;
-	}
-	
-	/* non javadoc - @see java.lang.Object#toString() */
-	@Override
-	public String toString() {
-		return "IdentificateurChaine [nom=" + nom + "]";
-	}
+	private static boolean isIdentificateurChaine(String identificateur) {
 
-	/**
-	 * @return la valeur de nom
-	 */
-	public String getNom() {
-		return nom;
+		return identificateur.length() >= 2
+               && identificateur.charAt(0) == '$'
+               && isLettre(identificateur.charAt(1));
 	}
 }

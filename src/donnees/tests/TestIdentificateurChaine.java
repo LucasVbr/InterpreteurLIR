@@ -13,15 +13,21 @@ import donnees.IdentificateurChaine;
 
 /**
  * Tests unitaires de la classe donnees.IdentificateurEntier
- * @author Lucàs VABRE
- * @author Heïa DEXTER
+ * @author Nicolas Caminade
+ * @author Sylvan Courtiol
+ * @author Pierre Debas
+ * @author Heia Dexter
+ * @author Lucas Vabre
  */
 public class TestIdentificateurChaine {
-	/** Jeu d'identificateurs de chaine correctement instanciés */
+	/** Jeu d'identificateurs de chaîne correctement instanciés */
     private static IdentificateurChaine[] FIXTURE = {
+            new IdentificateurChaine("$a"),
+            new IdentificateurChaine("$A"),
             new IdentificateurChaine("$alpha"),
-            new IdentificateurChaine("$beta"),
-            new IdentificateurChaine("$gamma")
+            new IdentificateurChaine("$Alpha"),
+            new IdentificateurChaine("$Alpha5"),
+            new IdentificateurChaine("$jeSuisUnTresLongIdentifi")
 	};
     
     /**
@@ -29,15 +35,32 @@ public class TestIdentificateurChaine {
      */
     public static void testIdentificateurChaineString() {
     	final String[] INVALIDE = {
-    		"9alpha",
-    		"-beta",
-    		"GAMMA",
-    		"id 3a",
-    		"",
-    		" ",
-    		"\t",
-    		"\n",
-    		null
+    	    null,
+    	    "",
+    	    
+    	    // Commence par une lettre
+            "9alpha",
+            "  5alpha",
+                
+            // Fait au maximum 24 caractères
+            "$jeSuisUnTresLongIdentificateur", // 30 char
+            "$jeSuisUnTresLongIdentific",
+                
+            // Espaces
+            "id 3a",
+            "$id 3a",
+            " ",
+            "$ ",
+            
+            // caractères d'échapements
+            "\t",
+            "\n",
+            "$\t",
+            "$\n",
+            
+            // , cas particulier
+            "$",
+            "$1"
     	};
     	
     	for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
@@ -45,7 +68,7 @@ public class TestIdentificateurChaine {
     			new IdentificateurChaine(INVALIDE[noJeu]);
     			echec();
     		} catch (IllegalArgumentException lancee) {
-    			// test Ok
+    			// test OK
     		}
     	}
     }
@@ -54,11 +77,14 @@ public class TestIdentificateurChaine {
      * Tests unitaires de getNom()
      */
     public static void testGetNom() {
-    	final String[] NOM_VALIDES = {
-    		"$alpha",
-    		"$beta",
-    		"$gamma"
-    	};
+        final String[] NOM_VALIDES = {
+            "$a",
+            "$A",
+            "$alpha",
+            "$Alpha",
+            "$Alpha5",
+            "$jeSuisUnTresLongIdentifi"
+        };
     	
     	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
     		assertEquivalent(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
@@ -70,13 +96,16 @@ public class TestIdentificateurChaine {
      */
     public static void testToString() {
     	final String[] CHAINES_VALIDES = {
-        		"$alpha",
-        		"$beta",
-        		"$gamma"
+    	        "Identificateur [nom=$a]",
+                "Identificateur [nom=$A]",
+                "Identificateur [nom=$alpha]",
+                "Identificateur [nom=$Alpha]",
+                "Identificateur [nom=$Alpha5]",
+                "Identificateur [nom=$jeSuisUnTresLongIdentifi]"
         	};
         	
         	for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {
-        		assertEquivalent("IdentificateurChaine [nom=" + CHAINES_VALIDES[noJeu] + "]",
+        		assertEquivalent(CHAINES_VALIDES[noJeu],
         				         FIXTURE[noJeu].toString());
         	}
     }

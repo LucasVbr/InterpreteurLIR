@@ -8,27 +8,27 @@ package donnees;
 
 /**
  * Identificateur d'entier
- * @author Lucàs VABRE
- * @author Heïa DEXTER
+ * @author Nicolas Caminade
+ * @author Sylvan Courtiol
+ * @author Pierre Debas
+ * @author Heia Dexter
+ * @author Lucas Vabre
  */
 public class IdentificateurEntier extends Identificateur {
 
-	/** Nom identificateur */
-    private String nom;
-	
 	/**
 	 * Instantiation d'identificateur d'entier
 	 * @param identificateur a instancier
 	 * @throws IllegalAccessException si l'identificateur est invalide
 	 */
 	public IdentificateurEntier(String identificateur) {
-		super();
+		super(identificateur);
 		
 		if(!isIdentificateurEntier(identificateur)) {
-			throw new IllegalArgumentException(identificateur + " n'est pas un identificateur d'entier");
+			throw new IllegalArgumentException(identificateur
+			                                   + " n'est pas un identificateur"
+			                                   + " d'entier");
 		}
-		
-		this.nom = identificateur;
 	}
 	
 	/**
@@ -43,51 +43,9 @@ public class IdentificateurEntier extends Identificateur {
 	 * @return true si l'identificateur est bien un identificateur d'entier
 	 * 		   false sinon
 	 */
-	private boolean isIdentificateurEntier(String identificateur) {
-		final int LONGUEUR_MAX = 24;
-		
-		boolean testOk = identificateur != null
-				         && 0 < identificateur.length()
-				         && identificateur.length() <= LONGUEUR_MAX
-				         && isLettre(identificateur.charAt(0));
-		
-		for (int i = 1 ; testOk && i < identificateur.length() ; i++) {
-			testOk = isLettre(identificateur.charAt(i))
-					 || isChiffre(identificateur.charAt(i));
-		}
-		
-		return testOk;
-	}
+	private static boolean isIdentificateurEntier(String identificateur) {
 	
-	/**
-	 * Prédicat attestant si un caractère est une lettre
-	 * @param aTester caractère a tester
-	 * @return 
-	 */
-	private static boolean isLettre(char aTester) {
-		return 'a' <= aTester && aTester <= 'z'
-				|| 'A' <= aTester && aTester <= 'Z';
+		return isLettre(identificateur.charAt(0))
+               && isAlphanumerique(identificateur.substring(1));
 	}
-	
-	/**
-	 * Prédicat attestant si un caractère est un chiffre
-	 * @param aTester caractère a tester
-	 */
-	private static boolean isChiffre(char aTester) {
-		return '0' <= aTester && aTester <= '9';
-	}
-	
-	/* non javadoc - @see java.lang.Object#toString() */
-	@Override
-	public String toString() {
-		return "IdentificateurEntier [nom=" + nom + "]";
-	}
-
-	/**
-	 * @return la valeur de nom
-	 */
-	public String getNom() {
-		return nom;
-	}
-    
 }
