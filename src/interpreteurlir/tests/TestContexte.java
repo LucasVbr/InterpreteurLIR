@@ -7,12 +7,8 @@ package interpreteurlir.tests;
 import static info1.outils.glg.Assertions.*;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.donnees.Identificateur;
-import interpreteurlir.donnees.IdentificateurChaine;
-import interpreteurlir.donnees.IdentificateurEntier;
-import interpreteurlir.donnees.litteraux.Chaine;
-import interpreteurlir.donnees.litteraux.Entier;
-import interpreteurlir.donnees.litteraux.Litteral;
+import interpreteurlir.donnees.*;
+import interpreteurlir.donnees.litteraux.*;
 
 /**
  * Tests unitaires de {@link Contexte}
@@ -54,6 +50,8 @@ public class TestContexte {
                 new IdentificateurChaine("$chaine"), // ajout dans liste vide
                 new IdentificateurEntier("entier"), // ajout fin
                 new IdentificateurChaine("$zoro"),  // ajout milieu
+                
+                new IdentificateurChaine("$abcd"),  // ajout debut
         };
         
         Litteral[] valeur = {
@@ -64,6 +62,8 @@ public class TestContexte {
                 new Chaine("\"viveLa Vie\""),
                 new Entier(-1),
                 new Chaine("\"   ah ah !  \""),
+                
+                new Chaine("\"lol\""),
         };
         
         System.out.println("\tExécution du test de "
@@ -134,7 +134,7 @@ public class TestContexte {
         
         // lire valeur défaut contexte vid
         assertEquivalence(fixture[0].lireValeurVariable(
-                new IdentificateurChaine("$chaine")).getValeur(), "\"\"");
+                new IdentificateurChaine("$chaine")).getValeur(), "");
         assertEquivalence(fixture[0].lireValeurVariable(
                 new IdentificateurEntier("entier")).getValeur(), Integer.valueOf(0));
         
@@ -143,7 +143,7 @@ public class TestContexte {
                 new Chaine("\"Zoro le héro\""));
         
         assertEquivalence(fixture[1].lireValeurVariable(
-                new IdentificateurChaine("$chaine")).getValeur(), "\"\"");
+                new IdentificateurChaine("$chaine")).getValeur(), "");
         assertEquivalence(fixture[1].lireValeurVariable(
                 new IdentificateurEntier("entier")).getValeur(), 0);
         
@@ -152,14 +152,18 @@ public class TestContexte {
                                    new Chaine("\"blabla\""));
         fixture[1].ajouterVariable(new IdentificateurEntier("entier"), 
                                    new Entier(25));
-//        
-//        assertEquivalence(fixture[1].lireValeurVariable(
-//                new IdentificateurChaine("$chaine")).getValeur(), "\"blabla\"");
-//        assertEquivalence(fixture[1].lireValeurVariable(
-//                          new IdentificateurEntier("entier")).getValeur(), 25);
-//        assertEquivalence(fixture[1].lireValeurVariable(
-//                              new IdentificateurChaine("$zoro")).getValeur(), 
-//                          "\"Zoro le héro\"");
+        
+        System.out.println(fixture[1].lireValeurVariable(
+                new IdentificateurChaine("$zoro")).getValeur());
+        
+        
+        assertEquivalence(fixture[1].lireValeurVariable(
+                new IdentificateurChaine("$chaine")).getValeur(), "blabla");
+        assertEquivalence(fixture[1].lireValeurVariable(
+                          new IdentificateurEntier("entier")).getValeur(), 25);
+        assertEquivalence(fixture[1].lireValeurVariable(
+                              new IdentificateurChaine("$zoro")).getValeur(), 
+                          "Zoro le héro");
 
         
     }

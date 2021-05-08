@@ -2,7 +2,7 @@
  * TestLitteraux.java                                    7 mai 2021
  * IUT info1 2020-2021, pas de copyright, aucun droit
  */
-package interpreteurlir.donnees.litteraux.test;
+package interpreteurlir.donnees.litteraux.tests;
 
 import interpreteurlir.donnees.litteraux.Litteral;
 

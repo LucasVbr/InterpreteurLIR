@@ -82,7 +82,7 @@ public class Contexte {
     public Litteral lireValeurVariable(Identificateur id) {
         Litteral valeur;
         int indexVar = indexVariable(id);
-        if (variables.size() < indexVar
+        if (variables.size() > indexVar
                 && variables.get(indexVar).getIdentificateur().compareTo(id) 
                    == 0) {
             /* La variables est présente */
