@@ -1,7 +1,0 @@
-# ignore les fichiers non nécessaire TexStudio
-*.synctex.gz
-*.aux
-*.log
-*.out
-*.toc
-
