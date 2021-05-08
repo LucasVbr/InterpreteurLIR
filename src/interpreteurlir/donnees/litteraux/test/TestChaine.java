@@ -46,16 +46,75 @@ public class TestChaine {
 	
 	/** test  de compareTo */
 	public static void testCompareTo() {
+		final Chaine[][] EGALITES = { 
+			{new Chaine("coucou"), new Chaine("coucou")}, 
+			{new Chaine(" "), new Chaine(" ")},
+			{new Chaine(""), new Chaine()} 
+		};
 		
-		// TODO 
+		final Chaine[][] DIFFERENCES = { 
+			{new Chaine("coucou"), new Chaine("camomille")},
+			{new Chaine("tarentule"), new Chaine("coucou")}, 
+			{new Chaine("coucou"), new Chaine(" ")}, 
+			{new Chaine("coucou"), new Chaine()},
+			{new Chaine(" "), new Chaine()} 
+		};
+		
+		System.out.println("test de compareTo(Chaine)\nAvec égalités");
+		
+		for (Chaine[] couple : EGALITES) {
+			
+			try {
+		    	assert couple[0].compareTo(couple[1]) == 0;
+		    } catch (AssertionError lancee) {
+				System.err.println("Echec du test");
+		    }	
+			
+		}
+		
+		System.out.println("Avec des inégalités");
+		for (Chaine[] couple : DIFFERENCES) {
+			try {
+		    	assert couple[0].compareTo(couple[1]) > 0;
+		    } catch (AssertionError lancee) {
+				System.err.println("Echec du test");
+		    }
+		}
+		System.out.println("fin du test");
+	
 	}
 	
-	// TODO tester toString
+	/** test de toString */
+	public static void testToString() {
+		final Chaine[] A_AFFICHER = {
+			new Chaine(), new Chaine(" "), new Chaine("coucou"),
+			new Chaine(" coucou "), new Chaine("coucou monsieur")
+		};
+		
+		final String[] AFFICHAGE_GUILLEMETS = {
+				"\"\"", "\" \"", "\"coucou\"", "\" coucou \"",
+				"\"coucou monsieur\""
+		};
+		
+		System.out.println("test de toString");
+		for (int i = 0 ; i < A_AFFICHER.length ; i++) {
+			
+			try {
+				assert A_AFFICHER[i].toString().equals(AFFICHAGE_GUILLEMETS[i]);
+			} catch (AssertionError lancee) {
+				System.err.println("Echec du test a l'indice " + i);
+			}
+		}
+		System.out.println("==>test terminé\n");		
+	}
+	
 	/** 
 	 * Lancement des tests
 	 * @param args non utilisés
 	 */
 	public static void main(String[] args) {
 		testChaine();
+		testCompareTo();
+		testToString();
 	}
 }
