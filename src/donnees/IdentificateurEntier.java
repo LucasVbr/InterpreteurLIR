@@ -4,7 +4,9 @@
  * pas de copyright, aucun droits
  */
 
-package donnees;
+package interpreteurlir.donnees;
+
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Identificateur d'entier
@@ -19,13 +21,13 @@ public class IdentificateurEntier extends Identificateur {
 	/**
 	 * Instantiation d'identificateur d'entier
 	 * @param identificateur a instancier
-	 * @throws IllegalAccessException si l'identificateur est invalide
+	 * @throws InterpreteurException si l'identificateur est invalide
 	 */
 	public IdentificateurEntier(String identificateur) {
 		super(identificateur);
 		
 		if(!isIdentificateurEntier(identificateur)) {
-			throw new IllegalArgumentException(identificateur
+			throw new InterpreteurException(identificateur
 			                                   + " n'est pas un identificateur"
 			                                   + " d'entier");
 		}
@@ -43,7 +45,7 @@ public class IdentificateurEntier extends Identificateur {
 	 * @return true si l'identificateur est bien un identificateur d'entier
 	 * 		   false sinon
 	 */
-	private static boolean isIdentificateurEntier(String identificateur) {
+	public static boolean isIdentificateurEntier(String identificateur) {
 	
 		return isLettre(identificateur.charAt(0))
                && isAlphanumerique(identificateur.substring(1));

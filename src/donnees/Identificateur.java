@@ -4,7 +4,9 @@
  * pas de copyright, aucun droits
  */
 
-package donnees;
+package interpreteurlir.donnees;
+
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * @author Nicolas Caminade
@@ -24,16 +26,22 @@ implements Comparable<Identificateur> {
 	
     /**
      * Instantiation de l'identificateur
-     * @param identificateur
+     * @param  identificateur
+     * @throws InterpreteurException en cas d'erreur de syntaxe
      */
 	public Identificateur(String identificateur) {
 		super();
-		if(!isIdentificateur(identificateur)) {
-		    throw new IllegalArgumentException(identificateur
-		                                       + " n'est pas un identificateur");
+		
+		String id =   identificateur != null 
+		            ? identificateur.trim() 
+		            : identificateur;
+		
+		if(!isIdentificateur(id)) {
+		    throw new InterpreteurException(identificateur
+		                                    + " n'est pas un identificateur");
 		}
 		
-		nom = identificateur;
+		nom = id;
 	}
 	
 	/**
@@ -119,7 +127,7 @@ implements Comparable<Identificateur> {
     }
 
     /* non javadoc - @see java.lang.String#Comparable() */
-    @Override
+    //@Override
     public int compareTo(Identificateur aComparer) {
         return nom.compareTo(aComparer.getNom());
     }

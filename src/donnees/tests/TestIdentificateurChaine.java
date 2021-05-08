@@ -4,12 +4,12 @@
  * pas de copyright, aucun droits
  */
 
-package donnees.tests;
+package interpreteurlir.donnees.tests;
 
-import static outils.glg.Assertions.assertEquivalent;
-import static outils.glg.Assertions.echec;
+import static interpreteurlir.outils.Assertions.*;
 
-import donnees.IdentificateurChaine;
+import interpreteurlir.donnees.IdentificateurChaine;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Tests unitaires de la classe donnees.IdentificateurEntier
@@ -51,6 +51,7 @@ public class TestIdentificateurChaine {
             "$id 3a",
             " ",
             "$ ",
+            "     $a",
             
             // caractères d'échapements
             "\t",
@@ -67,7 +68,7 @@ public class TestIdentificateurChaine {
     		try {
     			new IdentificateurChaine(INVALIDE[noJeu]);
     			echec();
-    		} catch (IllegalArgumentException lancee) {
+    		} catch (InterpreteurException lancee) {
     			// test OK
     		}
     	}
@@ -87,7 +88,7 @@ public class TestIdentificateurChaine {
         };
     	
     	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
-    		assertEquivalent(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
+    		assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
     	}
     }
 }

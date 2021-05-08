@@ -4,7 +4,9 @@
  * pas de copyright, aucun droits
  */
 
-package donnees;
+package interpreteurlir.donnees;
+
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Identificateur de chaîne
@@ -19,13 +21,13 @@ public class IdentificateurChaine extends Identificateur {
     /**
 	 * Instantiation d'identificateur de chaîne
 	 * @param identificateur a instancier
-	 * @throws IllegalAccessException si l'identificateur est invalide
+	 * @throws InterpreteurException si l'identificateur est invalide
 	 */
 	public IdentificateurChaine(String identificateur) {
 		super(identificateur);
 		
 		if(!isIdentificateurChaine(identificateur)) {
-			throw new IllegalArgumentException(identificateur
+			throw new InterpreteurException(identificateur
 			                                   + " n'est pas un identificateur"
 			                                   + " de chaine");
 		}
@@ -37,7 +39,7 @@ public class IdentificateurChaine extends Identificateur {
 	 * @return true si l'identificateur est bien un identificateur d'entier
 	 * 		   false sinon
 	 */
-	private static boolean isIdentificateurChaine(String identificateur) {
+	public static boolean isIdentificateurChaine(String identificateur) {
 
 		return identificateur.length() >= 2
                && identificateur.charAt(0) == '$'

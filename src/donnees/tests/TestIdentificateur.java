@@ -2,11 +2,12 @@
  * TestIdentificateur.java                                        8 mai 2021
  * IUT-Rodez info1 2020-2021, pas de droits, pas de copyrights
  */
-package donnees.tests;
+package interpreteurlir.donnees.tests;
 
-import static outils.glg.Assertions.*;
+import static interpreteurlir.outils.Assertions.*;
 
-import donnees.Identificateur;
+import interpreteurlir.donnees.Identificateur;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Test de la classe donnees.Identificateur
@@ -67,7 +68,7 @@ public class TestIdentificateur {
             try {
                 new Identificateur(INVALIDE[noJeu]);
                 echec();
-            } catch (IllegalArgumentException lancee) {
+            } catch (InterpreteurException lancee) {
                 // Test OK
             }
         }
@@ -107,7 +108,7 @@ public class TestIdentificateur {
         };
 
         for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {
-            assertEquivalent(CHAINES_VALIDES[noJeu],
+            assertEquivalence(CHAINES_VALIDES[noJeu],
                     FIXTURE[noJeu].toString());
         }
     }

@@ -4,11 +4,12 @@
  * pas de copyright, aucun droits
  */
 
-package donnees.tests;
+package interpreteurlir.donnees.tests;
 
-import static outils.glg.Assertions.*;
+import static interpreteurlir.outils.Assertions.*;
 
-import donnees.IdentificateurEntier;
+import interpreteurlir.donnees.IdentificateurEntier;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Tests unitaires de la classe donnees.IdentificateurEntier
@@ -57,7 +58,7 @@ public class TestIdentificateurEntier {
     		try {
     			new IdentificateurEntier(INVALIDE[noJeu]);
     			echec();
-    		} catch (IllegalArgumentException lancee) {
+    		} catch (InterpreteurException lancee) {
     			// test OK
     		}
     	}
@@ -77,7 +78,7 @@ public class TestIdentificateurEntier {
     	};
     	
     	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
-    		assertEquivalent(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
+    		assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
     	}
     }
 }
