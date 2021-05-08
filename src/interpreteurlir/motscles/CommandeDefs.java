@@ -44,7 +44,7 @@ public class CommandeDefs extends Commande {
      */
     @Override
     public boolean executer() {
-        System.out.println(contexte.toString());
+        System.out.print(contexte.toString());
         return true;
     }
     
