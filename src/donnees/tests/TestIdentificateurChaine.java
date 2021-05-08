@@ -90,23 +90,4 @@ public class TestIdentificateurChaine {
     		assertEquivalent(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
     	}
     }
-    
-    /**
-     * Tests unitaires de toString
-     */
-    public static void testToString() {
-    	final String[] CHAINES_VALIDES = {
-    	        "Identificateur [nom=$a]",
-                "Identificateur [nom=$A]",
-                "Identificateur [nom=$alpha]",
-                "Identificateur [nom=$Alpha]",
-                "Identificateur [nom=$Alpha5]",
-                "Identificateur [nom=$jeSuisUnTresLongIdentifi]"
-        	};
-        	
-        	for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {
-        		assertEquivalent(CHAINES_VALIDES[noJeu],
-        				         FIXTURE[noJeu].toString());
-        	}
-    }
 }

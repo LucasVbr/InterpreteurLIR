@@ -86,4 +86,29 @@ public class TestIdentificateur {
             assertTrue(FIXTURE[noJeu].compareTo(FIXTURE[noJeu]) == 0);
         }
     }
+    
+    /**
+     * Tests unitaires de toString
+     */
+    public static void testToString() {
+        final String[] CHAINES_VALIDES = {
+                "Identificateur [nom=b]",
+                "Identificateur [nom=A]",
+                "Identificateur [nom=zalpha]",
+                "Identificateur [nom=Alpha]",
+                "Identificateur [nom=Alpha5]",
+                "Identificateur [nom=jeSuisUnTresLongIdentifi]",
+                "Identificateur [nom=$b]",
+                "Identificateur [nom=z]",
+                "Identificateur [nom=$zalpha]",
+                "Identificateur [nom=$Alpha]",
+                "Identificateur [nom=$Alpha5]",
+                "Identificateur [nom=$jeSuisUnTresLongIdentifi]"
+        };
+
+        for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {
+            assertEquivalent(CHAINES_VALIDES[noJeu],
+                    FIXTURE[noJeu].toString());
+        }
+    }
 }

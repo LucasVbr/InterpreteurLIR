@@ -123,4 +123,6 @@ implements Comparable<Identificateur> {
     public int compareTo(Identificateur aComparer) {
         return nom.compareTo(aComparer.getNom());
     }
+    
+    
 }
