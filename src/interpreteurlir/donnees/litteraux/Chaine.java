@@ -61,7 +61,7 @@ public class Chaine extends Litteral {
          */
         public static Chaine concatener(Chaine a, Chaine b) {
                 
-                return null;
+                return new Chaine("\"" + a.valeur + b.valeur + "\"");
         }
         
         /* non javadoc

@@ -31,7 +31,7 @@ public class Expression {
     protected static final int INDEX_AFFECTATION = 2;
 
     /** Contexte global pour accéder aux données. */
-    private static Contexte contexteGlobal;
+    protected static Contexte contexteGlobal;
     
     /** Identificateurs opérandes de cette l'expression */
     protected Identificateur[] identificateursOperandes;
@@ -56,8 +56,14 @@ public class Expression {
      * Calculer la valeur de cette expression à ce moment précis.
      * Peut accéder au contexte.
      * @return un Litteral de valeur du résultat de l'expression
+     * @throws RuntimeException si le contexte n'est pas référencer 
+     *                          dans la classe Expression
      */
     public Litteral calculer() {
+        if (contexteGlobal == null) {
+            throw new RuntimeException("Le contexte doit être référencé "
+                                       + "dans la classe Expression");
+        }
         return null;  
     }   
     
@@ -109,13 +115,18 @@ public class Expression {
     
     /**
      * Détermine et créé une expression du bon type selon texteExpression.
+     * Les types possibles sont ExpressionChaine ou ExpressionEntier.
      * @param texteExpression texte suivant la syntaxe d'une expression
      * @return l'expression du bon type correspondant à texteExpression
      * @throws InterpreteurException si texteExpression n'est pas valide
      *                               ou amène à une incohérence de type
      */
     public static Expression determinerTypeExpression(String texteExpression) {
-        return null;
-        // TODO
+        String aTraiter = texteExpression.trim();
+        if (aTraiter.startsWith("$") || aTraiter.startsWith("\"")) {
+            return new ExpressionChaine(aTraiter);
+        } else {
+            return new ExpressionEntier(aTraiter);
+        }
     }
 }

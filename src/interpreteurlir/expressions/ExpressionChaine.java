@@ -5,6 +5,7 @@
 package interpreteurlir.expressions;
 
 import interpreteurlir.InterpreteurException;
+import interpreteurlir.donnees.Identificateur;
 import interpreteurlir.donnees.IdentificateurChaine;
 import interpreteurlir.donnees.litteraux.Chaine;
 
@@ -92,8 +93,38 @@ public class ExpressionChaine extends Expression {
      */
     @Override
     public Chaine calculer() {
-        // TODO Auto-generated method stub
-        return null;
+        Chaine valeur;
+        
+        super.calculer(); // exception levée si pas de contexte
+        
+        /* Détermine opérandeGauche */
+        Identificateur idGauche = 
+                identificateursOperandes[INDEX_OPERANDE_G];
+        Chaine operandeG = (Chaine)(idGauche == null 
+                           ? litterauxOperandes[INDEX_OPERANDE_G] 
+                           : contexteGlobal.lireValeurVariable(idGauche));
+        
+        /* Détermine possible operandeDroite */
+        Identificateur idDroite = 
+                identificateursOperandes[INDEX_OPERANDE_D];
+        Chaine operandeD = null;
+        if (idDroite != null || litterauxOperandes[INDEX_OPERANDE_D] != null) {
+            operandeD = (Chaine)(idDroite == null 
+                                 ? litterauxOperandes[INDEX_OPERANDE_D] 
+                                 : contexteGlobal.lireValeurVariable(idDroite));
+        }
+        
+        /* Calcul de la valeur */
+        valeur = operandeD == null ? operandeG 
+                                   : Chaine.concatener(operandeG, operandeD);
+        
+        /* Affectation si nécessaire */
+        if (identificateursOperandes[INDEX_AFFECTATION] != null) {
+            contexteGlobal.ajouterVariable(
+                    identificateursOperandes[INDEX_AFFECTATION], valeur);
+        }
+        
+        return valeur;
     }
 
 }
