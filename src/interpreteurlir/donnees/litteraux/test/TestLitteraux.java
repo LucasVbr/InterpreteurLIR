@@ -17,7 +17,8 @@ import interpreteurlir.donnees.litteraux.Litteral;
 public class TestLitteraux {	
 	
 	/**  Jeux de littéraux pour test. */
-	private static final Litteral[] VALIDES = {
+	@SuppressWarnings("boxing")
+    private static final Litteral[] VALIDES = {
 			/* Caractères */
 			new Litteral('a'),
 			new Litteral('!'),
@@ -56,7 +57,8 @@ public class TestLitteraux {
 	/** test de getValeur */
 	public static void testGetValeur() {
 		
-		final Object[] VALEURS_ATTENDUES = {
+		@SuppressWarnings("boxing")
+        final Object[] VALEURS_ATTENDUES = {
 			'a', '!', '\"', '1', '\t' ,"ceci est une chaîne", "bonjour",
 			" bonjour ", "", " ", 123, -123, 0, 2147483647, 14.258, -14.128,
 			0.0, Double.NaN, Double.NEGATIVE_INFINITY, Double.MAX_VALUE,
@@ -104,7 +106,8 @@ public class TestLitteraux {
 	/** test de compareTo */
 	public static void testCompareTo() {
 		
-		final Litteral[] MEMES_TYPES = {
+		@SuppressWarnings("boxing")
+        final Litteral[] MEMES_TYPES = {
 			new Litteral('a'),
 			new Litteral('!'),
 			new Litteral('\"'),

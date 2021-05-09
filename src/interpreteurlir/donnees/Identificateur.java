@@ -123,7 +123,7 @@ implements Comparable<Identificateur> {
     /* non javadoc - @see java.lang.Object#toString() */
     @Override
     public String toString() {
-        return "Identificateur [nom=" + nom + "]";
+        return nom;
     }
 
     /* non javadoc - @see java.lang.String#Comparable() */

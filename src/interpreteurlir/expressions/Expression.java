@@ -5,8 +5,8 @@
 package interpreteurlir.expressions;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Litteral;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Une expression contient tous les liens et données nécessaires à son calcul.

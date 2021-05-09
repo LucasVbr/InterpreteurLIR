@@ -4,8 +4,8 @@
  */
 package interpreteurlir.donnees.litteraux.test;
 
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Chaine;
+import interpreteurlir.outils.InterpreteurException;
 
 /**  
  * Tests unitaires de Chaine
@@ -23,7 +23,9 @@ public class TestChaine {
 		
 		final String[] VALIDE = { 
 			"arztyehjklmpoijhghnbghjklmpoiuytrf" + 
-			"ghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu", "","coucou ",
+			"ghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu", 
+			"",
+			"coucou ",
 			Integer.toString(42)
 		};  
 		

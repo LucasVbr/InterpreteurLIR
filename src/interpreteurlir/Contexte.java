@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import interpreteurlir.donnees.*;
 import interpreteurlir.donnees.litteraux.*;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Le contexte contiens l'ensemble des variables définies au cours  d'un session

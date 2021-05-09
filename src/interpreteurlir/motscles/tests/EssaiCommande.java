@@ -5,8 +5,8 @@
 package interpreteurlir.motscles.tests;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.motscles.*;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Essais des commandes (création + éxécution)

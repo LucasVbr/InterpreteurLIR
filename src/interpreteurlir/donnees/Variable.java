@@ -21,7 +21,7 @@ import interpreteurlir.outils.InterpreteurException;
 public class Variable extends Object implements Comparable<Variable> {
 
     /** Identificateur de cette variable */
-    private Identificateur id;
+    private Identificateur identificateur;
     
     /** Valeur de cette variable */
     private Litteral valeur;
@@ -29,19 +29,20 @@ public class Variable extends Object implements Comparable<Variable> {
     
     /** 
      * Initialise une variable
-     * @param id     associé à cette variable
+     * @param identificateur     associé à cette variable
      * @param valeur associé à cette variable
+     * @throws InterpreteurException en cas d'incompatibilité entre 
+     *         l'identificateur et le type de la valeur à lui associer
      */
-    public Variable(Identificateur id, Litteral valeur) {
-        
-        if (!isVariable(id, valeur)) {
-            throw new InterpreteurException("Identificateur '" + id.toString()
+    public Variable(Identificateur identificateur, Litteral valeur) {
+        if (!isVariable(identificateur, valeur)) {
+            throw new InterpreteurException("Identificateur '"
+                                            + identificateur.toString()
                                             + "' et type de " 
                                             + valeur.toString()
                                             + "incompatible.");
         }
-        
-        this.id = id;
+        this.identificateur = identificateur;
         this.valeur = valeur;
     }
 
@@ -63,28 +64,29 @@ public class Variable extends Object implements Comparable<Variable> {
 
     /** 
      * Modifie la valeur de cette variable
-     * @param valeur
+     * @param nouvelleValeur 
      */
-    public void setValeur(Litteral valeur) {
-        this.valeur = valeur;
+    public void setValeur(Litteral nouvelleValeur) {
+        if (isVariable(identificateur, nouvelleValeur)) {
+            this.valeur = nouvelleValeur;
+        }
     }
 
     /** 
      * @return l'identificateur de cette variable
      */
-    public Identificateur getId() {
-        return id;
+    public Identificateur getIdentificateur() {
+        return identificateur;
     }
 
-
+    /* non javadoc @see java.lang.Object#toString() */
     @Override
     public String toString() {
-        return id.toString() + " = " + valeur.toString();
+        return identificateur.toString() + " = " + valeur.toString();
     }
 
     public int compareTo(Variable aComparer) {
-        // TODO Auto-generated method stub
-        return 0;
+        return identificateur.compareTo(aComparer.identificateur);
     }
     
     

@@ -4,8 +4,8 @@
  */
 package interpreteurlir.expressions;
 
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Chaine;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Expression de type Chaine qui peut être calculer.

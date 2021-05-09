@@ -82,8 +82,8 @@ public class TestIdentificateur {
         final Identificateur REF_MAX = new Identificateur("zzzzzzzzzzzzzzzzzzzzzzzz");
 
         for(int noJeu = 0;  noJeu < FIXTURE.length; noJeu++) {
-            assertTrue(FIXTURE[noJeu].compareTo(REF_MIN) >= 0);
-            assertTrue(FIXTURE[noJeu].compareTo(REF_MAX) <= 0);
+            assertTrue(FIXTURE[noJeu].compareTo(REF_MIN) > 0);
+            assertTrue(FIXTURE[noJeu].compareTo(REF_MAX) < 0);
             assertTrue(FIXTURE[noJeu].compareTo(FIXTURE[noJeu]) == 0);
         }
     }
@@ -93,18 +93,18 @@ public class TestIdentificateur {
      */
     public static void testToString() {
         final String[] CHAINES_VALIDES = {
-                "Identificateur [nom=b]",
-                "Identificateur [nom=A]",
-                "Identificateur [nom=zalpha]",
-                "Identificateur [nom=Alpha]",
-                "Identificateur [nom=Alpha5]",
-                "Identificateur [nom=jeSuisUnTresLongIdentifi]",
-                "Identificateur [nom=$b]",
-                "Identificateur [nom=z]",
-                "Identificateur [nom=$zalpha]",
-                "Identificateur [nom=$Alpha]",
-                "Identificateur [nom=$Alpha5]",
-                "Identificateur [nom=$jeSuisUnTresLongIdentifi]"
+                "b",
+                "A",
+                "zalpha",
+                "Alpha",
+                "Alpha5",
+                "jeSuisUnTresLongIdentifi",
+                "$b",
+                "z",
+                "$zalpha",
+                "$Alpha",
+                "$Alpha5",
+                "$jeSuisUnTresLongIdentifi"
         };
 
         for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {

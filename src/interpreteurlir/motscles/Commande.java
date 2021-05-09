@@ -5,7 +5,7 @@
 package interpreteurlir.motscles;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.InterpreteurException;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Une commande (générale) n'a aucun comportement. 

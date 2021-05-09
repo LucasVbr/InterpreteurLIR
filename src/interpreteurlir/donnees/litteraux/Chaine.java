@@ -4,7 +4,7 @@
  */
 package interpreteurlir.donnees.litteraux;
 
-import interpreteurlir.InterpreteurException;
+import interpreteurlir.outils.InterpreteurException;
 
 /**  
  * Constante littérale de type chaîne de caractères.
@@ -34,7 +34,7 @@ public class Chaine extends Litteral {
 	 * @param uneValeur
 	 */
 	public Chaine(String uneValeur) {
-		
+	    
 		if (uneValeur.length() > LG_MAX_CHAINE) 
 		    throw new InterpreteurException(ERREUR_LG_MAX);
 		    
@@ -58,7 +58,6 @@ public class Chaine extends Litteral {
 	 */
 	@Override
 	public int compareTo(Litteral autre) {
-		// TODO Auto-generated method stub
 		return this.valeur.toString().compareTo(autre.valeur.toString());
 	}
 

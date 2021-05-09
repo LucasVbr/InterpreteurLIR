@@ -5,7 +5,7 @@
 package interpreteurlir.motscles;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.InterpreteurException;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * La commande fin n'a aucun argument.

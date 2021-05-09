@@ -4,7 +4,7 @@
  */
 package interpreteurlir.tests;
 
-import interpreteurlir.InterpreteurException;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Essai des {@link InterpreteurException}

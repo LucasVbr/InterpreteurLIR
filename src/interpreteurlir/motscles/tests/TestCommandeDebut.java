@@ -4,11 +4,11 @@
  */
 package interpreteurlir.motscles.tests;
 
-import static info1.outils.glg.Assertions.*;
+import static interpreteurlir.outils.Assertions.*;
 
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.Contexte;
 import interpreteurlir.motscles.CommandeDebut;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Tests unitaires de {@link interpreteurlir.motscles.CommandeDebut}

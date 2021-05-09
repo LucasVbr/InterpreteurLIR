@@ -4,8 +4,8 @@
  */
 package interpreteurlir.expressions;
 
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Entier;
+import interpreteurlir.outils.InterpreteurException;
 
 /**
  * Expression de type Entier qui peut être calculer.
@@ -18,7 +18,7 @@ import interpreteurlir.donnees.litteraux.Entier;
 public class ExpressionEntier extends Expression {
 
     /**
-     * Initalise une expression de type Entier avec les liens nécessaires à son
+     * Initialise une expression de type Entier avec les liens nécessaires à son
      * calcule.
      * @param texteExpression texte suivant la syntaxe d'une expression
      * @throws InterpreteurException si texteExpression n'est pas valide

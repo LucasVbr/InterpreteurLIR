@@ -52,7 +52,6 @@ public class Litteral implements Comparable<Litteral> {
 	/* non javadoc
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	@Override
 	public int compareTo(Litteral autre) {
 		
 		if (autre.valeur.getClass() == this.valeur.getClass())

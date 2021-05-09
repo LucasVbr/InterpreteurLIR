@@ -4,7 +4,7 @@
  */
 package interpreteurlir.motscles.tests;
 
-import static info1.outils.glg.Assertions.*;
+import static interpreteurlir.outils.Assertions.*;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.motscles.Commande;
