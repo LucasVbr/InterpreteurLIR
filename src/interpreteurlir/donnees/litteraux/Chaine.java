@@ -38,7 +38,7 @@ public class Chaine extends Litteral {
          * @param uneValeur
          */
         public Chaine(String uneValeur) {
-                
+            uneValeur = uneValeur.trim();
                 if (!uneValeur.startsWith("\"") || !uneValeur.endsWith("\"")) {
                     throw new InterpreteurException(ERREUR_INVALIDE 
                                                     + uneValeur);
@@ -61,7 +61,7 @@ public class Chaine extends Litteral {
          */
         public static Chaine concatener(Chaine a, Chaine b) {
                 
-                return null;
+                return new Chaine("\"" + a.valeur + b.valeur + "\"");
         }
         
         /* non javadoc

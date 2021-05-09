@@ -6,6 +6,8 @@
 
 package interpreteurlir.donnees;
 
+import interpreteurlir.InterpreteurException;
+
 /**
  * Identificateur de chaîne
  * @author Nicolas Caminade
@@ -19,13 +21,14 @@ public class IdentificateurChaine extends Identificateur {
     /**
          * Instantiation d'identificateur de chaîne
          * @param identificateur a instancier
-         * @throws IllegalAccessException si l'identificateur est invalide
+         * @throws InterpreteurException si l'identificateur est invalide
          */
         public IdentificateurChaine(String identificateur) {
-                super(identificateur);
+                super(identificateur.trim());
                 
+                identificateur = identificateur.trim();
                 if(!isIdentificateurChaine(identificateur)) {
-                        throw new IllegalArgumentException(identificateur
+                        throw new InterpreteurException(identificateur
                                                            + " n'est pas un identificateur"
                                                            + " de chaine");
                 }

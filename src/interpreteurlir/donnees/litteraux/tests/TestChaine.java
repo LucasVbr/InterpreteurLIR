@@ -7,6 +7,8 @@ package interpreteurlir.donnees.litteraux.tests;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Chaine;
 
+import static info1.outils.glg.Assertions.*;
+
 /**  
  * Tests unitaires de Chaine
  * @author Nicolas Caminade
@@ -109,6 +111,32 @@ public class TestChaine {
 			}
 		}
 		System.out.println("==>test terminé\n");		
+	}
+	
+	/**
+	 * Tests unitaires de concaténer
+	 */
+	public void testConcatener() {
+	    final Chaine[] ATTENDU = {
+	        new Chaine(),
+	        new Chaine("\"Bonjour le monde ! \""),
+	        new Chaine("\" \""),
+	        new Chaine("\"3,1415\""),
+	    };
+	    
+	    final Chaine[][] A_CONCATENER = {
+	        {new Chaine(), new Chaine("\"\"")},   
+	        {new Chaine("\"Bonjour \""), new Chaine("\"le monde ! \"")},
+	        {new Chaine("\"\""), new Chaine("\" \"")},
+	        {new Chaine("\"3,\""), new Chaine("\"1415\"")},
+	    };
+	    
+	    System.out.println("\tExécution du test de concaténer");
+	    for (int numTest = 0 ; numTest < ATTENDU.length ; numTest++ ) {
+	        assertTrue(ATTENDU[numTest].compareTo(Chaine.concatener(
+	                   A_CONCATENER[numTest][0], A_CONCATENER[numTest][1])) 
+	                   == 0);
+	    }
 	}
 	
 	/** 

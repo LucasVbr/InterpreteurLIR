@@ -1,80 +1,93 @@
 /**
- * Variable.java                              8 mai 2021
- * IUT Rodez info1 2020-2021, pas de copyright, aucun droit
+ * Variable.java                                        8 mai 2021
+ * IUT-Rodez info1 2020-2021, pas de droits, pas de copyrights
  */
 package interpreteurlir.donnees;
 
+import interpreteurlir.donnees.litteraux.Chaine;
 import interpreteurlir.donnees.litteraux.Litteral;
+import interpreteurlir.InterpreteurException;
 
-/** TODO commenter la responsabilité de cette classe
- * BOUCHON
+/**
+ * Associe un littéral à un identificateur
+ * 
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
- * @author Heïa Dexter
+ * @author Heia Dexter
  * @author Lucas Vabre
+ *
  */
-public class Variable implements Comparable<Variable> {
+public class Variable extends Object implements Comparable<Variable> {
 
-    /** BOUCHON identificateurs car Identificateurs non finis */
+    /** Identificateur de cette variable */
     private Identificateur identificateur;
     
-    /** BOUCHON valeur*/
+    /** Valeur de cette variable */
     private Litteral valeur;
     
-    /** TODO commenter l'état initial
-     * @param id
-     * @param valeur
+    
+    /** 
+     * Initialise une variable
+     * @param identificateur     associé à cette variable
+     * @param valeur associé à cette variable
+     * @throws InterpreteurException en cas d'incompatibilité entre 
+     *         l'identificateur et le type de la valeur à lui associer
      */
-    public Variable(Identificateur id, Litteral valeur) {
-        super();
-        this.identificateur = id;
+    public Variable(Identificateur identificateur, Litteral valeur) {
+        if (!isVariable(identificateur, valeur)) {
+            throw new InterpreteurException("Identificateur '"
+                                            + identificateur.toString()
+                                            + "' et type de " 
+                                            + valeur.toString()
+                                            + "incompatible.");
+        }
+        this.identificateur = identificateur;
         this.valeur = valeur;
     }
+
+
     
+    private static boolean isVariable(Identificateur id, Litteral valeur) {
+        return id instanceof IdentificateurChaine && valeur instanceof Chaine
+              /* || id instanceof IdentificateurEntier && valeur instanceof Entier */;
+    }
+
+
+
     /**
-     * @return valeur de valeur
+     * @return la valeur de cette variable
      */
     public Litteral getValeur() {
         return valeur;
     }
 
-    /**
-     * @param valeur nouvelle valeur de valeur
+    /** 
+     * Modifie la valeur de cette variable
+     * @param nouvelleValeur 
      */
-    public void setValeur(Litteral valeur) {
-        this.valeur = valeur;
-    }
-    
-    /* non javadoc
-     * @see java.lang.Comparable#compareTo(java.lang.Object)
-     */
-    @Override
-    public int compareTo(Variable o) {
-        // bouchon
-        return identificateur.compareTo(o.identificateur);
+    public void setValeur(Litteral nouvelleValeur) {
+        if (isVariable(identificateur, nouvelleValeur)) {
+            this.valeur = nouvelleValeur;
+        }
     }
 
-    /**
-     * @return valeur de id
+    /** 
+     * @return l'identificateur de cette variable
      */
     public Identificateur getIdentificateur() {
         return identificateur;
     }
 
-    /* non javadoc
-     * @see java.lang.Object#toString()
-     */
+    /* non javadoc @see java.lang.Object#toString() */
     @Override
     public String toString() {
-        return identificateur + " = " + valeur;
+        return identificateur.toString() + " = " + valeur.toString();
+    }
+
+    public int compareTo(Variable aComparer) {
+        return identificateur.compareTo(aComparer.identificateur);
     }
     
     
-    
-    
-    
-    
-    
-
 }

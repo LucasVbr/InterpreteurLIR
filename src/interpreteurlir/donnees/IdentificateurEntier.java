@@ -6,6 +6,8 @@
 
 package interpreteurlir.donnees;
 
+import interpreteurlir.InterpreteurException;
+
 /**
  * Identificateur d'entier
  * @author Nicolas Caminade
@@ -19,15 +21,15 @@ public class IdentificateurEntier extends Identificateur {
         /**
          * Instantiation d'identificateur d'entier
          * @param identificateur a instancier
-         * @throws IllegalAccessException si l'identificateur est invalide
+         * @throws InterpreteurException si l'identificateur est invalide
          */
         public IdentificateurEntier(String identificateur) {
                 super(identificateur);
                 
                 if(!isIdentificateurEntier(identificateur)) {
-                        throw new IllegalArgumentException(identificateur
-                                                           + " n'est pas un identificateur"
-                                                           + " d'entier");
+                        throw new InterpreteurException(identificateur
+                                + " n'est pas un identificateur"
+                                + " d'entier");
                 }
         }
         

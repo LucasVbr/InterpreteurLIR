@@ -6,6 +6,8 @@
 
 package interpreteurlir.donnees;
 
+import interpreteurlir.InterpreteurException;
+
 /**
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
@@ -29,7 +31,7 @@ implements Comparable<Identificateur> {
         public Identificateur(String identificateur) {
                 super();
                 if(!isIdentificateur(identificateur)) {
-                    throw new IllegalArgumentException(identificateur
+                    throw new InterpreteurException(identificateur
                                                        + " n'est pas un identificateur");
                 }
                 
