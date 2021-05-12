@@ -135,7 +135,7 @@ public class Analyseur {
         Class<?> aChercher;
         try {
             aChercher = Class.forName(CLASS_PATH_CMD + motCle);
-        } catch(ClassNotFoundException nonCmd) {
+        } catch(ClassNotFoundException | NoClassDefFoundError nonCmd) {
             try {
                 aChercher = Class.forName(CLASS_PATH_INST + motCle);
             } catch(ClassNotFoundException nonInst) {
