@@ -19,31 +19,30 @@ import interpreteurlir.InterpreteurException;
 public class IdentificateurChaine extends Identificateur {
 
     /**
-         * Instantiation d'identificateur de chaîne
-         * @param identificateur a instancier
-         * @throws InterpreteurException si l'identificateur est invalide
-         */
-        public IdentificateurChaine(String identificateur) {
-                super(identificateur.trim());
-                
-                identificateur = identificateur.trim();
-                if(!isIdentificateurChaine(identificateur)) {
-                        throw new InterpreteurException(identificateur
-                                                           + " n'est pas un identificateur"
-                                                           + " de chaine");
-                }
+     * Instantiation d'identificateur de chaîne
+     * @param identificateur a instancier
+     * @throws InterpreteurException si l'identificateur est invalide
+     */
+    public IdentificateurChaine(String identificateur) {
+        super(identificateur);
+        identificateur = identificateur.trim();
+        if(!isIdentificateurChaine(identificateur)) {
+           throw new InterpreteurException(identificateur
+                                           + " n'est pas un identificateur"
+                                           + " de chaine");
         }
-        
-        /**
-         * Prédicat attestant la validité de l'identificateur
-         * @param identificateur à tester
-         * @return true si l'identificateur est bien un identificateur d'entier
-         *                 false sinon
-         */
-        private static boolean isIdentificateurChaine(String identificateur) {
+    }
 
-                return identificateur.length() >= 2
-               && identificateur.charAt(0) == '$'
-               && isLettre(identificateur.charAt(1));
-        }
+    /**
+     * Prédicat attestant la validité de l'identificateur
+     * @param identificateur à tester
+     * @return true si l'identificateur est bien un identificateur d'entier
+     *                 false sinon
+     */
+    private static boolean isIdentificateurChaine(String identificateur) {
+
+        return identificateur.length() >= 2
+                && identificateur.charAt(0) == '$'
+                && Character.isLetter(identificateur.charAt(1));
+    }
 }

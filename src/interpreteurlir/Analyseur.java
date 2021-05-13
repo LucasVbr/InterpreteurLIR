@@ -84,7 +84,7 @@ public class Analyseur {
             feedback(cmd.executer());
         } catch (  InvocationTargetException | IllegalAccessException 
                  | InstantiationException    | NoSuchMethodException 
-                 | InterpreteurException lancee) {
+                 | InterpreteurException | ExecutionException lancee) {
             
             System.err.println(NOK_FEEDBACK 
                     + (lancee.getMessage() != null 
@@ -127,6 +127,8 @@ public class Analyseur {
         
         if (motCle == null || motCle.isBlank()) {
             throw new InterpreteurException(ERREUR_VIDE);
+        } else if (!motCle.equals(motCle.toLowerCase())) {
+            throw new InterpreteurException(ERREUR_INCONNU);
         }
         
         motCle =   (Character.toUpperCase(motCle.charAt(0))) 
