@@ -18,25 +18,13 @@ import interpreteurlir.InterpreteurException;
  */
 public class Entier extends Litteral {
 
+    private static final int LONG_CH_MAX = 11;
+
     /** Valeur entière minimale */
     public static int VALEUR_MIN = Integer.MIN_VALUE;
     
     /** Valeur entière minimale */
     public static int VALEUR_MAX = Integer.MAX_VALUE;
-    
-    /** Valeur entière minimale */
-    public static int VALEUR_DEFAUT = 1;
-    
-    //TODO constructeur avec string
-    
-    /**
-     * Initialisation de cet entier avec une valeur par défaut
-     */
-    @SuppressWarnings("boxing")
-    public Entier() {
-        //super(Integer.valueOf(VALEUR_DEFAUT));
-        super.valeur = VALEUR_DEFAUT;
-    }
     
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
@@ -45,12 +33,53 @@ public class Entier extends Litteral {
      */
     @SuppressWarnings("boxing")
     public Entier(int unEntier) {
-
+    
         if (! isEntier(unEntier)) {
             throw new InterpreteurException("Erreur. " + unEntier 
                                             + " n'est pas un entier. ");
         }
         super.valeur = unEntier;
+    }
+
+    /** 
+     * Initialisation de cet entier avec une valeur passée en argument
+     * @param uneValeur 
+     */
+    public Entier(String uneValeur) {
+        if (!isEntier(uneValeur)) {
+            throw new InterpreteurException(uneValeur 
+                                            + " n'est pas un nombre entier. ");
+        }
+
+        valeur = Integer.valueOf(uneValeur);
+    }
+    
+    private static boolean isEntier(String uneValeur) {
+        if (uneValeur != null && !uneValeur.isBlank() 
+            && uneValeur.length() <= LONG_CH_MAX
+            && (isChiffre(uneValeur.charAt(0)) 
+                || uneValeur.length() > 1 && (uneValeur.charAt(0) == '-' 
+                                           || uneValeur.charAt(0) == '+'))) {
+          int i;
+          for (i = 1; i < uneValeur.length() && isChiffre(uneValeur.charAt(i)); 
+               i++)
+              ; /* corps vide */
+          if ((uneValeur.startsWith("+214748364") 
+                  || uneValeur.startsWith("214748364"))
+                  && uneValeur.charAt(uneValeur.length() - 1) > '7'
+              || uneValeur.startsWith("-214748364") 
+                  && uneValeur.charAt(uneValeur.length() - 1) > '8'
+                  )
+                      return false;
+          
+          return i >= uneValeur.length();
+        }
+        
+        return false;
+    }
+
+    private static boolean isChiffre(char caractere) {
+        return '0' <= caractere && caractere <= '9';
     }
 
     private static boolean isEntier(int entier) {
@@ -65,6 +94,11 @@ public class Entier extends Litteral {
         return valeur.toString();
     }
 
+    @Override
+    public Integer getValeur() {
+        return (Integer) super.valeur;
+    }
+
     /** 
      * Compare cet entier à un autre entier
      * @param autre
@@ -76,11 +110,6 @@ public class Entier extends Litteral {
         return ((Integer) valeur).compareTo(autre.getValeur());
     }
 
-    @Override
-    public Integer getValeur() {
-        return (Integer) super.valeur;
-    }
-    
     /** 
      * Somme de deux entiers
      * @param premier Entier
@@ -111,7 +140,6 @@ public class Entier extends Litteral {
      */
     public static Entier multiplie(Entier premier, Entier second) {
         return new Entier((int) premier.getValeur() * (int) second.getValeur());
-        
     }
     
     /** 
