@@ -2,11 +2,12 @@
  * TestIdentificateur.java                                        8 mai 2021
  * IUT-Rodez info1 2020-2021, pas de droits, pas de copyrights
  */
-package donnees.tests;
+package interpreteurlir.donnees.tests;
 
-import static outils.glg.Assertions.*;
+import static info1.outils.glg.Assertions.*;
 
-import donnees.Identificateur;
+import interpreteurlir.InterpreteurException;
+import interpreteurlir.donnees.Identificateur;
 
 /**
  * Test de la classe donnees.Identificateur
@@ -43,9 +44,9 @@ public class TestIdentificateur {
             null,
             "",
 
-            // Fait au maximum 24 caractères
+            // Fait au maximum 25 caractères
             "$jeSuisUnTresLongIdentificateur", // 30 char
-            "$jeSuisUnTresLongIdentific",
+            "$jeSuisUnTresLongIdentifica",
 
             // Espaces
             "id 3a",
@@ -67,7 +68,7 @@ public class TestIdentificateur {
             try {
                 new Identificateur(INVALIDE[noJeu]);
                 echec();
-            } catch (IllegalArgumentException lancee) {
+            } catch (InterpreteurException lancee) {
                 // Test OK
             }
         }
@@ -79,7 +80,7 @@ public class TestIdentificateur {
     public static void testCompareTo() {
         final Identificateur REF_MIN = new Identificateur("$AAAAAAAAAAAAAAAAAAAAAAAA"); 
         final Identificateur REF_MAX = new Identificateur("zzzzzzzzzzzzzzzzzzzzzzzz");
-
+        
         for(int noJeu = 0;  noJeu < FIXTURE.length; noJeu++) {
             assertTrue(FIXTURE[noJeu].compareTo(REF_MIN) >= 0);
             assertTrue(FIXTURE[noJeu].compareTo(REF_MAX) <= 0);
@@ -92,22 +93,22 @@ public class TestIdentificateur {
      */
     public static void testToString() {
         final String[] CHAINES_VALIDES = {
-                "Identificateur [nom=b]",
-                "Identificateur [nom=A]",
-                "Identificateur [nom=zalpha]",
-                "Identificateur [nom=Alpha]",
-                "Identificateur [nom=Alpha5]",
-                "Identificateur [nom=jeSuisUnTresLongIdentifi]",
-                "Identificateur [nom=$b]",
-                "Identificateur [nom=z]",
-                "Identificateur [nom=$zalpha]",
-                "Identificateur [nom=$Alpha]",
-                "Identificateur [nom=$Alpha5]",
-                "Identificateur [nom=$jeSuisUnTresLongIdentifi]"
+                "b",
+                "A",
+                "zalpha",
+                "Alpha",
+                "Alpha5",
+                "jeSuisUnTresLongIdentifi",
+                "$b",
+                "z",
+                "$zalpha",
+                "$Alpha",
+                "$Alpha5",
+                "$jeSuisUnTresLongIdentifi"
         };
 
         for (int noJeu = 0 ; noJeu < CHAINES_VALIDES.length ; noJeu++) {
-            assertEquivalent(CHAINES_VALIDES[noJeu],
+            assertEquivalence(CHAINES_VALIDES[noJeu],
                     FIXTURE[noJeu].toString());
         }
     }
