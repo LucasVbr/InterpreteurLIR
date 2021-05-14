@@ -112,7 +112,6 @@ public class TestExpression {
             "entier = 78  ",
             " nombre= nombre + 78",
             " entier =78 *2"
-            // TODO expressionEntier
         };
         
         final int INDEX_DEBUT_ENTIER = 12;

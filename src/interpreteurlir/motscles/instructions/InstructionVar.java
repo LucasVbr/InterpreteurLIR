@@ -23,7 +23,8 @@ import interpreteurlir.expressions.ExpressionChaine;
 public class InstructionVar extends Instruction {
 
     /**
-     * TODO comment initial state of the object
+     * Initialise une instruction var à partir de arguments.
+     * Le contexte sera modifié à l'exécution dde l'instruction.
      * @param arguments expression à exécuter
      * @param contexte global de l'interpréteur
      */

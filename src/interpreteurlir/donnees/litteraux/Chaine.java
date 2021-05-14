@@ -69,7 +69,6 @@ public class Chaine extends Litteral {
          */
         @Override
         public int compareTo(Litteral autre) {
-                // TODO Auto-generated method stub
                 return this.valeur.toString().compareTo(autre.valeur.toString());
         }
 

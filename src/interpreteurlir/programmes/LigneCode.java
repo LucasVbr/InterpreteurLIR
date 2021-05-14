@@ -19,6 +19,8 @@ import interpreteurlir.motscles.instructions.Instruction;
  */
 public class LigneCode implements Comparable<LigneCode> {
     
+    //TODO supprimer si non utilisée
+    
     /** étiquette de cette ligne de code */
     private Etiquette etiquette;
     
