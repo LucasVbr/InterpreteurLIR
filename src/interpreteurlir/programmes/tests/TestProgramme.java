@@ -349,4 +349,16 @@ public class TestProgramme {
            // Test OK
        }
    }
+   
+   /** 
+    * Test unitaire de {@link Programme#vaen(Etiquette)}
+    */
+   public void testVaen() {
+       //TODO écrire les tests
+       
+       System.out.println("\tExécution du test de vaen(Etiquette) "
+                          + ": ");
+       
+       echec();
+   }
 }

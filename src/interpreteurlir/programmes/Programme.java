@@ -4,6 +4,7 @@
  */
 package interpreteurlir.programmes;
 
+import java.util.EmptyStackException;
 import java.util.Map;
 import java.util.Stack;
 import java.util.TreeMap;
@@ -60,6 +61,7 @@ public class Programme {
      */
     public void raz() {
         lignesCode.clear();
+        compteurOrdinnal.clear();
     }
 
     /** 
@@ -231,6 +233,17 @@ public class Programme {
         lancer(new Etiquette(VALEUR_ETIQUETTE_MIN));
     }
     
+    /**
+     * Change le compteur ordinal avec l'étiquette argument
+     * @param destination étiquette où continuer l'exécution
+     */
+    public void vaen(Etiquette destination) {
+        if (!compteurOrdinnal.isEmpty()) {
+            compteurOrdinnal.pop();
+        }
+        compteurOrdinnal.push(destination);
+    }
+    
     /** 
      * Appel une procédure en empilant l'étiquette de départ dans
      * le compteurOrdinal 
@@ -250,8 +263,12 @@ public class Programme {
     public void retourProcedure() {
         final String ERREUR_RETOUR = "erreur retour nécessite un appel de "
                                      + "procédure au préalable";
+        try {
+            compteurOrdinnal.pop();
+        } catch (EmptyStackException lancee) {
+            // empty body
+        }
         
-        compteurOrdinnal.pop();
         
         if (compteurOrdinnal.isEmpty()) {
             throw new ExecutionException(ERREUR_RETOUR);
