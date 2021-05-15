@@ -242,6 +242,8 @@ public class Programme {
             compteurOrdinnal.pop();
         }
         compteurOrdinnal.push(destination);
+        enExecution = true;
+        execution();
     }
     
     /** 

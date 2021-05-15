@@ -79,6 +79,8 @@ public class TestInstructionAffiche {
         Expression.referencerContexte(CONTEXTE_GBL);
         for (InstructionAffiche aLancer : FIXTURE)
             aLancer.executer();
+        
+        System.out.println();
     }
     
     /**
@@ -87,8 +89,8 @@ public class TestInstructionAffiche {
     public static void testToString() {
         
         final String[] ATTENDUS = {
-            "affiche \"\"",
-            "affiche \"\"",
+            "affiche",
+            "affiche",
             "affiche \"Hello World !!!\"",
             "affiche 3 + 3",
             "affiche marcel",
