@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.Commande;
+import interpreteurlir.motscles.instructions.Instruction;
+import interpreteurlir.programmes.*;
 
 /**
  * Analyseur de l'entrée standard du programme interpréteur LIR.
@@ -34,6 +36,9 @@ public class Analyseur {
     
     /** contexte de cet analyseur */
     private Contexte contexteGlobal;
+    
+    /** programme de cet analyseur */
+    private Programme programme;
 
     /**
      * Initialise un analyseur ayant son propre contexte.
@@ -43,6 +48,8 @@ public class Analyseur {
         entree = new Scanner(System.in);
         contexteGlobal = new Contexte();
         Expression.referencerContexte(contexteGlobal);
+        programme = new Programme();
+        Commande.referencerProgramme(programme);
     }
 
     /**
@@ -51,18 +58,72 @@ public class Analyseur {
      */
     public void mainLoop() {
         String ligneSaisie;
+        String[] decoupage;
+        String motCle;
+        String arguments;
+        String texteEtiquette;
         for (;;) {
+            texteEtiquette = null;
+            
             System.out.print(INVITE);
             ligneSaisie = entree.nextLine().trim();
             
-            String[] decoupage = ligneSaisie.split(" ", 2);
-            String motCle = decoupage.length >= 1 ? decoupage[0] : "";
-            String arguments = decoupage.length >= 2 ? decoupage[1] : "";
+            /* Instruction avec étiquette */
+            if (!ligneSaisie.isBlank() 
+                    && Character.isDigit(ligneSaisie.charAt(0))) {
+                decoupage = ligneSaisie.split(" ", 2);
+                texteEtiquette = decoupage.length >= 1 ? decoupage[0] : "";
+                ligneSaisie = decoupage.length >= 2 ? decoupage[1] : "";
+            }
             
-            executerCommande(motCle, arguments.trim());
+            decoupage = ligneSaisie.split(" ", 2);
+            motCle = decoupage.length >= 1 ? decoupage[0] : "";
+            arguments = decoupage.length >= 2 ? decoupage[1] : "";
+            
+            if (texteEtiquette == null) {
+                executerCommande(motCle, arguments.trim());
+            } else {
+                editerProgramme(texteEtiquette, motCle, arguments.trim());
+            }
         }
     }
     
+    /**
+     * Ajoute une ligne de code (étiquette associée à une instruction) 
+     * au programme chargé.
+     * @param texteEtiquette représentation texte de l'étiquette
+     * @param motCle mot clé de l'instruction
+     * @param arguments reste de la ligne saisie après le mot clé
+     */
+    private void editerProgramme(String texteEtiquette, String motCle, 
+                                 String arguments) {
+        Class<?> aAjouter;
+        try {
+            aAjouter = rechercheInstruction(motCle);
+            
+            Class<?> classeArg = String.class;
+            Class<?> classeContexte = Contexte.class;
+            Instruction inst = (Instruction)aAjouter
+                                   .getConstructor(classeArg, classeContexte)
+                                   .newInstance(arguments, contexteGlobal);
+            
+            Etiquette etiquette = new Etiquette(texteEtiquette);
+            
+            programme.ajouterLigne(etiquette, inst);
+            feedback(false);
+            
+        } catch (  InvocationTargetException | IllegalAccessException 
+                 | InstantiationException    | NoSuchMethodException 
+                 | InterpreteurException     | ExecutionException lancee) {
+            
+            System.err.println(NOK_FEEDBACK 
+                    + (lancee.getMessage() != null 
+                       ? lancee.getMessage() 
+                       : lancee.getCause().getMessage()));
+        }
+        
+    }
+
     /**
      * Recherche la commande et exécute cette commande si présente.
      * Affiche un feedback si la commande ne s'en occupe pas ou erreur.
@@ -84,7 +145,7 @@ public class Analyseur {
             feedback(cmd.executer());
         } catch (  InvocationTargetException | IllegalAccessException 
                  | InstantiationException    | NoSuchMethodException 
-                 | InterpreteurException lancee) {
+                 | InterpreteurException     | ExecutionException lancee) {
             
             System.err.println(NOK_FEEDBACK 
                     + (lancee.getMessage() != null 
@@ -127,6 +188,8 @@ public class Analyseur {
         
         if (motCle == null || motCle.isBlank()) {
             throw new InterpreteurException(ERREUR_VIDE);
+        } else if (!motCle.equals(motCle.toLowerCase())) {
+            throw new InterpreteurException(ERREUR_INCONNU);
         }
         
         motCle =   (Character.toUpperCase(motCle.charAt(0))) 
@@ -141,6 +204,42 @@ public class Analyseur {
             } catch(ClassNotFoundException nonInst) {
                 throw new InterpreteurException(ERREUR_INCONNU);
             }
+        }
+ 
+        return aChercher;
+    }
+    
+    /**
+     * Recherche l'instruction correspondant au mot clé.
+     * <ul><li>Les instructions doivent être 
+     *         dans le package interpreteurlir.motscles.instructions</li>
+     * <ul>
+     * La classe correspondant doit avoir un nom qui se finit avec le mot clé
+     * (première lettre en majuscule)
+     * @param motCle mot clé de l'instruction
+     * @return Classe de cette instruction.
+     * @throws InterpreteurException si motCle est vide, null ou non reconnue
+     */
+    private static Class<?> rechercheInstruction(String motCle) {
+        final String ERREUR_VIDE = "ligne vide";
+        final String ERREUR_INCONNU = "mot clé inconnu";
+        final String CLASS_PATH_INST = 
+                "interpreteurlir.motscles.instructions.Instruction";
+        
+        if (motCle == null || motCle.isBlank()) {
+            throw new InterpreteurException(ERREUR_VIDE);
+        } else if (!motCle.equals(motCle.toLowerCase())) {
+            throw new InterpreteurException(ERREUR_INCONNU);
+        }
+        
+        motCle =   (Character.toUpperCase(motCle.charAt(0))) 
+                 + (motCle.length() > 1 ? motCle.substring(1) : "");
+        
+        Class<?> aChercher;
+        try {
+            aChercher = Class.forName(CLASS_PATH_INST + motCle);
+        } catch(ClassNotFoundException | NoClassDefFoundError nonCmd) {
+            throw new InterpreteurException(ERREUR_INCONNU);
         }
  
         return aChercher;

@@ -8,6 +8,7 @@ package interpreteurlir.donnees.tests;
 
 import static info1.outils.glg.Assertions.*;
 
+import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.IdentificateurChaine;
 
 /**
@@ -19,7 +20,7 @@ import interpreteurlir.donnees.IdentificateurChaine;
  * @author Lucas Vabre
  */
 public class TestIdentificateurChaine {
-	/** Jeu d'identificateurs de chaîne correctement instanciés */
+    /** Jeu d'identificateurs de chaîne correctement instanciés */
     private static IdentificateurChaine[] FIXTURE = {
             new IdentificateurChaine("$a"),
             new IdentificateurChaine("$A"),
@@ -27,66 +28,67 @@ public class TestIdentificateurChaine {
             new IdentificateurChaine("$Alpha"),
             new IdentificateurChaine("$Alpha5"),
             new IdentificateurChaine("$jeSuisUnTresLongIdentifi")
-	};
-    
+    };
+
     /**
      * Tests unitaires du constructeur IdentificateurEntier(String identificateur)
      */
     public static void testIdentificateurChaineString() {
-    	final String[] INVALIDE = {
-    	    null,
-    	    "",
-    	    
-    	    // Commence par une lettre
-            "9alpha",
-            "  5alpha",
-                
-            // Fait au maximum 24 caractères
-            "$jeSuisUnTresLongIdentificateur", // 30 char
-            "$jeSuisUnTresLongIdentific",
-                
-            // Espaces
-            "id 3a",
-            "$id 3a",
-            " ",
-            "$ ",
-            
-            // caractères d'échapements
-            "\t",
-            "\n",
-            "$\t",
-            "$\n",
-            
-            // , cas particulier
-            "$",
-            "$1"
-    	};
-    	
-    	for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
-    		try {
-    			new IdentificateurChaine(INVALIDE[noJeu]);
-    			echec();
-    		} catch (IllegalArgumentException lancee) {
-    			// test OK
-    		}
-    	}
+        final String[] INVALIDE = {
+                null,
+                "",
+
+                // Commence par une lettre
+                "9alpha",
+                "  5alpha",
+
+                // Fait au maximum 25 caractères
+                "$jeSuisUnTresLongIdentificateur", // 30 char
+                "$jeSuisUnTresLongIdentifica",
+
+                // Espaces
+                "id 3a",
+                "$id 3a",
+                " ",
+                "$ ",
+
+                // caractères d'échapements
+                "\t",
+                "\n",
+                "$\t",
+                "$\n",
+
+                // , cas particulier
+                "$",
+                "$1"
+        };
+
+        for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
+            try {
+                new IdentificateurChaine(INVALIDE[noJeu]);
+                echec();
+            } catch (InterpreteurException lancee) {
+                // test OK
+            }
+        }
+        
     }
-    
+
     /**
      * Tests unitaires de getNom()
      */
     public static void testGetNom() {
         final String[] NOM_VALIDES = {
-            "$a",
-            "$A",
-            "$alpha",
-            "$Alpha",
-            "$Alpha5",
-            "$jeSuisUnTresLongIdentifi"
+                "$a",
+                "$A",
+                "$alpha",
+                "$Alpha",
+                "$Alpha5",
+                "$jeSuisUnTresLongIdentifi"
         };
-    	
-    	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
-    		assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
-    	}
+
+        for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
+            assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
+        }
     }
 }

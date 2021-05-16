@@ -5,6 +5,7 @@
 package interpreteurlir.donnees;
 
 import interpreteurlir.donnees.litteraux.Chaine;
+import interpreteurlir.donnees.litteraux.Entier;
 import interpreteurlir.donnees.litteraux.Litteral;
 import interpreteurlir.InterpreteurException;
 
@@ -38,7 +39,7 @@ public class Variable extends Object implements Comparable<Variable> {
         if (!isVariable(identificateur, valeur)) {
             throw new InterpreteurException("Identificateur '"
                                             + identificateur.toString()
-                                            + "' et type de " 
+                                             + "' et type de " 
                                             + valeur.toString()
                                             + "incompatible.");
         }
@@ -50,7 +51,7 @@ public class Variable extends Object implements Comparable<Variable> {
     
     private static boolean isVariable(Identificateur id, Litteral valeur) {
         return id instanceof IdentificateurChaine && valeur instanceof Chaine
-              /* || id instanceof IdentificateurEntier && valeur instanceof Entier */;
+            || id instanceof IdentificateurEntier && valeur instanceof Entier;
     }
 
 

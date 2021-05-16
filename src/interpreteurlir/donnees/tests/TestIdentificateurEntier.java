@@ -8,6 +8,7 @@ package interpreteurlir.donnees.tests;
 
 import static info1.outils.glg.Assertions.*;
 
+import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.IdentificateurEntier;
 
 /**
@@ -19,65 +20,65 @@ import interpreteurlir.donnees.IdentificateurEntier;
  * @author Lucas Vabre
  */
 public class TestIdentificateurEntier {
-	
-	/** Jeu d'identificateurs d'entier correctement instanciés */
+
+    /** Jeu d'identificateurs d'entier correctement instanciés */
     private static IdentificateurEntier[] FIXTURE = {
             new IdentificateurEntier("a"),
             new IdentificateurEntier("A"),
             new IdentificateurEntier("alpha"),
             new IdentificateurEntier("Alpha"),
             new IdentificateurEntier("Alpha5"),
-            new IdentificateurEntier("jeSuisUnTresLongIdentifi")
-	};
-    
+            new IdentificateurEntier("jeSuisUnTresLongIdentific")
+    };
+
     /**
      * Tests unitaires du constructeur IdentificateurEntier(String identificateur)
      */
     public static void testIdentificateurEntierString() {
-    	final String[] INVALIDE = {
-    		// Commence par une lettre
-    		"9alpha",
-    		"  5alpha",
-    		"$beta",
-    		
-    		// Fait au maximum 24 caractères
-    		"jeSuisUnTresLongIdentificateur", // 30 char
-    		"jeSuisUnTresLongIdentific",
-    		
-    		// Espaces, caractères d'échapements, cas particulier
-    		"id 3a",
-    		"",
-    		" ",
-    		"\t",
-    		"\n",
-    		null
-    	};
-    	
-    	for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
-    		try {
-    			new IdentificateurEntier(INVALIDE[noJeu]);
-    			echec();
-    		} catch (IllegalArgumentException lancee) {
-    			// test OK
-    		}
-    	}
+        final String[] INVALIDE = {
+                // Ne commence pas  par une lettre
+                "9alpha",
+                "  5alpha",
+                "$beta",
+
+                // Fait plus de 25 caractères
+                "jeSuisUnTresLongIdentificateur", // 30 char
+                "jeSuisUnTresLongIdentifica",
+
+                // Espaces, caractères d'échapements, cas particulier
+                "id 3a",
+                "",
+                " ",
+                "\t",
+                "\n",
+                null
+        };
+
+        for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
+            try {
+                new IdentificateurEntier(INVALIDE[noJeu]);
+                echec();
+            } catch (InterpreteurException lancee) {
+                // test OK
+            }
+        }
     }
-    
+
     /**
      * Tests unitaires de getNom()
      */
     public static void testGetNom() {
-    	final String[] NOM_VALIDES = {
-    			"a",
-    		    "A",
-    		    "alpha",
-    		    "Alpha",
-    		    "Alpha5",
-    		    "jeSuisUnTresLongIdentifi"
-    	};
-    	
-    	for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
-    		assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
-    	}
+        final String[] NOM_VALIDES = {
+                "a",
+                "A",
+                "alpha",
+                "Alpha",
+                "Alpha5",
+                "jeSuisUnTresLongIdentific"
+        };
+
+        for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
+            assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
+        }
     }
 }

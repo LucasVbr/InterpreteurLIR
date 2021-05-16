@@ -72,7 +72,7 @@ public class TestInstructionVar {
     }
     
     /**
-     * TODO comment method responsibilities
+     * Lancement des tests
      * @param args
      */
     public static void main(String[] args) {

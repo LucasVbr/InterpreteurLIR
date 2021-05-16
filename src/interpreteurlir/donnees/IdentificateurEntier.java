@@ -9,7 +9,9 @@ package interpreteurlir.donnees;
 import interpreteurlir.InterpreteurException;
 
 /**
- * Identificateur d'entier
+ * Identificateur d'entier utilisé pour instancier des variables du même type.
+ * Un identificateur entier commence par une lettre suivie d'au plus 24
+ * caractère alphanumériques.
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
@@ -18,36 +20,37 @@ import interpreteurlir.InterpreteurException;
  */
 public class IdentificateurEntier extends Identificateur {
 
-        /**
-         * Instantiation d'identificateur d'entier
-         * @param identificateur a instancier
-         * @throws InterpreteurException si l'identificateur est invalide
-         */
-        public IdentificateurEntier(String identificateur) {
-                super(identificateur);
-                
-                if(!isIdentificateurEntier(identificateur)) {
-                        throw new InterpreteurException(identificateur
-                                + " n'est pas un identificateur"
-                                + " d'entier");
-                }
+    /**
+     * Instantiation de cet identificateur d'entier avec le nom spécififié 
+     * en argument. Lève une exception si l'identificateur n'est pas
+     * valide.
+     * @param identificateur a instancier
+     * @throws InterpreteurException si l'identificateur est invalide
+     */
+    public IdentificateurEntier(String identificateur) {
+        super(identificateur);
+
+        if(!isIdentificateurEntier(identificateur)) {
+           throw new InterpreteurException(identificateur
+                                           + " n'est pas un identificateur"
+                                           + " d'entier");
         }
-        
-        /**
-         * Prédicat attestant la validité de l'identificateur
-         * 
-         * Un identificateur d'entier est valide si
-         * - Il contient au maximum 24 caractères
-         * - Commence obligatoirement par une lettre (majuscule ou minuscule)
-         * - suivie uniquement de lettres (majuscule ou minuscule) ou de chiffres
-         * 
-         * @param identificateur à tester
-         * @return true si l'identificateur est bien un identificateur d'entier
-         *                 false sinon
-         */
-        private static boolean isIdentificateurEntier(String identificateur) {
-        
-                return isLettre(identificateur.charAt(0))
-               && isAlphanumerique(identificateur.substring(1));
-        }
+    }
+
+    /**
+     * Prédicat attestant la validité de l'identificateur
+     * 
+     * Un identificateur d'entier est valide si
+     * - Il contient au maximum 24 caractères
+     * - Commence obligatoirement par une lettre (majuscule ou minuscule)
+     * - suivie uniquement de lettres (majuscule ou minuscule) ou de chiffres
+     * 
+     * @param aTester à tester
+     * @return true si l'identificateur est bien un identificateur d'entier
+     *                 false sinon
+     */
+    private static boolean isIdentificateurEntier(String aTester) {
+        return aTester.length() <= 25 && Character.isLetter(aTester.charAt(0))
+            && isAlphanumerique(aTester.substring(1));
+    }
 }

@@ -6,6 +6,7 @@ package interpreteurlir.donnees.tests;
 
 import static info1.outils.glg.Assertions.*;
 
+import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.Identificateur;
 
 /**
@@ -43,9 +44,9 @@ public class TestIdentificateur {
             null,
             "",
 
-            // Fait au maximum 24 caractères
+            // Fait au maximum 25 caractères
             "$jeSuisUnTresLongIdentificateur", // 30 char
-            "$jeSuisUnTresLongIdentific",
+            "$jeSuisUnTresLongIdentifica",
 
             // Espaces
             "id 3a",
@@ -67,7 +68,7 @@ public class TestIdentificateur {
             try {
                 new Identificateur(INVALIDE[noJeu]);
                 echec();
-            } catch (IllegalArgumentException lancee) {
+            } catch (InterpreteurException lancee) {
                 // Test OK
             }
         }
