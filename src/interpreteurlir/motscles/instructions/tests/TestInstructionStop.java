@@ -28,9 +28,6 @@ public class TestInstructionStop {
     /** Contexte d'exécution nécessaire à instanciation */
     private static final Contexte CONTEXTE_TESTS = new Contexte();
     
-    /** Programme global pour tests */
-    public static final Programme PGM_TESTS = new Programme();
-    
     /** Instruction stop valide */
     public static final InstructionStop[] FIXTURE = {
             new InstructionStop("", CONTEXTE_TESTS),
@@ -61,24 +58,26 @@ public class TestInstructionStop {
     
     /** Test de executer() */
     public static void testExecuter() {
+        Programme pgmTest = new Programme();
         System.out.println("Exécution du test de executer()\ntestVisuel\n");
-        Commande.referencerProgramme(PGM_TESTS);
+        Commande.referencerProgramme(pgmTest);
         Expression.referencerContexte(CONTEXTE_TESTS);
-        PGM_TESTS.ajouterLigne(new Etiquette(10), 
+        pgmTest.ajouterLigne(new Etiquette(10), 
                 new InstructionAffiche("Bonjour", CONTEXTE_TESTS));
-        PGM_TESTS.ajouterLigne(new Etiquette(20), 
+        pgmTest.ajouterLigne(new Etiquette(20), 
                 new InstructionAffiche("Comment", CONTEXTE_TESTS));
-        PGM_TESTS.ajouterLigne(new Etiquette(30), 
+        pgmTest.ajouterLigne(new Etiquette(30), 
                 new InstructionAffiche("Allez", CONTEXTE_TESTS));
-        PGM_TESTS.ajouterLigne(new Etiquette(40), 
+        pgmTest.ajouterLigne(new Etiquette(40), 
                 new InstructionAffiche("Vous", CONTEXTE_TESTS));
-        PGM_TESTS.ajouterLigne(new Etiquette(45), 
+        pgmTest.ajouterLigne(new Etiquette(45), 
                 new InstructionStop("", CONTEXTE_TESTS));
-        PGM_TESTS.ajouterLigne(new Etiquette(50), 
+        pgmTest.ajouterLigne(new Etiquette(50), 
                 new InstructionAffiche("foobar", CONTEXTE_TESTS));
-        System.out.println(PGM_TESTS);
+        System.out.println(pgmTest);
         System.out.println("lancement du programme : ne doit pas "
                            + "afficher foobar");
+        pgmTest.lancer();
     }
     
     /** Tests de toString() */
