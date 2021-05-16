@@ -69,7 +69,8 @@ public class Analyseur {
             ligneSaisie = entree.nextLine().trim();
             
             /* Instruction avec étiquette */
-            if (Character.isDigit(ligneSaisie.charAt(0))) {
+            if (!ligneSaisie.isBlank() 
+                    && Character.isDigit(ligneSaisie.charAt(0))) {
                 decoupage = ligneSaisie.split(" ", 2);
                 texteEtiquette = decoupage.length >= 1 ? decoupage[0] : "";
                 ligneSaisie = decoupage.length >= 2 ? decoupage[1] : "";
