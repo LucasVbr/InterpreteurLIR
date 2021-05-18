@@ -1,0 +1,34 @@
+    \subparagraph{Acteurs}
+    Programmeur : il entre une commande à faire exécuter immédiatement par l'interpréteur.
+
+    \subparagraph{Objectifs}
+    Exécuter la commande entrée dans l'interpréteur.
+
+    \subparagraph{Pré-Conditions}
+    L'interpréteur LIR est lancé et le curseur est derrière l'invite.
+
+    \subparagraph{Post-Conditions}
+    La commande est exécutée et le résultat est affiché.
+
+    \subparagraph{Scénario nominal (grandes étapes)}
+        \begin{enumerate}
+            \item Le programmeur écrit derrière l'invite une ligne de commande.
+            \item Le programmeur valide cette commande.
+            \item L'interpréteur effectue une analyse lexico-syntaxique.
+            \item L'interpréteur interprète la ligne de commande.
+        \end{enumerate}
+
+    \subparagraph{Scénarios d'échec}
+        \subparagraph{Point 3 du scénario nominal :} la syntaxe de la ligne écrite est incorrecte.
+        \begin{itemize}
+            \item Un message d'erreur explicite informe le programmeur.
+            \item Retour au point 4 du scénario nominal.
+        \end{itemize}
+
+        \subparagraph{Point 4 du scénario nominal :} la commande conduit à une erreur d'exécution.
+        \begin{itemize}
+            \item Un message d'erreur explicite informe le programmeur.
+            \item Retour au point 4 du scénario nominal.
+        \end{itemize}
+
+%\end{document}
