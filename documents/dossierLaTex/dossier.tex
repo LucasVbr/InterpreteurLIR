@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper,titlepage,openright]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[top=1.5cm, bottom=5cm]{geometry}
+\usepackage{fancyhdr, graphicx, array, hyperref}
+%\usepackage{array}
+
+\pagestyle{fancy}
+
+\title{\textsc{\textbf{ Dossier
+            \\Interpréteur du langage LIR}
+}}
+\date{}
+\author{Nicolas \textsc{Caminade} \and Sylvan \textsc{Courtiol} \and Pierre
+    \textsc{Debas} \and Heïa \textsc{Dexter} \and Lucàs \textsc{Vabre} }
+
+\begin{document}
+
+    % En-tête et pied de page ........................................
+    \lhead{\leftmark}
+    \rhead{
+        \includegraphics[width=2cm]{img/logoiut}
+    }
+
+    \cfoot{\thepage}
+    \headheight = 2cm
+    \headsep = 1.5cm
+
+    % Page de garde ..................................................
+    \begin{titlepage}
+        \fontfamily{pag}\selectfont
+
+        \begin{center}\normalsize
+            \MakeUppercase{IUT de Rodez \hfill Département informatique
+                \hfill INFO1 2020-2021}
+        \end{center}
+        \vspace*{0.1cm}
+        \hrule
+        \vspace*{0.2cm}
+        \begin{flushright}
+            \includegraphics[width=4cm]{img/logoiut}
+        \end{flushright}
+        \vspace*{2cm}
+        \begin{flushright}\Huge
+            \textsc{\textbf{ Dossier
+                    \\Interpréteur du langage LIR}}
+        \end{flushright}
+        \hrule
+        \begin{flushleft}
+            \MakeUppercase{Projet proposé par Frédérique Barrios}
+        \end{flushleft}
+        \vspace*{2cm}
+        \begin{center}\Large
+            Nicolas \textsc{Caminade}, Sylvan \textsc{Courtiol},\\
+            Pierre \textsc{Debas}, Heïa \textsc{Dexter}, \\
+            Lucàs \textsc{Vabre}
+        \end{center}
+        \vfill
+        \begin{center}\normalsize
+            \MakeUppercase{Projet tuteuré --- Semestre 2}
+        \end{center}
+    \end{titlepage}
+
+    % Sommaire à conserver ou supprimer ..............................
+    \renewcommand{\contentsname}{Sommaire}
+    \tableofcontents
+
+    % Fin de votre introduction ......................................
+
+    \normalsize
+    % Début du corps de votre document ...............................
+    \part{ Plan projet}
+    \part{ Spécifications détaillées}
+    \part{ Conception}
+    \part{ Codage}
+    \part{ Tests}
+    \include{./fichiers/tests/docTests.tex}
+    \part{ Conclusion}
+
+    % Fin du corps de votre document .................................
+
+    \appendix
+    % Annexes jointes au dossier .....................................
+    % TODO Annexe 1 CD
+    \part{CD}
+    % TODO Manuel utilisateur
+    \part{Manuel utilisateur}
+
+\end{document}
