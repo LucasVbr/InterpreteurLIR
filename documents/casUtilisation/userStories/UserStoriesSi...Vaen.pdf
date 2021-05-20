@@ -1,0 +1,25 @@
+  
+\documentclass[12pt,a5paper, notitle, oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[landscape]{geometry}
+\begin{document}
+	
+	\chapter*{Récit d'utilisation}
+	
+	\paragraph{Titre : } si...vaen
+	\paragraph{Récit : } sauts conditionnels
+	\paragraph{En tant que : } Programmeur
+	\paragraph{Je souhaite : } effectuer un saut ver une ligne spécifique du programme quand une condition est remplie
+	\paragraph{Afin de : } Créer des branchement ou des itération dans mes programmes
+	\newpage
+	
+	\chapter*{Critères d'acceptation}
+	
+	\paragraph{À partir de : } la saisie d'un programme
+	\paragraph{Alors : } j'entre la commande si suivie de la condition a remplir pour faire le saut, suivit de la commande vaen
+	
+	\paragraph{Enfin : } lors de l'exécution de l'instruction, le programme ignorera les lignes suivante et sautera directement à la ligne indiquée si la condition est remplie
+	
+\end{document}
