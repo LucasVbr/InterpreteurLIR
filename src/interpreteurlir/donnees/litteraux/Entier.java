@@ -28,64 +28,37 @@ public class Entier extends Litteral {
     
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
-     * @param unEntier
+     * @param entier
      * @throws InterpreteurException lorsque entier n'est pas un Entier
      */
     @SuppressWarnings("boxing")
-    public Entier(int unEntier) {
+    public Entier(int entier) {
     
-        if (! isEntier(unEntier)) {
-            throw new InterpreteurException("Erreur. " + unEntier 
+        if (VALEUR_MIN > entier && entier > VALEUR_MAX) {
+            throw new InterpreteurException("Erreur. " + entier 
                                             + " n'est pas un entier. ");
         }
-        super.valeur = unEntier;
+        super.valeur = entier;
     }
 
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
      * @param uneValeur 
      */
+    @SuppressWarnings("boxing")
     public Entier(String uneValeur) {
-        if (!isEntier(uneValeur)) {
+        int entier;
+        try {
+            entier = (int) Integer.valueOf(uneValeur);
+        } catch (NumberFormatException lancee) {
             throw new InterpreteurException(uneValeur 
                                             + " n'est pas un nombre entier. ");
         }
-
-        valeur = Integer.valueOf(uneValeur);
+        if (VALEUR_MIN > entier && entier > VALEUR_MAX) {
+            valeur = entier;
+        }
     }
     
-    private static boolean isEntier(String uneValeur) {
-        if (uneValeur != null && !uneValeur.isBlank() 
-            && uneValeur.length() <= LONG_CH_MAX
-            && (isChiffre(uneValeur.charAt(0)) 
-                || uneValeur.length() > 1 && (uneValeur.charAt(0) == '-' 
-                                           || uneValeur.charAt(0) == '+'))) {
-          int i;
-          for (i = 1; i < uneValeur.length() && isChiffre(uneValeur.charAt(i)); 
-               i++)
-              ; /* corps vide */
-          if ((uneValeur.startsWith("+214748364") 
-                  || uneValeur.startsWith("214748364"))
-                  && uneValeur.charAt(uneValeur.length() - 1) > '7'
-              || uneValeur.startsWith("-214748364") 
-                  && uneValeur.charAt(uneValeur.length() - 1) > '8'
-                  )
-                      return false;
-          
-          return i >= uneValeur.length();
-        }
-        
-        return false;
-    }
-
-    private static boolean isChiffre(char caractere) {
-        return '0' <= caractere && caractere <= '9';
-    }
-
-    private static boolean isEntier(int entier) {
-        return VALEUR_MIN <= entier && entier <= VALEUR_MAX;
-    }
-
     /* non javadoc
      * @see java.lang.Object#toString()
      */
