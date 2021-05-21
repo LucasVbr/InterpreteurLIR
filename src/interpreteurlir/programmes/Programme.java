@@ -151,7 +151,7 @@ public class Programme {
         } while (lignesRestantes);
         
         return aAfficher.toString().equals("") 
-               ? "Aucune ligne de code dans cet intervalle.\n"
+               ? "aucune ligne à afficher\n"
                : aAfficher.toString();
     }
     
@@ -236,8 +236,18 @@ public class Programme {
     /**
      * Change le compteur ordinal avec l'étiquette argument
      * @param destination étiquette où continuer l'exécution
+     * @throws ExecutionException si aucune instruction dans le programme
+     *                            n'a comme étiquette destination
      */
     public void vaen(Etiquette destination) {
+        final String ERR_ETIQUETTE = "vaen impossible car l'étiquette " 
+                                     + destination 
+                                     + " ne correspond à aucune instruction";
+        if (!lignesCode.containsKey(destination)) {
+            throw new ExecutionException(ERR_ETIQUETTE);
+        }
+        // else
+        
         if (!compteurOrdinnal.isEmpty()) {
             compteurOrdinnal.pop();
         }
@@ -263,7 +273,7 @@ public class Programme {
      *                            compteurOrdinnal
      */
     public void retourProcedure() {
-        final String ERREUR_RETOUR = "erreur retour nécessite un appel de "
+        final String ERREUR_RETOUR = "retour nécessite un appel de "
                                      + "procédure au préalable";
         try {
             compteurOrdinnal.pop();
