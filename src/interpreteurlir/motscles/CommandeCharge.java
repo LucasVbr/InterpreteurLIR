@@ -17,9 +17,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-//import java.io.PrintStream;
-//import java.util.LinkedList;
-//import java.util.List;
 
 /** 
  * Charge les lignes de programme dans le fichier texte indiqué en argument

@@ -6,7 +6,9 @@ package interpreteurlir.motscles.tests;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
+import interpreteurlir.motscles.Commande;
 import interpreteurlir.motscles.CommandeCharge;
+import interpreteurlir.motscles.CommandeListe;
 import interpreteurlir.programmes.Programme;
 
 import static info1.outils.glg.Assertions.*;
@@ -22,22 +24,28 @@ import static info1.outils.glg.Assertions.*;
 public class TestCommandeCharge {
 
     /** Contexte pour tests */
-    public static final Contexte CONTEXTE_TESTS = new Contexte();
+    private final static Contexte CONTEXTE_TESTS = new Contexte();
 
     /** Programme global pour tests */
-    public static final Programme PGM_TESTS = new Programme();
+    private static Programme progGlobal = new Programme();
 
     /** jeu de test valide */
     public static final CommandeCharge[] FIXTURE = {
             new CommandeCharge("F:\\Programmation\\WorkspaceInterpreteurLIR"
                                + "\\outilTest\\dossierFichier\\"
-                               + "lefichier.lir", CONTEXTE_TESTS),
-            new CommandeCharge("dossierFichier\\lefichier.lir", CONTEXTE_TESTS),
-//            new CommandeCharge("l'autre.lir", CONTEXTE_TESTS),
-//            new CommandeCharge("test\\lefichier.lir", CONTEXTE_TESTS),
-//            new CommandeCharge("iut\\test\\lefichier.lir", CONTEXTE_TESTS),
-//            new CommandeCharge("..lefichier.lir", CONTEXTE_TESTS), 
-//            new CommandeCharge("   ..lefichier.lir   ", CONTEXTE_TESTS),
+                               + "lefichier1.lir", CONTEXTE_TESTS),
+            new CommandeCharge("dossierFichier\\lefichier2.lir",
+                               CONTEXTE_TESTS),
+            new CommandeCharge("dossierFichier\\lefichier3.lir",
+                               CONTEXTE_TESTS),
+            new CommandeCharge("dossierFichier\\test\\lefichier4.lir",
+                               CONTEXTE_TESTS),
+            new CommandeCharge("dossierFichier\\test\\test2\\lefichier5.lir",
+                               CONTEXTE_TESTS),
+            new CommandeCharge("     dossierFichier\\lefichier6.lir     ",
+                               CONTEXTE_TESTS),
+            new CommandeCharge("dossierFichier\\test\\test2\\..\\lefichier7.lir",
+                    CONTEXTE_TESTS)
     };
 
     /**
@@ -50,19 +58,19 @@ public class TestCommandeCharge {
                 null,
                 "    ",
                 "",
-                "lefichier", 
+                "lefichier",
+                "dossier\\      lefichier",
+                "dossier        \\lefichier",
         };
 
         for (int i = 0; i < INVALIDE.length ; i++) {
             try {
-                new CommandeCharge(INVALIDE[i], CONTEXTE_TESTS );
+                new CommandeCharge(INVALIDE[i], CONTEXTE_TESTS);
                 echec();
             } catch (InterpreteurException | NullPointerException lancee) {
                 // Test OK
             }
-
         }
-
     }
     
     /**
@@ -70,7 +78,34 @@ public class TestCommandeCharge {
      * {@link CommandeCharge#executer()}
      */
     public static void testExecuter() {
-        echec(); // TODO
+        
+        Commande.referencerProgramme(progGlobal);
+        
+        final CommandeCharge[] ERREUR = {
+                new CommandeCharge("dossierFichier\\erreur1.lir",
+                                   CONTEXTE_TESTS),
+                new CommandeCharge("dossierFichier\\erreur2.lir",
+                                   CONTEXTE_TESTS)
+        };
+        
+        final int NB_TESTS = FIXTURE.length;
+        System.out.println("\nTest valides de CommandeCharge#executer():");
+        for (int i = 0; i < NB_TESTS ; i++) {
+            System.out.println("Test " + (i+1) + '\\' + NB_TESTS + ":");
+            FIXTURE[i].executer();
+            new CommandeListe("", CONTEXTE_TESTS).executer();
+        }
+        
+        System.out.println("\nTest invalides de CommandeCharge#executer():");
+        for(int i = 0; i < ERREUR.length ; i++) {
+            try {
+                ERREUR[i].executer();
+                echec();
+            } catch (InterpreteurException lancee) {
+                // Test OK
+                new CommandeListe("", CONTEXTE_TESTS).executer();
+            }
+        }
     }
 
 }
