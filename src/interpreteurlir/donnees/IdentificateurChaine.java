@@ -39,7 +39,7 @@ public class IdentificateurChaine extends Identificateur {
      * @return true si l'identificateur est bien un identificateur d'entier
      *                 false sinon
      */
-    private static boolean isIdentificateurChaine(String identificateur) {
+    public static boolean isIdentificateurChaine(String identificateur) {
 
         return identificateur.length() >= 2
                 && identificateur.charAt(0) == '$'

@@ -12,6 +12,8 @@ import interpreteurlir.motscles.Commande;
 import interpreteurlir.motscles.instructions.Instruction;
 import interpreteurlir.programmes.*;
 
+import interpreteurlir.tests.ProgrammeDeTest; // TODO supprimer
+
 /**
  * Analyseur de l'entrée standard du programme interpréteur LIR.
  * @author Nicolas Caminade
@@ -50,6 +52,7 @@ public class Analyseur {
         Expression.referencerContexte(contexteGlobal);
         programme = new Programme();
         Commande.referencerProgramme(programme);
+        ProgrammeDeTest.genererProgramme(programme, contexteGlobal); // TODO retirer après les tests
     }
 
     /**
@@ -95,7 +98,7 @@ public class Analyseur {
      * @param motCle mot clé de l'instruction
      * @param arguments reste de la ligne saisie après le mot clé
      */
-    private void editerProgramme(String texteEtiquette, String motCle, 
+    public void editerProgramme(String texteEtiquette, String motCle, 
                                  String arguments) {
         Class<?> aAjouter;
         try {
@@ -143,6 +146,10 @@ public class Analyseur {
                                      .getConstructor(classeArg, classeContexte)
                                      .newInstance(arguments, contexteGlobal);
             feedback(cmd.executer());
+            if (motCle.equals("lance") 
+                    || (motCle.equals("affiche") && !arguments.isBlank())) {
+                System.out.println();
+            }
         } catch (  InvocationTargetException | IllegalAccessException 
                  | InstantiationException    | NoSuchMethodException 
                  | InterpreteurException     | ExecutionException lancee) {
@@ -220,7 +227,7 @@ public class Analyseur {
      * @return Classe de cette instruction.
      * @throws InterpreteurException si motCle est vide, null ou non reconnue
      */
-    private static Class<?> rechercheInstruction(String motCle) {
+    public static Class<?> rechercheInstruction(String motCle) {
         final String ERREUR_VIDE = "ligne vide";
         final String ERREUR_INCONNU = "mot clé inconnu";
         final String CLASS_PATH_INST = 
