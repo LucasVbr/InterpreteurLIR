@@ -44,9 +44,13 @@ public class InstructionStop extends Instruction {
      */
     @Override
     public boolean executer() {
-        if (programmeGlobal == null)
-            throw new InterpreteurException("le programme doit être référencé"
-                                            + " dans Commande");
+        
+        final String ERREUR_REFERENCEMENT = "Le programme doit être référencé "
+                + "dans la classe commande";
+
+        if (programmeGlobal == null) {
+            throw new RuntimeException(ERREUR_REFERENCEMENT);
+        }
         
         programmeGlobal.stop();
         return false;

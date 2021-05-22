@@ -41,7 +41,7 @@ public class InstructionAffiche extends Instruction {
             throw new InterpreteurException(AFFECTATION_ILLEGALE);
         
         aExecuter = arguments.isBlank() 
-                    ? new ExpressionChaine("\"\"")
+                    ? null
                     : Expression.determinerTypeExpression(arguments.trim());
     }
 
@@ -51,11 +51,10 @@ public class InstructionAffiche extends Instruction {
      */
     @Override
     public boolean executer() {
-        if (aExecuter instanceof ExpressionChaine) {
-            String aAfficher = aExecuter.calculer().toString();
-            System.out.println(aAfficher.substring(1, aAfficher.length() - 1));
+        if (aExecuter == null) {
+            System.out.println();
         } else {
-            System.out.println(aExecuter.calculer());
+            System.out.print(aExecuter.calculer().getValeur());
         }
         
         return true;
@@ -67,7 +66,8 @@ public class InstructionAffiche extends Instruction {
      */
     @Override
     public String toString() {
-        return "affiche " + aExecuter.toString();
+        return "affiche" + (aExecuter == null ? "" 
+                                              : " " + aExecuter.toString());
     }
     
     

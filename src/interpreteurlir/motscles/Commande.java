@@ -6,6 +6,7 @@ package interpreteurlir.motscles;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
+import interpreteurlir.programmes.Programme;
 
 /**
  * Une commande (générale) n'a aucun comportement. 
@@ -19,6 +20,9 @@ import interpreteurlir.InterpreteurException;
  * @author Lucas Vabre
  */
 public class Commande {
+    
+    /** référence du programme global */
+    protected static Programme programmeGlobal;
     
     /** référence du contexte possiblement manié directement par la commande */
     protected Contexte contexte;
@@ -51,6 +55,27 @@ public class Commande {
     public boolean executer() {
         // pas de comportement pour une Commande générale
         return false; // pas de feedback
+    }
+    
+    /**
+     * Référence le programme pour accéder et modifier le programme chargé.
+     * Le référencement vaut pour toutes les commandes/instructions
+     * et est possible une unique fois.
+     * @param aReferencer référence du programme global
+     * @return <ul><li>true si le programme a pu être référencé</li>
+     *             <li>true si aReferencer == programme déjà référencer</li>
+     *             <li>false si aReferencer est null</li>
+     *             <li>false si un programme est déjà référencer</li>
+     *         </ul>
+     */
+    public static boolean referencerProgramme(Programme aReferencer) {
+        if (aReferencer != null 
+                && (   programmeGlobal == null 
+                    || aReferencer == programmeGlobal)) {
+            programmeGlobal = aReferencer;
+            return true;
+        }
+        return false;
     }
         
     

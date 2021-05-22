@@ -20,8 +20,6 @@ import interpreteurlir.InterpreteurException;
  * @author Lucas Vabre
  */
 public class CommandeDebut extends Commande {
-
-    // TODO adapter la classe aux programmes
     
     /**
      * Initialise une commande debut qui est sans arguments 
@@ -50,6 +48,7 @@ public class CommandeDebut extends Commande {
     @Override
     public boolean executer() {
         contexte.raz();
+        programmeGlobal.raz();
         return false;
     }
 

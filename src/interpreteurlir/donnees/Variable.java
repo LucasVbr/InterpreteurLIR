@@ -39,7 +39,7 @@ public class Variable extends Object implements Comparable<Variable> {
         if (!isVariable(identificateur, valeur)) {
             throw new InterpreteurException("Identificateur '"
                                             + identificateur.toString()
-                                            + "' et type de " 
+                                             + "' et type de " 
                                             + valeur.toString()
                                             + "incompatible.");
         }

@@ -49,9 +49,7 @@ public class InstructionVaen extends Instruction {
 
     /**
      * Execution de l'instruction :
-     * Realise un saut a l'étiquette spécifiée.
-     * L'appel s'empile sur le contexte appellant pour ce qui est du
-     * compteur ordinal.
+     * Réalise un saut à l'étiquette spécifiée.
      * @return false car aucun feedback affiché directement
      * @throws RuntimeException si un programme n'est pas référencé en membre
      *                          de classe de Commande.

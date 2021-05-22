@@ -7,7 +7,9 @@ package interpreteurlir.motscles.tests;
 import static info1.outils.glg.Assertions.*;
 
 import interpreteurlir.Contexte;
+import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.Commande;
+import interpreteurlir.programmes.Programme;
 
 /**
  * Tests unitaires de {@link interpreteurlir.motscles.Commande}
@@ -25,6 +27,26 @@ public class TestCommande {
             new Commande("coucou", new Contexte()),
             new Commande("$chaine = \"toto\" + $tata", new Contexte())
     };
+    
+    /**
+     * Tests unitaires de {@link Commande#referencerProgramme(Programme)}
+     */
+    public void testReferencerProgramme() {
+
+        Programme reference = new Programme();
+        Programme[] programmes = {
+                null, reference, reference, new Programme()
+        };
+        
+        boolean[] resultatAttendu = { false, true, true, false };
+        
+        System.out.println("\tExécution du test de "
+                + "Commande#referencerProgramme(Programme)");
+        for (int numTest = 0 ; numTest < programmes.length ;  numTest++) {
+            assertTrue(   Commande.referencerProgramme(programmes[numTest]) 
+                       == resultatAttendu[numTest]);
+        }
+    }
     
     /**
      * Tests unitaires de {@link Commande#Commande(String, Contexte)}

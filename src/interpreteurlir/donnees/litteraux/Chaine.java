@@ -20,7 +20,8 @@ public class Chaine extends Litteral {
         public static final int LG_MAX_CHAINE = 70;
         
         /** Erreur chaîne trop longue */
-        private static final String ERREUR_LG_MAX = "Longueur maximale dépassée";
+        private static final String ERREUR_LG_MAX = 
+                "Longueur maximale d'une chaîne dépassée";
         
         /** Erreur constante littéral chaîne invalide */
         private static final String ERREUR_INVALIDE = 
@@ -69,7 +70,6 @@ public class Chaine extends Litteral {
          */
         @Override
         public int compareTo(Litteral autre) {
-                // TODO Auto-generated method stub
                 return this.valeur.toString().compareTo(autre.valeur.toString());
         }
 
