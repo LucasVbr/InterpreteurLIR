@@ -65,7 +65,7 @@ public class Variable extends Object implements Comparable<Variable> {
 
     /** 
      * Modifie la valeur de cette variable
-     * @param nouvelleValeur 
+     * @param nouvelleValeur valeur à affecter à cette variable
      */
     public void setValeur(Litteral nouvelleValeur) {
         if (isVariable(identificateur, nouvelleValeur)) {

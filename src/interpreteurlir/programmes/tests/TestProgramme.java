@@ -11,6 +11,7 @@ import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.instructions.*;
 import interpreteurlir.motscles.instructions.tests.TestInstructionStop;
+import interpreteurlir.motscles.instructions.tests.TestInstructionVaen;
 
 import static info1.outils.glg.Assertions.*;
 

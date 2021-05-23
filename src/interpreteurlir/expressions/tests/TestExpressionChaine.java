@@ -141,4 +141,33 @@ public class TestExpressionChaine {
         }
         
     }
+    
+    /**
+     * Tests unitaires de {@link ExpressionChaine#toString()}
+     */
+    public void testToString() {
+        final String[] chaineAttendue = {
+            "$chaine = \"texte\"",  
+            "$chaine = \"tata\"",
+            "$tata",
+            "\"une chaine de texte\"",
+            "$chaine = \"toto\" + \"titi\"",
+            "$chaine = $toto + \"titi\"",
+            "$chaine = \"toto\" + $titi",
+            "$chaine = $toto + $titi",
+            "\"toto\" + \"titi\"",
+            "$toto + \"titi\"",
+            "\"toto\" + $titi",
+            "$toto + $titi",
+            "\"ab=bc\"",
+            "$chaine = \"ab+cd\" + $toto",
+        };
+        
+        System.out.println("\tExécution du test de "
+                           + "ExpressionChaine#toString()");
+        for (int numTest = 0 ; numTest < chaineAttendue.length ; numTest++) {
+            assertEquivalence(chaineAttendue[numTest], 
+                              fixture[numTest].toString());
+        }
+    }
 }

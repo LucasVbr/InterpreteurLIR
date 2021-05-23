@@ -25,7 +25,7 @@ import interpreteurlir.donnees.litteraux.*;
  * séparés par un opérateur relationnel (notation infixe). Un opérande
  * est soit une constante, soit un identificateur.
  * <p>
- * L'’opérateur relationnel oprel est un symbole parmi : = <> < <= > >=
+ * L'’opérateur relationnel oprel est un symbole parmi : {@code = <> < <= > >=}
  * 
  * @author Nicolas Caminade
  * @author Sylvan Courtiol

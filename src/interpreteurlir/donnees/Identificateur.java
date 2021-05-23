@@ -26,7 +26,7 @@ public abstract class Identificateur implements Comparable<Identificateur> {
 
     /**
      * Instantiation de l'identificateur
-     * @param identificateur
+     * @param identificateur nom de l'identificateur
      */
     public Identificateur(String identificateur) {
         super();
@@ -46,7 +46,7 @@ public abstract class Identificateur implements Comparable<Identificateur> {
      *     <li>N'est pas une chaîne vide</li>
      *     <li>N'est pas null</li>
      * </ul>
-     * @param aTester
+     * @param aTester chaîne à tester
      * @return true si le prédicat est vérifié
      *         false sinon
      */

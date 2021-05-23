@@ -28,8 +28,8 @@ public class CommandeListe extends Commande {
     /** 
      * Initialise la commande liste avec ses arguments et le contexte
      * 
-     * @param arguments
-     * @param contexte
+     * @param arguments arguments vide ou contenant les étiquettes à afficher
+     * @param contexte référence du contexte global
      * @throws InterpreteurException en cas d'erreur de syntaxe lors
      *                               de l'instanciation des étiquettes
      */

@@ -19,7 +19,7 @@ public class Booleen extends Litteral {
 
     /** 
      * Initialise ce booléen
-     * @param unBooleen
+     * @param unBooleen valeur du booléen à construire
      * @throws InterpreteurException si la condition n'est pas un
      *                               
      */

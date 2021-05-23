@@ -27,7 +27,7 @@ public abstract class Litteral implements Comparable<Litteral> {
 
         /** 
          * Initialise cette valeur avec un objet argument.
-         * @param valeur
+         * @param valeur valeur du littéral à construire
          */
         public Litteral(Object valeur) {
                 super();

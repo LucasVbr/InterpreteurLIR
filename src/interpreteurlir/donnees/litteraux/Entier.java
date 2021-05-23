@@ -20,7 +20,7 @@ public class Entier extends Litteral {
     
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
-     * @param unEntier
+     * @param unEntier valeur de l'entier à construire
      */
     public Entier(int unEntier) {
     
@@ -29,7 +29,7 @@ public class Entier extends Litteral {
 
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
-     * @param uneValeur 
+     * @param uneValeur chaîne contenant l'entier à construire
      */
     public Entier(String uneValeur) {
         if (!isEntier(uneValeur)) {
@@ -74,10 +74,10 @@ public class Entier extends Litteral {
 
     /** 
      * Compare cet entier à un autre entier
-     * @param autre
-     * @return une valeur < 0 lorsque autre > cet entier
-     *         une valeur > 0 lorsque autre < cet entier
-     *         une valeur = 0 lorsque autre et cet entier sont égaux
+     * @param autre entier avec lequel this est comparé
+     * @return une {@code valeur < 0} lorsque {@code autre > cet entier}
+     *         une {@code valeur > 0} lorsque {@code autre < cet entier}
+     *         une {@code valeur = 0} lorsque autre et cet entier sont égaux
      */
     public int compareTo(Entier autre) {
         return ((Integer) valeur).compareTo(autre.getValeur());

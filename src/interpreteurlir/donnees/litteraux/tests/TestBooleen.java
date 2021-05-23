@@ -4,7 +4,6 @@
  */
 package interpreteurlir.donnees.litteraux.tests;
 
-import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.litteraux.Booleen;
 import static info1.outils.glg.Assertions.*;
 
@@ -42,7 +41,7 @@ public class TestBooleen {
             false,
             true
         };
-        
+        System.out.println("\tExécution du test de getValeur");
         for (int i = 0 ; i < ATTENDUS.length ; i++) {
             assertTrue(ATTENDUS[i].compareTo(FIXTURE[i].getValeur())
                        == 0);

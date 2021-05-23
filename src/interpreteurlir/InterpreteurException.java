@@ -13,6 +13,7 @@ package interpreteurlir;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
+@SuppressWarnings("serial")
 public class InterpreteurException extends RuntimeException {
     
     /** 

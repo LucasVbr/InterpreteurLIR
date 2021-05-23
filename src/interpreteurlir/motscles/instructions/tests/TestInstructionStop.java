@@ -44,7 +44,7 @@ public class TestInstructionStop {
             "entier = 2 + 3"
         };
         
-        System.out.println("Exécution du test de InstructionStop"
+        System.out.println("\tExécution du test de InstructionStop"
                            + "(String, Contexte)");
         for (String aTester : INVALIDES) {
             try {
@@ -59,32 +59,34 @@ public class TestInstructionStop {
     /** Test de executer() */
     public static void testExecuter() {
         Programme pgmTest = new Programme();
-        System.out.println("Exécution du test de executer()\ntestVisuel\n");
+        System.out.println("\tExécution du test de executer()\nTest Visuels\n");
         Commande.referencerProgramme(pgmTest);
         Expression.referencerContexte(CONTEXTE_TESTS);
         pgmTest.ajouterLigne(new Etiquette(10), 
-                new InstructionAffiche("Bonjour", CONTEXTE_TESTS));
+                new InstructionAffiche("\"Bonjour\"", CONTEXTE_TESTS));
         pgmTest.ajouterLigne(new Etiquette(20), 
-                new InstructionAffiche("Comment", CONTEXTE_TESTS));
+                new InstructionAffiche("\"Comment\"", CONTEXTE_TESTS));
         pgmTest.ajouterLigne(new Etiquette(30), 
-                new InstructionAffiche("Allez", CONTEXTE_TESTS));
+                new InstructionAffiche("\"Allez\"", CONTEXTE_TESTS));
         pgmTest.ajouterLigne(new Etiquette(40), 
-                new InstructionAffiche("Vous", CONTEXTE_TESTS));
+                new InstructionAffiche("\"Vous\"", CONTEXTE_TESTS));
         pgmTest.ajouterLigne(new Etiquette(45), 
                 new InstructionStop("", CONTEXTE_TESTS));
         pgmTest.ajouterLigne(new Etiquette(50), 
-                new InstructionAffiche("foobar", CONTEXTE_TESTS));
+                new InstructionAffiche("\"foobar\"", CONTEXTE_TESTS));
         System.out.println(pgmTest);
         System.out.println("lancement du programme : ne doit pas "
                            + "afficher foobar");
         pgmTest.lancer();
+        
+        System.out.println();
     }
     
     /** Tests de toString() */
     public static void testToString() {
         
         final String ATTENDUE = "stop";
-        System.out.println("Exécution du test de toString()");
+        System.out.println("\tExécution du test de toString()");
         for (InstructionStop valide : FIXTURE)
              assertTrue(valide.toString().compareTo(ATTENDUE) == 0);
     }

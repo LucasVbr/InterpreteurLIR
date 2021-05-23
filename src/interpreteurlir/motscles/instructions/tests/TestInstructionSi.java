@@ -7,14 +7,11 @@ package interpreteurlir.motscles.instructions.tests;
 import interpreteurlir.motscles.Commande;
 import interpreteurlir.motscles.instructions.InstructionSi;
 import interpreteurlir.motscles.instructions.InstructionVar;
-import interpreteurlir.programmes.Etiquette;
-import interpreteurlir.programmes.Programme;
+import interpreteurlir.programmes.*;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
-import interpreteurlir.donnees.IdentificateurChaine;
-import interpreteurlir.donnees.IdentificateurEntier;
-import interpreteurlir.donnees.litteraux.Chaine;
-import interpreteurlir.donnees.litteraux.Entier;
+import interpreteurlir.donnees.*;
+import interpreteurlir.donnees.litteraux.*;
 import interpreteurlir.expressions.Expression;
 
 import static info1.outils.glg.Assertions.*;

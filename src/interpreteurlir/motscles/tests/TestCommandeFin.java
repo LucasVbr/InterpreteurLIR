@@ -19,11 +19,6 @@ import interpreteurlir.motscles.CommandeFin;
  * @author Lucas Vabre
  */
 public class TestCommandeFin {
- 
-    /** Jeux d'essais de Commande valides pour les tests */
-    private CommandeFin[] fixture = { 
-            new CommandeFin("", new Contexte()),
-    };
     
     /**
      * Tests unitaires de {@link CommandeFin#CommandeFin(String, Contexte)}
@@ -61,7 +56,6 @@ public class TestCommandeFin {
         System.out.println("\tLe programme doit s'éteindre en affichant un "
                            + "message d'aurevoir :");
         System.out.println("Test exécuter désactiver");
-//        fixture[0].executer();
-        echec();
+        //fixture[0].executer();
     }
 }

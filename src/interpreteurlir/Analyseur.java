@@ -217,7 +217,7 @@ public class Analyseur {
      * Recherche l'instruction correspondant au mot clé.
      * <ul><li>Les instructions doivent être 
      *         dans le package interpreteurlir.motscles.instructions</li>
-     * <ul>
+     * </ul>
      * La classe correspondant doit avoir un nom qui se finit avec le mot clé
      * (première lettre en majuscule)
      * @param motCle mot clé de l'instruction

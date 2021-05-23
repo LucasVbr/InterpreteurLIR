@@ -35,8 +35,9 @@ public class Chaine extends Litteral {
         }
 
         /** 
-         * Initialise une chaîne avec la séquence de caractères passée en argument.
-         * @param uneValeur
+         * Initialise une chaîne avec la séquence 
+         * de caractères passée en argument.
+         * @param uneValeur valeur de la chaine à construire (entre guillemets)
          */
         public Chaine(String uneValeur) {
             uneValeur = uneValeur.trim();

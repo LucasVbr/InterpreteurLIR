@@ -1,4 +1,5 @@
 // Classe testée passé en abstract
+
 ///**
 // * TestIdentificateur.java                                        8 mai 2021
 // * IUT-Rodez info1 2020-2021, pas de droits, pas de copyrights
@@ -114,3 +115,4 @@
 //        }
 //    }
 //}
+

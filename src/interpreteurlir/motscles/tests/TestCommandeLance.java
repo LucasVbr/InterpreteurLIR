@@ -8,10 +8,6 @@ import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.CommandeLance;
-import interpreteurlir.motscles.instructions.Instruction;
-import interpreteurlir.motscles.instructions.InstructionVar;
-import interpreteurlir.programmes.Etiquette;
-import interpreteurlir.programmes.Programme;
 
 import static info1.outils.glg.Assertions.*;
 
@@ -29,7 +25,6 @@ import info1.outils.glg.TestException;
 public class TestCommandeLance {
     
     private Contexte contexteTest = new Contexte();
-    private Programme programmeTest = new Programme();
     
     private final CommandeLance[] FIXTURE = {
         new CommandeLance("", contexteTest),
@@ -47,37 +42,7 @@ public class TestCommandeLance {
         "20",
         "70",
         "40"
-    };
-    
-    private final Etiquette[] JEU_ETIQUETTES = {
-            new Etiquette(1),
-            new Etiquette(10),
-            new Etiquette(13),
-            new Etiquette(25),
-            new Etiquette(31),
-            new Etiquette(40),
-            new Etiquette(78),
-            new Etiquette(89)
-    };
-    
-    private final Instruction[] JEU_INSTRUCTIONS = {
-            new InstructionVar("$res = \"1 \"", contexteTest),
-            new InstructionVar("$res = $res + \"10 \"", contexteTest),
-            new InstructionVar("$res = $res + \"13 \"", contexteTest),
-            new InstructionVar("$res = $res + \"25 \"", contexteTest),
-            new InstructionVar("$res = $res + \"31 \"", contexteTest),
-            new InstructionVar("$res = $res + \"40 \"", contexteTest),
-            new InstructionVar("$res = $res + \"78 \"", contexteTest),
-            new InstructionVar("$res = $res + \"89 \"", contexteTest)
-    };
-    
-    private void ecrireProgrammeTest() {
-        for (int i = 0 ; i < JEU_ETIQUETTES.length ; i++) {
-            programmeTest.ajouterLigne(JEU_ETIQUETTES[i], 
-                                       JEU_INSTRUCTIONS[i]);
-        }
-    }
-    
+    };    
 
     /** 
      * Test unitaire de 
@@ -94,6 +59,9 @@ public class TestCommandeLance {
         };
         
         Expression.referencerContexte(contexteTest);
+        
+        System.out.println("\tExécution du test de "
+                           + "CommandeLance#CommandeLance(String, Contexte)");
         
         for (int i = 0; i < ARGS_INVALIDES.length; i++) {
             try {
@@ -122,6 +90,7 @@ public class TestCommandeLance {
         //ecrireProgrammeTest();
         Expression.referencerContexte(contexteTest);
         
+        System.out.println("\tExécution du test de CommandeLance#executer()");
         for (int i = 0 ; i < FIXTURE.length ; i++) {
             try {
                 FIXTURE[i].executer();

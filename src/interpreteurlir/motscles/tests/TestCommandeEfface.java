@@ -54,14 +54,14 @@ public class TestCommandeEfface {
             "\'a\' : 99"
         };
         
-        System.out.println("Exécution du test de CommandeEfface"
+        System.out.println("\tExécution du test de CommandeEfface"
                            + "(String, Contexte)");
         for (String aTester : INVALIDES) {
             try {
                 new CommandeEfface(aTester, CONTEXTE_TESTS);
                 echec();
             } catch (InterpreteurException e) {
-                // TODO: handle exception
+               // test OK
             }
         }
     }
@@ -69,7 +69,7 @@ public class TestCommandeEfface {
     /** Test de executer() */
     public static void testExecuter() {
         
-        System.out.println("Exécution du test d'executer()\nTest visuel :");
+        System.out.println("\tExécution du test d'executer()\nTest visuel :");
         Commande.referencerProgramme(PGM_TESTS);
         PGM_TESTS.ajouterLigne(new Etiquette(10), 
                 new InstructionAffiche("Bonjour", CONTEXTE_TESTS));

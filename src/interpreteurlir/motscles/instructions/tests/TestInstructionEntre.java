@@ -116,5 +116,4 @@ public class TestInstructionEntre {
         System.out.println("Contexte : \n" + CONTEXTE_GLB);
     }
     
-
 }

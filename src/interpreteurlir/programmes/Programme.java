@@ -262,7 +262,6 @@ public class Programme {
     /** 
      * Retour d'une procédure en dépilant l'étiquette de départ dans
      * le compteurOrdinal 
-     * @param depart étiquette du début de la procédure
      * @throws ExecutionException lorsque retourProcedure vide le 
      *                            compteurOrdinnal
      */

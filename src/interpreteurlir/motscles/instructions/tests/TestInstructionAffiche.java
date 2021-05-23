@@ -56,7 +56,7 @@ public class TestInstructionAffiche {
         };
         
         Expression.referencerContexte(CONTEXTE_GBL);
-        System.out.println("Exécution du test de InstructionAffiche(String"
+        System.out.println("\tExécution du test de InstructionAffiche(String"
                            + ", Contexte)");
         for (String argInvalide : INVALIDES) {
             try {
@@ -73,12 +73,14 @@ public class TestInstructionAffiche {
      */
     public static void testExecuter() {
         
-        System.out.println("Exécution du test de executer()\nTEST VISUEL SUR "
+        System.out.println("\tExécution du test de executer()\nTEST VISUEL SUR "
                            + "CONSOLE :");
         
         Expression.referencerContexte(CONTEXTE_GBL);
-        for (InstructionAffiche aLancer : FIXTURE)
-            aLancer.executer();
+        for (InstructionAffiche aLancer : FIXTURE) {
+            System.out.println("\n\ttest visuel suivant : ");
+            aLancer.executer(); 
+        }
         
         System.out.println();
     }
@@ -100,7 +102,7 @@ public class TestInstructionAffiche {
             "affiche \"300000000000000000 ça passe\""
         };
         
-        System.out.println("Exécution du test de toString()");
+        System.out.println("\tExécution du test de toString()");
         for (int i = 0 ; i < FIXTURE.length ; i++) {
             assertTrue(FIXTURE[i].toString().compareTo(ATTENDUS[i]) == 0);
         }

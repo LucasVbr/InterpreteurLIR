@@ -14,6 +14,7 @@ package interpreteurlir;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
+@SuppressWarnings("serial")
 public class ExecutionException extends RuntimeException {
     
     /** 

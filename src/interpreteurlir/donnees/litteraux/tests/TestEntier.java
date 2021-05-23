@@ -40,22 +40,6 @@ public class TestEntier {
         new Entier(179892),
     };
     
-    /** Jeu d'entiers correctement instanciés */
-    private final Entier[] ENTIERS_STRING = {
-
-        new Entier("1"),
-        new Entier("-4587"),
-        new Entier("-569"),
-        new Entier("-3"),
-        new Entier("0"),
-        new Entier("2"),
-        new Entier("78"),
-        new Entier("781"),
-        new Entier("179892"),
-        new Entier("-2147483648"),
-        new Entier("2147483647"),
-    };
-    
     /** Jeu d'integers correspondants */
     private static final int[] INT_VALIDES = {
         MIN_VALUE,
@@ -94,6 +78,7 @@ public class TestEntier {
                 "+",
         };
         
+        System.out.println("\tExécution du test de Entier(String)");
         for (int i = 0; i < INVALIDES.length; i++) {
             try {
                 new Entier(INVALIDES[i]);
@@ -108,6 +93,7 @@ public class TestEntier {
      * Test unitaire de la méthode toString()
      */
     public void testToString() {
+        System.out.println("\tExécution du test de Entier(String)");
         for (int i = 0; i < INT_VALIDES.length; i ++) {
             assertTrue(ENTIERS_INT[i].toString()
                        .compareTo(Integer.toString(INT_VALIDES[i])) == 0);
@@ -115,12 +101,12 @@ public class TestEntier {
     }
     
     /** 
-     * Test unitaire de la méthode toCompareTo()
+     * Test unitaire de la méthode compareTo()
      */
     public void testCompareTo() {
         final Entier REF_MIN = new Entier(MIN_VALUE);
         final Entier REF_MAX = new Entier(MAX_VALUE);
-        
+        System.out.println("\tExécution du test de compareTo()");
         for (int i = 2; i < ENTIERS_INT.length; i++) {
             assertTrue(REF_MIN.compareTo(ENTIERS_INT[i]) < 0);
             assertTrue(REF_MAX.compareTo(ENTIERS_INT[i]) > 0);
@@ -149,14 +135,14 @@ public class TestEntier {
                 781,
                 179892,
         };
-        
+        System.out.println("\tExécution du test de getValeur()");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(ENTIERS_INT[i].getValeur().compareTo(ATTENDUS[i]) == 0);
         }
     }
     
     /** 
-     * Test unitaire de la méthode somme()
+     * Test unitaire de la méthode somme(Entier, Entier)
      */
     public void testSomme() {
         final Entier[] ATTENDUS = {
@@ -172,7 +158,7 @@ public class TestEntier {
                 new Entier(1562),
                 new Entier(359784),
         };
-        
+        System.out.println("\tExécution du test de somme(Entier, Entier)");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(somme(ENTIERS_INT[i], ENTIERS_INT[i])
                        .compareTo(ATTENDUS[i]) == 0);
@@ -184,7 +170,7 @@ public class TestEntier {
      */
     public void testSoustrait() {
         Entier zero = new Entier(0); 
-        
+        System.out.println("\tExécution du test de soustrait(Entier, Entier)");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(soustrait(ENTIERS_INT[i], ENTIERS_INT[i])
                        .compareTo(zero) == 0);
@@ -208,7 +194,7 @@ public class TestEntier {
                 new Entier(781 * 781),
                 new Entier(179892 * 179892),
         };
-        
+        System.out.println("\tExécution du test de multiplie(Entier, Entier)");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(multiplie(ENTIERS_INT[i], ENTIERS_INT[i])
                        .compareTo(ATTENDUS[i]) == 0);
@@ -234,7 +220,7 @@ public class TestEntier {
                 new Entier(390),
                 new Entier(89946)
         };
-        
+        System.out.println("\tExécution du test de quotient(Entier, Entier)");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(quotient(ENTIERS_INT[i], DIVISEUR)
                        .compareTo(ATTENDUS[i]) == 0);
@@ -246,7 +232,8 @@ public class TestEntier {
      */
     public void testQuotientParZero() {
         final Entier DIVISEUR = new Entier(0);
-        
+        System.out.println("\tExécution du test de "
+                           + "quotient(Entier, Entier) par 0");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             try {
                 quotient(ENTIERS_INT[i], DIVISEUR);
@@ -276,7 +263,7 @@ public class TestEntier {
                 new Entier(1),
                 new Entier(0)
         };
-        
+        System.out.println("\tExécution du test de reste(Entier, Entier)");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             assertTrue(reste(ENTIERS_INT[i], DIVISEUR)
                        .compareTo(ATTENDUS[i]) == 0);
@@ -288,7 +275,8 @@ public class TestEntier {
      */
     public void testResteParZero() {
         final Entier DIVISEUR = new Entier(0);
-        
+        System.out.println("\tExécution du test de "
+                           + "reste(Entier, Entier) par 0");
         for (int i = 0; i < ENTIERS_INT.length; i++) {
             try {
                 reste(ENTIERS_INT[i], DIVISEUR);

@@ -1,4 +1,5 @@
 // Classe testée passé en abstract
+
 ///**
 // * TestCommande.java                              7 mai 2021
 // * IUT Rodez info1 2020-2021, pas de copyright, aucun droit

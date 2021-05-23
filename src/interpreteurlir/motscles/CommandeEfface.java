@@ -31,7 +31,7 @@ public class CommandeEfface extends Commande {
      * contexte passés en paramètres. Modifie le programme global référencé
      * par l'analyseur.
      * @param arguments lignes à effacer (tout le programme si vide)
-     * @param contexte
+     * @param contexte référence du contexte global
      */
     public CommandeEfface(String arguments, Contexte contexte) {
         super(arguments, contexte);
