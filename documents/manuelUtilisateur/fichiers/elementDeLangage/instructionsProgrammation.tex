@@ -1,18 +1,19 @@
 \begin{description}
-	\item [\textbf{Var :}] Initialise une expression (chaine de caractère ou entier) dans variable définie par son identificateur, aussi utilisé pour changer sa valeur.
 
-	\item [\textbf{Entre :}] Invite l'utilisateur a saisir une expression dans l'entrée standard. Celle-ci sera affectée dans la variable passée en argument.
+	\item [\textbf{Var :}] Stocke une chaine dans une variable pour pouvoir récupérer/manipuler cet/cette entier/chaine plus tard dans le programme.
 
-	\item [\textbf{Affiche :}] Affiche le contenu de l'expression passé en argument sur la console de l'interpreteur. Si il n'y a pas d'argument cela provoque un saut de ligne.
+	\item [\textbf{Entre :}] Invite l'utilisateur à saisir la valeur d'une variable au clavier afin de pouvoir communiquer avec le contexte de l'interpreteur et le modifier.
 
-	\item [\textbf{Vaen :}] Effectue un saut dans le programme vers l'étiquette passée en argument.
+	\item [\textbf{Affiche :}] Affiche le contenu de l'expression que l'on lui donne afin de pouvoir récupérer/vérifier le/les résultats du programme. Sans argument, cela provoque un saut de ligne.
 
-	\item [\textbf{Si ... vaen :}] Effectue un saut conditionnel, si l'expression booléenne passée en premier argument (entre si et vaen) est vrai, un saut s'effectue à l'étiquette passée en second argument (après vaen). 
+	\item [\textbf{Vaen :}] Effectue un saut vers une ligne spécifique d'un programme afin de créer des branchements ou des itérations dans le programme.
 
-	\item [\textbf{Procedure :}] Appel d'une fonction située à l'étiquette spécifiée. Puis reprend l'execution à la suite de cette action.
+	\item [\textbf{Si ... vaen :}] Effectue un saut vers une ligne spécifique d'un programme si la condition est remplie pour créer des branchements ou des itérations des les programmes.
 
-	\item [\textbf{Retour :}] Défini la fin d'une fonction, ordonne à l'interpreteur de retourner à la suite de l'instruction qui suit son appel.
+	\item [\textbf{Procedure :}] Transfère l'execution au numéro d'étiquette spécifié afin de pouvoir executer le programme puis reprendre puis reprendre en séquence une fois la procédure terminée (Fait appel à une fonction).
 
-	\item [\textbf{Stop :}] Arrête le programme.
+	\item [\textbf{Retour :}] Retoune à la suite de la ligne de code qui a précédé l'appel de la procédure afin de terminer la fonction en cours et reprendre l'execution du programme.
 
+	\item [\textbf{Stop :}] Arrêter le programme.
+	
 \end{description}
