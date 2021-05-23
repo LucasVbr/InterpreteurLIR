@@ -57,6 +57,9 @@
         \end{center}
     \end{titlepage}
 
+    \renewcommand\rmdefault{pag}
+    \fontfamily{pag}\selectfont
+    \renewcommand{\sfdefault}{pag}
 
     % Sommaire
     \renewcommand{\contentsname}{Sommaire}
@@ -199,44 +202,29 @@
 
     \section{Étude générale du besoin}
     \paragraph{Diagramme de cas d'utilisation général de l'Interpréteur LIR}
-    comprenant un acteur (le programmeur) et cinq cas d'utilisation
+    comprenant un acteur (le programmeur) et deux cas d'utilisation
     identifiés comme suit :
     \\
 
-    \includegraphics[width=\linewidth]{img/diagrammeDeCasUtilisation}
+    \includegraphics[width=\linewidth]{img/DiagrammeCasUtilisation.png}
 
     \subsection{Les acteurs}
     \paragraph{Programmeur :} % TODO à détailler
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec ultrices velit. Curabitur convallis non ipsum malesuada fringilla.
+    Personne utilisant l'interpréteur.
 
     \subsection{Résumés de cas d'utilisation}
     \subsubsection{\Large --- Exécuter une commande}
 
     \input{./fichiers/etudeGeneraleBesoin/resumeCasUtilisation/resumeExecuterUneCommande.tex}
 
-    \subsubsection{\Large --- Exécuter un programme}
-
-    \input{./fichiers/etudeGeneraleBesoin/resumeCasUtilisation/resumeExecuterUnProgramme.tex}
-
-    \subsubsection{\Large --- Éditer un programme}
+    \subsubsection{\Large --- Éditer une ligne de code}
 
     \input{./fichiers/etudeGeneraleBesoin/resumeCasUtilisation/resumeEditerUnProgramme.tex}
-
-    \subsubsection{\Large --- Sauvegarder le programme dans un fichier}
-
-    \input{./fichiers/etudeGeneraleBesoin/resumeCasUtilisation/resumeSauvegarderProgrammeDansFichier.tex}
-
-    \subsubsection{\Large --- Charger un programme depuis un fichier}
-
-    \input{./fichiers/etudeGeneraleBesoin/resumeCasUtilisation/resumeChargerProgrammeDansFichier.tex}
-
-    %TODO: ajouter résumés de cas d'utilisation
 
     \subsection{Récits d'utilisation (user stories)}
     Les récits d'utilisation %TODO déf
     \\Des récits d'utilisation ont été rédigés pour chaque commande et instruction.
 
-    %TODO: ajouter récits d'utilisation
 
     \chapter{Organisation du projet}
     \section{Présentation du cycle de vie itératif} % TODO relecture
