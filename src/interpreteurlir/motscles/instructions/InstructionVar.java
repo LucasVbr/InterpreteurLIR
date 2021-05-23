@@ -29,10 +29,11 @@ public class InstructionVar extends Instruction {
      */
     public InstructionVar(String arguments, Contexte contexte) {
         super(arguments, contexte);
+        final String USAGE = "usage var <identificateur> = <expression>";
         
         if (arguments == null || arguments.isBlank() 
                 || Expression.detecterCaractere(arguments, '=') <= 0)
-            throw new InterpreteurException("erreur de syntaxe");
+            throw new InterpreteurException(USAGE);
         
         aExecuter = Expression.determinerTypeExpression(arguments.trim());
     }

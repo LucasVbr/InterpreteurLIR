@@ -21,7 +21,7 @@ public class InstructionStop extends Instruction {
 
     /** Message d'erreur si instruction passée avec des arguments */
     private static final String ERREUR_ARGUMENTS = 
-            "l'instruction stop n'accepte pas d'arguments";
+            "l'instruction stop n'a pas d'arguments";
     
     /**
      * Initialise cette instruction stop à partir des arguments, du contexte
@@ -46,7 +46,7 @@ public class InstructionStop extends Instruction {
     public boolean executer() {
         
         final String ERREUR_REFERENCEMENT = "Le programme doit être référencé "
-                + "dans la classe commande";
+                                            + "dans la classe commande";
 
         if (programmeGlobal == null) {
             throw new RuntimeException(ERREUR_REFERENCEMENT);

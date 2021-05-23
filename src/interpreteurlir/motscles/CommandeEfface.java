@@ -21,7 +21,7 @@ public class CommandeEfface extends Commande {
     
     /** Erreur nombre incorrect d'arguments */
     private static final String ERREUR_NB_ARGS = 
-        "nombre d'arguments incorrect. Syntaxe attendue ==> <debut>:<fin>";
+        "usage efface <étiquette_début>:<étiquette_fin>";
     
     /** Plage de suppression des lignes de code */
     private Etiquette[] plageSuppression;

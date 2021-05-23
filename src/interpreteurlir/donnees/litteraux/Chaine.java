@@ -21,11 +21,11 @@ public class Chaine extends Litteral {
         
         /** Erreur chaîne trop longue */
         private static final String ERREUR_LG_MAX = 
-                "Longueur maximale d'une chaîne dépassée";
+                "longueur maximale d'une chaîne dépassée";
         
         /** Erreur constante littéral chaîne invalide */
         private static final String ERREUR_INVALIDE = 
-                "syntaxe incorrecte pour une constante de type chaîne : ";
+                " n'est pas une constante de type chaîne";
         
         /**
          * initialise cette chaîne avec  une valeur par défaut.
@@ -42,8 +42,7 @@ public class Chaine extends Litteral {
         public Chaine(String uneValeur) {
             uneValeur = uneValeur.trim();
             if (!isChaine(uneValeur)) {
-                throw new InterpreteurException(ERREUR_INVALIDE 
-                                                + uneValeur);
+                throw new InterpreteurException(uneValeur + ERREUR_INVALIDE);
             }
 
             uneValeur = uneValeur.substring(1, uneValeur.length() - 1);
@@ -61,7 +60,8 @@ public class Chaine extends Litteral {
          */
         public static boolean isChaine(String uneValeur) {
             uneValeur = uneValeur.trim();
-            return uneValeur.startsWith("\"") && uneValeur.endsWith("\"");
+            return  uneValeur.length() >= 2 
+                    && uneValeur.startsWith("\"") && uneValeur.endsWith("\"");
         }
         
         /** 

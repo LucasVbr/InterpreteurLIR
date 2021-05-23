@@ -30,7 +30,7 @@ import static interpreteurlir.programmes.Etiquette.VALEUR_ETIQUETTE_MIN;
 public class Programme {
     
     private static final String ERREUR_INTERVALLE = "erreur dans l'intervalle "
-                                                    + "d'étiquettes. "; 
+                                                    + "d'étiquettes"; 
     
     /** Pile LIFO pour la gestion des étiquettes */
     private Stack<Etiquette> compteurOrdinnal;

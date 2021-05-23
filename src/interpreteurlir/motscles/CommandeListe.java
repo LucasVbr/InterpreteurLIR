@@ -39,10 +39,10 @@ public class CommandeListe extends Commande {
         final int ARGS_DEBUT = 0;
         final int   ARGS_FIN = 1;
         
-        final String ERREUR_INTERVALLE = "usage <etiquette debut>:"
-                                         + "<etiquette fin> avec "
-                                         + "<etiquette debut> < "
-                                         + "<etiquette fin> ";
+        final String ERREUR_INTERVALLE = "usage liste <étiquette_début>:"
+                                         + "<étiquette_fin> avec "
+                                         + "<étiquette_début> <= "
+                                         + "<étiquette_fin> ";
         
         if (arguments.isBlank()) {
             debut = new Etiquette(VALEUR_ETIQUETTE_MIN);

@@ -20,8 +20,9 @@ import interpreteurlir.expressions.Expression;
  */
 public class InstructionAffiche extends Instruction {
     
-    /** Erreur d'affectation illegale */
-    private static final String AFFECTATION_ILLEGALE = "affectation illegale";
+    /** Erreur d'affectation illégale */
+    private static final String AFFECTATION_ILLEGALE = 
+                              "affectation impossible avec la commande affiche";
 
     /**
      * Initialise cette InstructionAffiche à partir de son contexte global

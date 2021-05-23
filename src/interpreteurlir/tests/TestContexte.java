@@ -86,7 +86,6 @@ public class TestContexte {
                 "aucune variable n'est définie\n",
                 "aucune variable n'est définie\n",
                 "aucune variable n'est définie\n",
-                // TODO refaire quand totalement fonctionnel
         };
         
         System.out.println("\tExécution du test de Contexte#toString()");

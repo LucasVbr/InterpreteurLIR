@@ -52,7 +52,7 @@ public class CommandeCharge extends Commande{
                 || !arguments.trim().endsWith(extension)) {
 
             throw new InterpreteurException("\t" + arguments 
-                    + " n'est pas un chemin valide ");
+                    + " n'est pas un chemin valide");
         }
 
         this.cheminFichier = arguments.trim();
@@ -81,7 +81,7 @@ public class CommandeCharge extends Commande{
             analyserFichier(entree);
             entree.close();
         } catch (IOException e) {
-            throw new InterpreteurException(nomFichier + " est introuvable.");
+            throw new InterpreteurException(nomFichier + " est introuvable");
         }
         
         return false;

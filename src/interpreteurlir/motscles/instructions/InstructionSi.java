@@ -43,7 +43,7 @@ public class InstructionSi extends Instruction {
         
         arguments = arguments.trim();
         if (arguments.isBlank()) {
-            throw new InterpreteurException("si vaen attend des arguments");
+            throw new InterpreteurException(ERR_SYNTAXE);
         }
         
         int indexVaen = arguments.lastIndexOf("vaen");

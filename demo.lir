@@ -1,0 +1,13 @@
+10 affiche "Entre ton nom : " 
+20 entre $nom 
+30 affiche "Bienvenue "+$nom 
+35 affiche 
+40 var an=2021 
+50 affiche "Quelle est ton année de naissance ? " 
+60 entre naissance 
+65 si naissance > an vaen 50 
+70 affiche "Tu as autour de " 
+80 affiche an-naissance 
+90 affiche "ans " 
+100 affiche 
+200 stop

@@ -34,7 +34,7 @@ public class Entier extends Litteral {
     public Entier(String uneValeur) {
         if (!isEntier(uneValeur)) {
             throw new InterpreteurException(uneValeur 
-                                            + " n'est pas un nombre entier. ");
+                                            + " n'est pas un nombre entier");
         }
 
         valeur = Integer.valueOf(uneValeur);
@@ -124,7 +124,7 @@ public class Entier extends Litteral {
      */
     public static Entier quotient(Entier premier, Entier second) {
         if (second.compareTo(new Entier (0)) == 0) {
-            throw new ExecutionException("Erreur. Division par 0. ");
+            throw new ExecutionException("division par 0");
         }
         return new Entier((int) premier.getValeur() / (int) second.getValeur());
     }
@@ -138,7 +138,7 @@ public class Entier extends Litteral {
      */
     public static Entier reste(Entier premier, Entier second) {
         if (second.compareTo(new Entier (0)) == 0) {
-            throw new ExecutionException("Erreur. Division par 0. ");
+            throw new ExecutionException("division par 0");
         }
         return new Entier((int) premier.getValeur() % (int) second.getValeur());
     }

@@ -29,11 +29,11 @@ public class ExpressionEntier extends Expression {
     
     /** Erreur opérande attendue */
     private static final String OPERANDE_D_MANQUANT = 
-            " : opérande droit attendu";
+            " attend un opérande droit";
     
 
     /**
-     * Initalise une expression de type Entier avec les liens nécessaires à son
+     * Initialise une expression de type Entier avec les liens nécessaires à son
      * calcule.
      * @param texteExpression texte suivant la syntaxe d'une expression
      * @throws InterpreteurException si texteExpression n'est pas valide

@@ -40,15 +40,14 @@ public class ExpressionBooleenne extends Expression {
     
     private static final String ERREUR_ARGUMENT = "une expression ne peut être "
                                                   + "vide";
-    private static final String ERREUR_SYNTAXE = "erreur de syntaxe.\n"
-                                   + "usage : opérande1 oprel opérande2 \n"
-                                   + "avec oprel comme opérateur relation "
-                                   + "un des symboles suivants : <> < <= > "
-                                   + ">="
-                                   + "\net comme opérandes des constantes, "
+    private static final String ERREUR_SYNTAXE = 
+                                     "usage <opérande1> <oprel> <opérande2> \n"
+                                   + "avec oprel comme opérateur relationnel "
+                                   + "un des symboles suivants : <> < <= > >="
+                                   + "et comme opérandes des constantes, "
                                    + "ou alors des identificateurs";
-    private static final String ERREUR_TYPE = "types incompatibles dans la "
-                                              + "condition";
+    private static final String ERREUR_TYPE = "opérande invalide "
+                                              + "ou type incompatible";
     private static final String ERREUR_OPERATEUR = "opérateur inconnu";
     
             

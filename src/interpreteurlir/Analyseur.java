@@ -95,7 +95,7 @@ public class Analyseur {
      * @param motCle mot clé de l'instruction
      * @param arguments reste de la ligne saisie après le mot clé
      */
-    public void editerProgramme(String texteEtiquette, String motCle, 
+    private void editerProgramme(String texteEtiquette, String motCle, 
                                  String arguments) {
         Class<?> aAjouter;
         try {

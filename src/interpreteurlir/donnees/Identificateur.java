@@ -33,7 +33,7 @@ public abstract class Identificateur implements Comparable<Identificateur> {
         identificateur = identificateur.trim();
         if(!isIdentificateur(identificateur)) {
             throw new InterpreteurException(identificateur
-                                            + " n'est pas un identificateur");
+                                            + " produit un résultat inattendu");
         }
 
         nom = identificateur;

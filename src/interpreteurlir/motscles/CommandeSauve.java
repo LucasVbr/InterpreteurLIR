@@ -39,7 +39,7 @@ public class CommandeSauve extends Commande {
         super(arguments, contexte);
         
         final String EXTENSION = ".lir";
-        final String USAGE = "usage sauve <chemin et nom du fichier>.lir";
+        final String USAGE = "usage sauve <chemin_et_nom_du_fichier>.lir";
         
         arguments = arguments.trim();
         
@@ -64,7 +64,7 @@ public class CommandeSauve extends Commande {
     @Override
     public boolean executer() {
         final String MSG_ERREUR = "impossible de sauvegarder le programme "
-                + "dans le fichier (le chemin est peut être invalide)";
+                + "dans le fichier (le chemin est peut-être invalide)";
         
         if (programmeGlobal == null) {
             throw new RuntimeException("Programme non référencé dans Commande");

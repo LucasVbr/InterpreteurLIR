@@ -32,7 +32,6 @@ public class ExpressionChaine extends Expression {
     public ExpressionChaine(String texteExpression) {
         super();
         final String MESSAGE_ERREUR = "une expression ne peut être vide";
-
         
         String gauche;
         String droite;

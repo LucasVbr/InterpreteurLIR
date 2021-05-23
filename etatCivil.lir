@@ -1,0 +1,28 @@
+10 affiche "Bienvenue dans le programme"
+20 affiche
+30 var instant = 2021
+40 procedure 500
+50 var $message = "Vous êtes " + $prenom
+60 var $message = $message + " "
+65 var $message = $message + $nom
+70 affiche $message
+80 affiche
+90 affiche "age : "
+100 affiche age
+110 affiche " ans"
+120 vaen 150
+124 affiche
+125 affiche "erreur vaen si affiché"
+150 affiche
+200 affiche "Merci d'avoir utilisé ce programme !"
+400 stop
+500 affiche "Saisissez votre nom : "
+510 entre $nom
+520 affiche "Saisissez votre prénom : "
+530 entre $prenom
+540 affiche "Saisissez votre année de naissance (entier) : "
+550 entre naissance
+560 procedure 1000
+570 retour
+1000 var age = instant - naissance
+1010 retour
