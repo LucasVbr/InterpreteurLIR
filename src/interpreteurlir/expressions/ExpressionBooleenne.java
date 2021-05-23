@@ -4,17 +4,17 @@
  */
 package interpreteurlir.expressions;
 
-import static interpreteurlir.donnees.IdentificateurChaine.*;
-import static interpreteurlir.donnees.IdentificateurEntier.*;
+import static interpreteurlir.donnees.IdentificateurChaine
+                                     .isIdentificateurChaine;
+import static interpreteurlir.donnees.IdentificateurEntier
+                                     .isIdentificateurEntier;
+import static interpreteurlir.donnees.litteraux.Entier.isEntier;
+import static interpreteurlir.donnees.litteraux.Chaine.isChaine;
 
-import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.IdentificateurChaine;
 import interpreteurlir.donnees.IdentificateurEntier;
-import interpreteurlir.donnees.litteraux.Booleen;
-import interpreteurlir.donnees.litteraux.Chaine;
-import interpreteurlir.donnees.litteraux.Entier;
-import interpreteurlir.donnees.litteraux.Litteral;
+import interpreteurlir.donnees.litteraux.*;
 
 /** 
  * Expression de type Booleen qui peut être évaluée.
@@ -51,11 +51,6 @@ public class ExpressionBooleenne extends Expression {
                                               + "condition";
     private static final String ERREUR_OPERATEUR = "opérateur inconnu";
     
-    private static final int DEBUT = 0;
-    private static final int FIN   = 1;
-    
-    /** opérateur pour cette expression booléenne */
-    private char[] operateurRelationnel = new char[2];
             
     /** 
      * Initialise une expression de type Booleen avec les liens 
@@ -83,13 +78,15 @@ public class ExpressionBooleenne extends Expression {
         int[] indexOperateurs = affecterOperateur(aTraiter, 
                                                   detecterOperateurs(aTraiter));
         
-        if (indexOperateurs[FIN] > aTraiter.length() - 2
-                || indexOperateurs[DEBUT] <= 0) {
+        if (indexOperateurs[INDEX_OPERATEUR_D] > aTraiter.length() - 2
+                || indexOperateurs[INDEX_OPERATEUR_G] <= 0) {
             throw new InterpreteurException(aTraiter + ERREUR_SYNTAXE);
         }
         
-        gauche = aTraiter.substring(0, indexOperateurs[DEBUT]).trim();
-        droite = aTraiter.substring(indexOperateurs[FIN] + 1).trim();
+        gauche = aTraiter.substring(0, indexOperateurs[INDEX_OPERATEUR_G])
+                         .trim();
+        droite = aTraiter.substring(indexOperateurs[INDEX_OPERATEUR_D] + 1)
+                         .trim();
         
         if (!isMemeType(gauche, droite)) {
             throw new InterpreteurException(ERREUR_TYPE);
@@ -112,19 +109,24 @@ public class ExpressionBooleenne extends Expression {
      *                               
      */
     private int[] affecterOperateur(String aTraiter, int[] indexOperateurs) {
-        operateurRelationnel[DEBUT] = indexOperateurs[DEBUT] <= 0 
-                                      ? '\u0000'
-                                      : aTraiter.charAt(indexOperateurs[DEBUT]);
-        operateurRelationnel[FIN]   = indexOperateurs[FIN] <= 0 
-                                      ? '\u0000'
-                                      : aTraiter.charAt(indexOperateurs[FIN]);
+        operateur[INDEX_OPERATEUR_G] = indexOperateurs[INDEX_OPERATEUR_G] <= 0 
+                ? '\u0000'
+                : aTraiter.charAt(indexOperateurs[INDEX_OPERATEUR_G]);
+        operateur[INDEX_OPERATEUR_D]   = indexOperateurs[INDEX_OPERATEUR_D] <= 0 
+                ? '\u0000'
+                : aTraiter.charAt(indexOperateurs[INDEX_OPERATEUR_D]);
         
-        if (indexOperateurs[DEBUT] <= 0) {
-            indexOperateurs[DEBUT] = indexOperateurs[FIN];
-        } else if (indexOperateurs[FIN] <= 0) {
-            indexOperateurs[FIN] = indexOperateurs[DEBUT];
+        if (indexOperateurs[INDEX_OPERATEUR_G] <= 0) {
+            indexOperateurs[INDEX_OPERATEUR_G] = 
+                                             indexOperateurs[INDEX_OPERATEUR_D];
+            
+        } else if (indexOperateurs[INDEX_OPERATEUR_D] <= 0) {
+            indexOperateurs[INDEX_OPERATEUR_D] = 
+                                             indexOperateurs[INDEX_OPERATEUR_G];
         }
-        if (indexOperateurs[FIN] - indexOperateurs[DEBUT] > 1
+        
+        if (indexOperateurs[INDEX_OPERATEUR_D] 
+                - indexOperateurs[INDEX_OPERATEUR_G] > 1
                 || !isOperateurValide()) {
             throw new InterpreteurException(ERREUR_OPERATEUR);
         }
@@ -137,21 +139,26 @@ public class ExpressionBooleenne extends Expression {
      * @return true si opérateur formé par les symboles est valide, false sinon
      */
     private boolean isOperateurValide() {
+        
         final String[] OPERATEUR_VALIDE = {
             "<", ">", "<=", ">=", "=", "<>"        
         };
+        
         String aTester = "";
-        if (operateurRelationnel[DEBUT] != '\u0000') {
-            aTester = aTester + operateurRelationnel[DEBUT];
+        if (operateur[INDEX_OPERATEUR_G] != '\u0000') {
+            aTester = aTester + operateur[INDEX_OPERATEUR_G];
         }
-        if (operateurRelationnel[FIN] != '\u0000') {
-            aTester = aTester + operateurRelationnel[FIN];
+        if (operateur[INDEX_OPERATEUR_D] != '\u0000') {
+            aTester = aTester + operateur[INDEX_OPERATEUR_D];
         }
-        boolean estValide = false;
-        for (int index = 0 ; index < OPERATEUR_VALIDE.length ; index++) {
-            estValide = estValide || OPERATEUR_VALIDE[index].equals(aTester);
-        }
-        return estValide;
+        
+        int index;
+        for (index = 0 ; 
+             index < OPERATEUR_VALIDE.length 
+             && !OPERATEUR_VALIDE[index].equals(aTester);
+             index++)
+            ; /* empty body */
+        return index < OPERATEUR_VALIDE.length;
     }
 
     /**
@@ -166,15 +173,11 @@ public class ExpressionBooleenne extends Expression {
         return (     (isIdentificateurEntier(gauche) || isEntier(gauche))
                   && (isIdentificateurEntier(droit)  || isEntier(droit)))
                || 
-               (     (isIdentificateurChaine(gauche) || gauche.startsWith("\""))
-                  && (isIdentificateurChaine(droit) || droit.startsWith("\"")));
+               (     (isIdentificateurChaine(gauche) || isChaine(gauche)))
+                  && (isIdentificateurChaine(droit)  || isChaine(droit));
 
     }
     
-    private static boolean isEntier(String chaine) {
-        char aTester = chaine.charAt(0);
-        return Character.isDigit(aTester) || aTester == '-' || aTester == '+';
-    }
 
     /** 
      * Détecte les opérateurs d'une expression logique
@@ -187,8 +190,8 @@ public class ExpressionBooleenne extends Expression {
     private static int[] detecterOperateurs(String aTraiter) {
         int[] index = new int[2];
         char charCourant;
-        index[DEBUT] = -1;
-        index[FIN] = -1;
+        index[INDEX_OPERATEUR_G] = -1;
+        index[INDEX_OPERATEUR_D] = -1;
         int nbGuillemet = 0;
 
         for (int i = 0 ; i < aTraiter.length() - 1 ; i++) {
@@ -198,18 +201,18 @@ public class ExpressionBooleenne extends Expression {
                 nbGuillemet++;
             }
             
-            if (index[DEBUT] < 0 && (nbGuillemet & 1) == 0 
-                                 && (charCourant == OPERATEURS[0] 
-                                     || charCourant == OPERATEURS[1])) {
-                index[DEBUT] = i;
+            if (index[INDEX_OPERATEUR_G] < 0 && (nbGuillemet & 1) == 0 
+                    && (   charCourant == OPERATEURS[0] 
+                        || charCourant == OPERATEURS[1])) {
+                index[INDEX_OPERATEUR_G] = i;
             } else if ((nbGuillemet & 1) == 0 
                        && (charCourant == OPERATEURS[1] 
                            || charCourant == OPERATEURS[2])) {
-                index[FIN] = i;
+                index[INDEX_OPERATEUR_D] = i;
             }
         }
         
-        if (index[DEBUT] == index[FIN]) {
+        if (index[INDEX_OPERATEUR_G] == index[INDEX_OPERATEUR_D]) {
             throw new InterpreteurException(ERREUR_OPERATEUR);
         }
         
@@ -227,13 +230,13 @@ public class ExpressionBooleenne extends Expression {
             throw new IllegalArgumentException("index invalide");
         }
         
-        if (IdentificateurEntier.isIdentificateurEntier(operande)) {
+        if (isIdentificateurEntier(operande)) {
             identificateursOperandes[index] = 
                                              new IdentificateurEntier(operande);
-        } else if (IdentificateurChaine.isIdentificateurChaine(operande)) {
+        } else if (isIdentificateurChaine(operande)) {
             identificateursOperandes[index] = 
                                              new IdentificateurChaine(operande);
-        } else if (operande.startsWith("\"") && operande.endsWith("\"")) {
+        } else if (isChaine(operande)) {
             litterauxOperandes[index] = new Chaine(operande);
         } else {
             litterauxOperandes[index] = new Entier(operande);
@@ -262,76 +265,24 @@ public class ExpressionBooleenne extends Expression {
      * Calcule la valeur de l'expression selon l'opérateur 
      * à partir de l'opérande gauche et droite
      * Les opérande doivent être du même type.
-     * @param OperandeGauche opérande gauche
-     * @param OperandeDroite opérande droite
+     * @param gauche opérande gauche
+     * @param droite opérande droite
      * @return true si expression true sinon false
      */
-    private boolean calculAvecOperateur(Litteral OperandeGauche, 
-                                         Litteral OperandeDroite) {
+    private boolean calculAvecOperateur(Litteral gauche, Litteral droite) {
         boolean resultat = false;
-        
-        if (OperandeGauche instanceof Entier 
-                && OperandeDroite instanceof Entier) {
-            Entier gauche = (Entier)OperandeGauche;
-            Entier droite = (Entier)OperandeDroite;
-            if (operateurRelationnel[DEBUT] == OPERATEURS[0]) {
-                resultat = gauche.compareTo(droite) < 0;
-            } else if (operateurRelationnel[DEBUT] == OPERATEURS[1]) {
-                resultat = gauche.compareTo(droite) > 0;
-            }
-            
-            if (operateurRelationnel[FIN] == OPERATEURS[1]) {
-                resultat = resultat || gauche.compareTo(droite) > 0;
-            } else if (operateurRelationnel[FIN] == OPERATEURS[2]) {
-                resultat = resultat || gauche.compareTo(droite) == 0;
-            }
-        } else {
-            Chaine gauche = (Chaine)OperandeGauche;
-            Chaine droite = (Chaine)OperandeDroite;
-            if (operateurRelationnel[DEBUT] == OPERATEURS[0]) {
-                resultat = gauche.compareTo(droite) < 0;
-            } else if (operateurRelationnel[DEBUT] == OPERATEURS[1]) {
-                resultat = gauche.compareTo(droite) > 0;
-            }
-            
-            if (operateurRelationnel[FIN] == OPERATEURS[1]) {
-                resultat = resultat || gauche.compareTo(droite) > 0;
-            } else if (operateurRelationnel[FIN] == OPERATEURS[2]) {
-                resultat = resultat || gauche.compareTo(droite) == 0;
-            }
+        if (operateur[INDEX_OPERATEUR_G] == OPERATEURS[0]) {
+            resultat = gauche.compareTo(droite) < 0;
+        } else if (operateur[INDEX_OPERATEUR_G] == OPERATEURS[1]) {
+            resultat = gauche.compareTo(droite) > 0;
         }
+        
+        if (operateur[INDEX_OPERATEUR_D] == OPERATEURS[1]) {
+            resultat = resultat || gauche.compareTo(droite) > 0;
+        } else if (operateur[INDEX_OPERATEUR_D] == OPERATEURS[2]) {
+            resultat = resultat || gauche.compareTo(droite) == 0;
+        }        
         
         return resultat;
-    }
-
-    /* non javadoc
-     * @see interpreteurlir.expressions.Expression#toString()
-     */
-    @Override
-    public String toString() {
-        StringBuilder resultat = new StringBuilder("");
-        
-        if (litterauxOperandes[INDEX_OPERANDE_G] != null) {
-            resultat.append(litterauxOperandes[INDEX_OPERANDE_G]);
-        } else {
-            resultat.append(identificateursOperandes[INDEX_OPERANDE_G]);
-        }
-        resultat.append(" ");
-        
-        if (operateurRelationnel[DEBUT] != '\u0000') {
-            resultat.append(operateurRelationnel[DEBUT]);
-        }
-        if (operateurRelationnel[FIN] != '\u0000') {
-            resultat.append(operateurRelationnel[FIN]);
-        }
-        
-        resultat.append(" ");
-        if (litterauxOperandes[INDEX_OPERANDE_D] != null) {
-            resultat.append(litterauxOperandes[INDEX_OPERANDE_D]);
-        } else {
-            resultat.append(identificateursOperandes[INDEX_OPERANDE_D]);
-        }
-        
-        return resultat.toString();
     }
 }

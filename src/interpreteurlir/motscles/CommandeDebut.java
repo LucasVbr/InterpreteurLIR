@@ -39,7 +39,6 @@ public class CommandeDebut extends Commande {
         }
     }
     
-    
     /**
      * Commande d'exécution de la commande.
      * Efface le contexte.

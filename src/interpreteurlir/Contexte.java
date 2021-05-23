@@ -61,7 +61,6 @@ public class Contexte {
         }
         // else
         
-        
         Variable varAIndex = variables.get(indexVar);
         /* Variable déjà présente */
         if (varAIndex.getIdentificateur().compareTo(id) == 0) {

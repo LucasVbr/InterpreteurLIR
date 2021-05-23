@@ -70,6 +70,8 @@ public class InstructionEntre extends Instruction {
         
         final String MESSAGE_ERREUR_TYPE = "Le type saisi ne correspond"
                                            + " pas au type demandé";
+        
+        @SuppressWarnings("resource") // ne pas fermer sinon crash
         Scanner entree = new Scanner(System.in);
         
         String valeurSaisie = entree.nextLine();
@@ -84,6 +86,7 @@ public class InstructionEntre extends Instruction {
         } catch (InterpreteurException lancee) {
             throw new ExecutionException(MESSAGE_ERREUR_TYPE);
         }
+        
         return false;
     }
 

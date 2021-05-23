@@ -19,7 +19,7 @@ import interpreteurlir.donnees.litteraux.Litteral;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
-public class Expression {
+public abstract class Expression {
     
     /** Index de l'operande gauche */
     protected static final int INDEX_OPERANDE_G = 0;
@@ -29,6 +29,12 @@ public class Expression {
     
     /** Index de de l'identificateur pour l'affectation */
     protected static final int INDEX_AFFECTATION = 2;
+    
+    /** Index du premier symbole de l'opérateur */
+    protected static final int INDEX_OPERATEUR_G = 0;
+    
+    /** Index du second symbole de l'opérateur */
+    protected static final int INDEX_OPERATEUR_D = 1;
 
     /** Contexte global pour accéder aux données. */
     protected static Contexte contexteGlobal;
@@ -39,6 +45,12 @@ public class Expression {
     /** Littéraux opérandes de cette expression */
     protected Litteral[] litterauxOperandes;
     
+    /** 
+     * Opérateur de cette expression potentiellement 
+     * composé de plusieurs symboles 
+     */
+    protected char[] operateur;
+    
     /**
      * Initialise une expression par défaut avec les liens nécessaires à
      * son calcul.
@@ -47,6 +59,10 @@ public class Expression {
         super();
         final int NB_IDENTIFICATEUR = 3;
         final int NB_LITTERAL = 2;
+        
+        operateur = new char[2];
+        operateur[INDEX_OPERATEUR_G] = '\u0000';
+        operateur[INDEX_OPERATEUR_D] = '\u0000';
         
         identificateursOperandes = new Identificateur[NB_IDENTIFICATEUR];
         litterauxOperandes = new Litteral[NB_LITTERAL];
@@ -77,20 +93,28 @@ public class Expression {
         Identificateur affect = identificateursOperandes[INDEX_AFFECTATION];
         resultat.append(affect == null ? "" : (affect.toString() + " = "));
         
-        Identificateur gaucheId = identificateursOperandes[INDEX_OPERANDE_G];
-        Litteral gaucheLitteral = litterauxOperandes[INDEX_OPERANDE_G];
-        resultat.append(gaucheId != null ? gaucheId.toString()
-                                         : gaucheLitteral.toString());
+        if (litterauxOperandes[INDEX_OPERANDE_G] != null) {
+            resultat.append(litterauxOperandes[INDEX_OPERANDE_G]);
+        } else {
+            resultat.append(identificateursOperandes[INDEX_OPERANDE_G]);
+        }
+        resultat.append(" ");
         
-        Identificateur droiteId = identificateursOperandes[INDEX_OPERANDE_D];
-        Litteral droiteLitteral = litterauxOperandes[INDEX_OPERANDE_D];
-        if (droiteId != null || droiteLitteral != null) {
-            resultat.append(" + ");
-            resultat.append(droiteId != null ? droiteId.toString()
-                                             : droiteLitteral.toString());
+        if (operateur[INDEX_OPERATEUR_G] != '\u0000') {
+            resultat.append(operateur[INDEX_OPERATEUR_G]);
+        }
+        if (operateur[INDEX_OPERATEUR_D] != '\u0000') {
+            resultat.append(operateur[INDEX_OPERATEUR_D]);
         }
         
-        return resultat.toString();
+        resultat.append(" ");
+        if (litterauxOperandes[INDEX_OPERANDE_D] != null) {
+            resultat.append(litterauxOperandes[INDEX_OPERANDE_D]);
+        } else if (identificateursOperandes[INDEX_OPERANDE_D] != null) {
+            resultat.append(identificateursOperandes[INDEX_OPERANDE_D]);
+        }       
+        
+        return resultat.toString().trim();
     }
 
     /**
@@ -128,5 +152,27 @@ public class Expression {
         } else {
             return new ExpressionEntier(aTraiter);
         }
+    }
+    
+    /**
+     * Détermine l'index du caractère en dehors des constantes littérales
+     * @param aTraiter chaîne à traiter
+     * @param caractere opérateur à chercher hors guillemet
+     * @return index dans à traiter du plus sinon -1 si aucun plus
+     */
+    public static int detecterCaractere(String aTraiter, char caractere) {
+        char[] aTester = aTraiter.toCharArray();
+        int indexPlus;
+        int nbGuillemet = 0;
+        for (indexPlus = 0 ; 
+             indexPlus < aTester.length 
+             && (aTester[indexPlus] != caractere || nbGuillemet % 2 != 0) ;
+             indexPlus++) {
+            
+            if (aTester[indexPlus] == '"') {
+                nbGuillemet++;
+            } 
+        }
+        return indexPlus >= aTester.length ? -1 : indexPlus;
     }
 }

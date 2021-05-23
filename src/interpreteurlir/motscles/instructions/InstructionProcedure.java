@@ -5,7 +5,6 @@
 package interpreteurlir.motscles.instructions;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.programmes.Etiquette;
 
@@ -63,7 +62,6 @@ public class InstructionProcedure extends Instruction {
      *                          de classe de Commande.
      */
     public boolean executer() {
-        
         final String ERREUR_REFERENCEMENT = "Le programme doit être référencé "
                                             + "dans la classe commande";
         

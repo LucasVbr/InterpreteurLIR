@@ -20,6 +20,7 @@ import interpreteurlir.donnees.IdentificateurChaine;
  * @author Lucas Vabre
  */
 public class TestIdentificateurChaine {
+    
     /** Jeu d'identificateurs de chaîne correctement instanciés */
     private static IdentificateurChaine[] FIXTURE = {
             new IdentificateurChaine("$a"),
@@ -35,7 +36,6 @@ public class TestIdentificateurChaine {
      */
     public static void testIdentificateurChaineString() {
         final String[] INVALIDE = {
-                null,
                 "",
 
                 // Commence par une lettre

@@ -36,4 +36,13 @@ public class Booleen extends Litteral {
         return (Boolean) super.valeur;
     }
 
+    /* non javadoc
+     * @deprecated
+     * @see Litteral#compareTo(Litteral)
+     */
+    @Override
+    public int compareTo(Litteral autre) {
+        return (Boolean)this.valeur == (Boolean)autre.valeur ? 0 : 1; // égalité
+    }
+
 }

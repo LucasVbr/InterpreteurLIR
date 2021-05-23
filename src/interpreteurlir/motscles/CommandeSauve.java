@@ -4,7 +4,6 @@
  */
 package interpreteurlir.motscles;
 
-import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
 import interpreteurlir.Contexte;
@@ -76,6 +75,7 @@ public class CommandeSauve extends Commande {
         try {
             aEcrire = new PrintStream(cheminFichier);
             aEcrire.print(programmeGlobal.toString());
+            aEcrire.close();
         } catch (Exception lancee) {
             throw new ExecutionException(MSG_ERREUR);
         }

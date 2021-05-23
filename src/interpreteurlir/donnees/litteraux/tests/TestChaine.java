@@ -34,7 +34,7 @@ public class TestChaine {
 			"arztyehjklmpoijhghnbghjklmpoiuytrf" + 
 			"yeryghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu";
 
-	    System.out.println("test de Chaine(String)");
+	    System.out.println("\ttest de Chaine(String)");
 	    
 	    for (String aTester : VALIDE)
 	    	new Chaine(aTester);
@@ -43,7 +43,7 @@ public class TestChaine {
 	    	new Chaine(INVALIDE);
 	    	throw new RuntimeException("Instanciation interdite");
 	    } catch (InterpreteurException lancee) {
-	    	System.out.println("Revoi d'exception OK\nfin du test");
+	    	System.out.println("\tRevoi d'exception OK\nfin du test");
 	    }
 	}
 	
@@ -63,19 +63,19 @@ public class TestChaine {
 			{new Chaine("\" \""), new Chaine()} 
 		};
 		
-		System.out.println("test de compareTo(Chaine)\nAvec égalités");
+		System.out.println("\ttest de compareTo(Chaine)\nAvec égalités");
 		
 		for (Chaine[] couple : EGALITES) {
 			
 			try {
 		    	assert couple[0].compareTo(couple[1]) == 0;
 		    } catch (AssertionError lancee) {
-				System.err.println("Echec du test");
+				echec();
 		    }	
 			
 		}
 		
-		System.out.println("Avec des inégalités");
+		System.out.println("\tAvec des inégalités");
 		for (Chaine[] couple : DIFFERENCES) {
 			try {
 		    	assert couple[0].compareTo(couple[1]) > 0;
@@ -83,7 +83,7 @@ public class TestChaine {
 				System.err.println("Echec du test");
 		    }
 		}
-		System.out.println("fin du test");
+		System.out.println("\tfin du test");
 	
 	}
 	
@@ -101,7 +101,7 @@ public class TestChaine {
 				"\"coucou monsieur\""
 		};
 		
-		System.out.println("test de toString");
+		System.out.println("\ttest de toString");
 		for (int i = 0 ; i < A_AFFICHER.length ; i++) {
 			
 			try {
@@ -110,7 +110,7 @@ public class TestChaine {
 				System.err.println("Echec du test a l'indice " + i);
 			}
 		}
-		System.out.println("==>test terminé\n");		
+		System.out.println("\t==>test terminé\n");		
 	}
 	
 	/**

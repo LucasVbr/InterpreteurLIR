@@ -40,17 +40,27 @@ public class Chaine extends Litteral {
          */
         public Chaine(String uneValeur) {
             uneValeur = uneValeur.trim();
-                if (!uneValeur.startsWith("\"") || !uneValeur.endsWith("\"")) {
-                    throw new InterpreteurException(ERREUR_INVALIDE 
-                                                    + uneValeur);
-                }
-                
-                uneValeur = uneValeur.substring(1, uneValeur.length() - 1);
-                
-                if (uneValeur.length() > LG_MAX_CHAINE) 
-                    throw new InterpreteurException(ERREUR_LG_MAX);
-                    
-                valeur = uneValeur;
+            if (!isChaine(uneValeur)) {
+                throw new InterpreteurException(ERREUR_INVALIDE 
+                                                + uneValeur);
+            }
+
+            uneValeur = uneValeur.substring(1, uneValeur.length() - 1);
+
+            if (uneValeur.length() > LG_MAX_CHAINE) 
+                throw new InterpreteurException(ERREUR_LG_MAX);
+
+            valeur = uneValeur;
+        }
+
+        /** 
+         * Prédicat de validité d'une constante littérale de type chaîne.
+         * @param uneValeur valeur aTester
+         * @return true si uneValeur est une chaîne sinon false
+         */
+        public static boolean isChaine(String uneValeur) {
+            uneValeur = uneValeur.trim();
+            return uneValeur.startsWith("\"") && uneValeur.endsWith("\"");
         }
         
         /** 
@@ -61,16 +71,15 @@ public class Chaine extends Litteral {
          * @return une nouvelle Chaîne.
          */
         public static Chaine concatener(Chaine a, Chaine b) {
-                
-                return new Chaine("\"" + a.valeur + b.valeur + "\"");
+            return new Chaine("\"" + a.valeur + b.valeur + "\"");
         }
         
         /* non javadoc
-         * @see interpreteurlir.donnees.litteraux.Litteral#compareTo(interpreteurlir.donnees.litteraux.Litteral)
+         * @see Litteral#compareTo(Litteral)
          */
         @Override
         public int compareTo(Litteral autre) {
-                return this.valeur.toString().compareTo(autre.valeur.toString());
+                return valeur.toString().compareTo(autre.valeur.toString());
         }
 
         /* non javadoc

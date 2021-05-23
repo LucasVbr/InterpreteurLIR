@@ -50,8 +50,7 @@ public class TestIdentificateurEntier {
                 "",
                 " ",
                 "\t",
-                "\n",
-                null
+                "\n"
         };
 
         for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {

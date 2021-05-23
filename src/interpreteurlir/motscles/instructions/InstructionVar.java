@@ -7,7 +7,6 @@ package interpreteurlir.motscles.instructions;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
-import interpreteurlir.expressions.ExpressionChaine;
 
 /**
  * Instruction de déclaration et d'affectation de variables. La syntaxe de
@@ -32,7 +31,7 @@ public class InstructionVar extends Instruction {
         super(arguments, contexte);
         
         if (arguments == null || arguments.isBlank() 
-                || ExpressionChaine.indexOperateur(arguments, '=') <= 0)
+                || Expression.detecterCaractere(arguments, '=') <= 0)
             throw new InterpreteurException("erreur de syntaxe");
         
         aExecuter = Expression.determinerTypeExpression(arguments.trim());

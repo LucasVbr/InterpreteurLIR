@@ -75,12 +75,12 @@ public class CommandeListe extends Commande {
      *                          dans la classe {@link Commande}
      */
     public boolean executer() {
-
         final String ERREUR = "erreur exécution";
         
         if (programmeGlobal == null) {
             throw new RuntimeException(ERREUR);
         }
+        
         if (debut != null || fin != null) {
             System.out.print(programmeGlobal.listeBornee(debut, fin));
         }

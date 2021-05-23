@@ -86,6 +86,10 @@ public class Variable extends Object implements Comparable<Variable> {
         return identificateur.toString() + " = " + valeur.toString();
     }
 
+    /*
+     * non javadoc
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
     public int compareTo(Variable aComparer) {
         return identificateur.compareTo(aComparer.identificateur);
     }
