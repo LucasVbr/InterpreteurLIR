@@ -1,10 +1,11 @@
-\documentclass[11pt,a4paper,titlepage,openany]{report}
+\documentclass[12pt,a4paper,titlepage,openany]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage[top=1.5cm, bottom=4cm]{geometry}
 \usepackage{fancyhdr, graphicx, array, hyperref}
 \usepackage{glossaries}
+%\usepackage[onehalfspacing]{setspace}
 %\usepackage{pdfpages}
 
 \pagestyle{fancy}
@@ -68,6 +69,7 @@
     \part{Plan projet}
 
     \chapter*{Introduction}
+    \addcontentsline{toc}{chapter}{Introduction}
     \Large
     Dans le cadre des projets tuteuré du semestre 2 de première année de
     DUT informatique de l’année 2020-2021, le sujet de l’Interpréteur LIR
@@ -342,11 +344,97 @@
     \end{itemize}
 
     \section{Estimation initiale}
+        En se focalisant sur un développement de type Organic d'une taille attendue
+        de 2000 lignes de code (2KLOC), le projet nécessite de base un effort de 4,97
+        mois.homme répartis sur une durée de 4.60 mois. Cette estimation se base sur
+        une équipe d'un seul développeur.
+
+        \'{E}tant donné que notre équipe se constitue de 5 personnes, il nous suffit
+        d'adapter cette estimation en divisant l'effort par le nombre de membres. Nous
+        obtenons ainsi un effort de 0, 99 mois de 20 jours. Notre contexte de travail
+        étant toutefois différent de celui d'une entreprise (pas d'horaires fixes,
+        travail les jours fériés,...), il nous a paru plus judicieux de convertir
+        notre estimation vers un format plus réaliste.
+
+        En considérant une durée de deux heures par journée de travail par personne,
+        nous arrivons à un total de 10 heures quotidiennes, soit un total de
+        200 heures hebdomadaires. Nous conservons la durée de 20 jours par mois pour
+        pallier les indisponibilités de chacun. La durée totale du projet est donc
+        estimée à 0,99 mois ou 200 heures de travail total, soit 40 heures.homme.
+
     \section{Planification prévisionnelle initiale}
+        Le développement de l'interpréteur LIR suivant un cycle de vie itératif,
+        nous agréé avec la MOA de trois itérations, avec à l'issue de chacune la
+        livraison d'un prototype fonctionnel ou, dans le cas de la dernière itération,
+        du programme complet.
+
+        Pour la première itération, nous avons convenu de livrer un prototype
+        incluant les mécanismes de base du fonctionnement des commandes et instructions.
+        Cette première mouture de l'interpréteur Doit être en mesure d'analyser son
+        entrée standard, d'affecter des variables de type chaîne à son contexte
+        d'exécution et de reconnaître les expressions sur les chaînes de caractères.
+        Le contexte pourra être réinitialisé.
+        Enfin, ce prototype devra afficher les variables déclarées, afficher le
+        résultat d'une expression de type chaîne, et être en mesure
+        mettre fin à la session.
+
+        Lors de la seconde itération, notre prototype devra, en plus des fonctionnalités
+        sus-mentionnées, incorporer l'affectation de variables de type entier
+        et l'arithmétique entière sur les expressions. L'interpréteur, à ce stade du
+        développement, devra être en mesure de reconnaître des étiquettes de ligne de
+        code et garder en mémoire centrale un programme pour pouvoir ensuite l'afficher ou
+        l'exécuter. Il doit également être en mesure de supprimer des lignes de code dans
+        le programme global. Il sera également possible à l'utilisateur de saisir puis
+        d'affecter la valeur d'une variable via l'entrée standard ou d'effectuer des sauts
+        non-conditionnels dans un programme.
+
+        Enfin, le programme final de la troisième itération pourra lire et écrire des
+        programmes vers et depuis des fichiers. Il sera possible au programmeur d'effectuer
+        des sauts conditionnels. Seront livrés avec ce prototype final ce plan de projet
+        complété, ainsi que le manuel d'utilisateur de l'interpréteur LIR. Le prototype
+        final devra pouvoir être lancé à partir d'un fichier exécutable.
+
     \section{Durée et ordonnancement des principales tâches et itérations}
     \section{Identification des premiers jalons}
+        Chacun des prototypes de l'interpréteur LIR devant être livré à l'issue de chaque
+        itération, nous pouvons donc en déduire les premiers jalons ci-dessous. La date de
+        soutenance du projet, quand à elle, nous sera précisée à une date ultérieure à
+        la rédaction de ce plan. Nous ne pouvons donc en donner qu'une estimation.
+
+        \begin{itemize}
+            \item Livraison du premier prototype : lundi 10 mai
+            \item Livraison du deuxième prototype : mercredi 19 mai
+            \item Livraison du prototype final : Vendredi 28 mai
+            \item Soutenance du projet : entre le 9 et je 11 juin
+        \end{itemize}
+
     \section{Calendrier prévisionnel}
+        \`{A} partir des dates citées plus haut, nous pouvons donc en déduire le
+        calendrier prévisionnel suivant. Les comités de pilotage ont été convenus avec
+        la maîtrise d'ouvrage afin de conserver un suivi le plus régulier possible sur
+        l'avancement du développement.
+        \begin{itemize}
+            \item Première itération : du 3 au 10 mai
+            \item Deuxième itération : du 11 au 19 mai
+            \item Commité de pilotage : mardi 18 mai
+            \item Troisième itération : du 20 au 28 mai
+            \item Commité de pilotage : mercredi 26 mai
+            \item Remise du dossier technique : mardi 8 juin
+        \end{itemize}
+
     \section{Organisation des réunions projets et comités de pilotage}
+        Comme mentionné, les comités de pilotage se tiennent entre deux livraisons
+        afin de faire le point sur l'avancement de l'itération. Compte tenu des restrictions
+        sanitaires imposées au cours de la crise due à la Covid-19, nous sommes contraints
+        de
+
+        Les réunions de projet, quand à elles, se tiennent à chaque fois qu'un ensemble de
+        tâches est complété pour mettre en commun le travail effectué et faire le point sur
+        les difficultés techniques rencontrées et la répartition des ressources sur les
+        tâches restantes (nous privilégions en effet le travail en binôme et faisons en
+        sorte que chaque membre de l'équipe ait l'occasion de travailler au moins une fois
+        avec tous les autres).
+
     \section{Suivi du projet par période}
     Pour chaque période :
     \subsection{Suivi d’avancement et mesure des écarts par rapport au prévisionnel revu lors de la période précédente}
