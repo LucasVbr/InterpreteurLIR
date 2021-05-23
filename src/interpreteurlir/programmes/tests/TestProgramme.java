@@ -10,8 +10,6 @@ import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.instructions.*;
-import interpreteurlir.motscles.instructions.tests.TestInstructionStop;
-
 import static info1.outils.glg.Assertions.*;
 
 /** 
@@ -158,7 +156,7 @@ public class TestProgramme {
     public void testListeBornee() {
         
         final String[] TEXTES_ATTENDUS = {
-            "aucune ligne à afficher\n",
+            "Aucune ligne de code dans cet intervalle.\n",
             "1 var $toto = \"toto\"\n"
                     + "5 var $agreuagreu = \"agreu\"\n"
                     + "10 var tata = 0 + 0\n"
@@ -203,6 +201,13 @@ public class TestProgramme {
      * Test unitaire de {@link Programme#effacer(Etiquette, Etiquette)}
      */
     public void testEffacer() {
+        
+//        final Etiquette[][] BORNES = {
+//                { new Etiquette(6), new Etiquette(6) },
+//                { new Etiquette(1), new Etiquette(90) },
+//                { new Etiquette(31), new Etiquette(39) },
+//                { new Etiquette(9), new Etiquette(41) }
+//        };
         
         final String[] TEXTES_ATTENDUS = {
             "1 var $toto = \"toto\"\n"
@@ -251,11 +256,13 @@ public class TestProgramme {
     
     /** 
      * Test unitaire de {@link Programme#stop()}
-     * @see TestInstructionStop#testExecuter()
      */
     public void testStop() {
-        System.out.println("\tExécution du test de Programme#stop() "
-                + ": voir TestInstructionStop#testExecuter()");
+        //TODO écrire les tests lorsque l'instruction stop sera définie
+        
+        System.out.println("\tExécution du test de stop() : ");
+        
+        echec();
     }
     
     /** 
@@ -264,7 +271,7 @@ public class TestProgramme {
     public void testLancerEtiquette() {
         final Etiquette[] ETIQUETTES_DEPART = {
             new Etiquette(1),
-            new Etiquette(10),
+            new Etiquette(9),
             new Etiquette(25),
             new Etiquette(90)
         };
@@ -290,6 +297,7 @@ public class TestProgramme {
      * Test unitaire de {@link Programme#lancer()}
      */
     public void testLancer() {
+
         Expression.referencerContexte(contexteTest);
         contexteTest.raz();
         
@@ -306,33 +314,12 @@ public class TestProgramme {
      * Test unitaire de {@link Programme#appelProcedure(Etiquette)}
      */
     public void testAppelProcedure() {
+        //TODO écrire les tests
         
         System.out.println("\tExécution du test de appelProcedure(Etiquette) "
                            + ": ");
         
-        /* Cas Valides */
-        try {
-            /* Simulation du lancement du programme */
-            programmeTest.appelProcedure(new Etiquette(1));
-            /* Lancement de 2 procédures */
-            programmeTest.appelProcedure(new Etiquette(100));
-            programmeTest.appelProcedure(new Etiquette(50));
-        } catch (InterpreteurException lancee) {
-            echec();
-        }
-        
-        /* Cas Invalides */
-        try {
-            /* Simulation du lancement du programme */
-            programmeTest.appelProcedure(new Etiquette(1));
-            
-            /* Lancement de 2 procédures */
-            programmeTest.appelProcedure(new Etiquette(-30));
-            programmeTest.appelProcedure(new Etiquette(10000000));
-            echec();
-        } catch (InterpreteurException lancee) {
-            /* Test OK */
-        }
+        echec();
     }
     
    /**
@@ -365,11 +352,13 @@ public class TestProgramme {
    
    /** 
     * Test unitaire de {@link Programme#vaen(Etiquette)}
-    * @see TestInstructionVaen#testExecuter()
     */
    public void testVaen() {
+       //TODO écrire les tests
+       
        System.out.println("\tExécution du test de vaen(Etiquette) "
-                          + ": voir TestInstructionVaen#testExecuter()");
-      
+                          + ": ");
+       
+       echec();
    }
 }

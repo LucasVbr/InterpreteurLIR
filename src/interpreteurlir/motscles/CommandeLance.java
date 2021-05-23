@@ -6,6 +6,7 @@ package interpreteurlir.motscles;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
+import interpreteurlir.programmes.Programme;
 import interpreteurlir.programmes.Etiquette;
 
 /** 

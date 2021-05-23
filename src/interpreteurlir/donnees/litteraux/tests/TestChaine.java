@@ -15,7 +15,7 @@ import static info1.outils.glg.Assertions.*;
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
- * @author HeÃ¯a Dexter
+ * @author Heïa Dexter
  * @author Lucas Vabre
  */
 public class TestChaine {
@@ -36,7 +36,7 @@ public class TestChaine {
                 "arztyehjklmpoijhghnbghjklmpoiuytrf" + 
                         "yeryghjnklmpoiuytrezaqsdfghnjklmpjbfrtyu";
 
-        System.out.println("\tExÃ©cution du test de Chaine(String)");
+        System.out.println("\tExécution du test de Chaine(String)");
 
         for(String aTester : VALIDE) {
             try {
@@ -70,14 +70,14 @@ public class TestChaine {
                 { new Chaine("\" \""), new Chaine() } 
         };
 
-        System.out.println("\tExÃ©cution du test de compareTo(Chaine)\n"
-                            + "\tAvec Ã©galitÃ©s");
+        System.out.println("\tExécution du test de compareTo(Chaine)\n"
+                            + "\tAvec égalités");
 
         for (Chaine[] couple : EGALITES) {
             assertEquivalence(couple[0].compareTo(couple[1]), 0);
         }
 
-        System.out.println("\tAvec des inÃ©galitÃ©s");
+        System.out.println("\tAvec des inégalités");
         for (Chaine[] couple : DIFFERENCES) {
             assertTrue(couple[0].compareTo(couple[1]) > 0);
         }
@@ -101,7 +101,7 @@ public class TestChaine {
                 "\"coucou monsieur\""
         };
 
-        System.out.println("\tExÃ©cution du test de toString");
+        System.out.println("\tExécution du test de toString");
         for (int i = 0 ; i < A_AFFICHER.length ; i++) {
             assertTrue(AFFICHAGE_GUILLEMETS[i]
                         .equals(A_AFFICHER[i].toString()));
@@ -109,7 +109,7 @@ public class TestChaine {
     }
 
     /**
-     * Tests unitaires de concatÃ©ner
+     * Tests unitaires de concaténer
      */
     public static void testConcatener() {
         final Chaine[] ATTENDU = {
@@ -126,7 +126,7 @@ public class TestChaine {
                 { new Chaine("\"3,\""), new Chaine("\"1415\"") },
         };
 
-        System.out.println("\tExÃ©cution du test de concatÃ©ner");
+        System.out.println("\tExécution du test de concaténer");
         for (int numTest = 0 ; numTest < ATTENDU.length ; numTest++ ) {
             assertTrue(ATTENDU[numTest].compareTo(
                            Chaine.concatener(A_CONCATENER[numTest][0], 

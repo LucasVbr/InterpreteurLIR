@@ -7,6 +7,7 @@ package interpreteurlir.motscles.instructions;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
+import interpreteurlir.expressions.ExpressionChaine;
 
 /**
  * Affiche sur la sortie standard une expression passée en argument. Cette
@@ -36,9 +37,8 @@ public class InstructionAffiche extends Instruction {
     public InstructionAffiche(String arguments, Contexte contexte) {
         super(arguments, contexte);
 
-        if (Expression.detecterCaractere(arguments, '=') >= 0) {
+        if (ExpressionChaine.indexOperateur(arguments, '=') >= 0)
             throw new InterpreteurException(AFFECTATION_ILLEGALE);
-        }
         
         aExecuter = arguments.isBlank() 
                     ? null
@@ -69,5 +69,6 @@ public class InstructionAffiche extends Instruction {
         return "affiche" + (aExecuter == null ? "" 
                                               : " " + aExecuter.toString());
     }
+    
     
 }

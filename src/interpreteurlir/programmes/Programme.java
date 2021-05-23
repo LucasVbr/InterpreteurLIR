@@ -42,13 +42,15 @@ public class Programme {
     
     /** 
      * Initialisation de ce programme sans lignes de code
+     * <p>
+     * 
      */
     public Programme() {
         super();
-        
         lignesCode = new TreeMap<Etiquette, Instruction>();
         enExecution = false;
         compteurOrdinnal = new Stack<Etiquette>();
+        
     }
 
     /** 
@@ -89,8 +91,11 @@ public class Programme {
     @Override
     public String toString() {
         
-        Object[] tableauEtiquette = lignesCode.keySet().toArray();
-        Object[] tableauInstruction = lignesCode.values().toArray();
+        Object[] tableauEtiquette 
+                = lignesCode.keySet().toArray();
+        
+        Object[] tableauInstruction
+                = lignesCode.values().toArray();
         
         StringBuilder aAfficher = new StringBuilder("");
         
@@ -145,8 +150,9 @@ public class Programme {
             }
         } while (lignesRestantes);
         
-        return aAfficher.toString().equals("") ? "aucune ligne à afficher\n"
-                                               : aAfficher.toString();
+        return aAfficher.toString().equals("") 
+               ? "aucune ligne à afficher\n"
+               : aAfficher.toString();
     }
     
     /** 

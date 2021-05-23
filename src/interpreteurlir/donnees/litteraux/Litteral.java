@@ -13,7 +13,7 @@ package interpreteurlir.donnees.litteraux;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
-public abstract class Litteral implements Comparable<Litteral> {  
+public class Litteral implements Comparable<Litteral> {  
         
         /** valeur de ce littéral */
         protected Object valeur;
@@ -29,7 +29,7 @@ public abstract class Litteral implements Comparable<Litteral> {
          * Initialise cette valeur avec un objet argument.
          * @param valeur
          */
-        public Litteral(Object valeur) {
+        public Litteral(Object valeur) {  // TODO public >>> protected
                 super();
                 this.valeur = valeur;
         }
@@ -53,5 +53,11 @@ public abstract class Litteral implements Comparable<Litteral> {
          * @see java.lang.Comparable#compareTo(java.lang.Object)
          */
         @Override
-        public abstract int compareTo(Litteral autre);
+        public int compareTo(Litteral autre) {
+                
+                if (autre.valeur.getClass() == this.valeur.getClass())
+                    return 0;
+                
+                return this.valeur.hashCode() - autre.valeur.hashCode();
+        }
 }

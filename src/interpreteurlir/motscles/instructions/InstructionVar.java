@@ -7,12 +7,19 @@ package interpreteurlir.motscles.instructions;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
+import interpreteurlir.expressions.ExpressionChaine;
 
 /**
- * Instruction de déclaration et d'affectation de variables. La syntaxe de
- * cette expression est de la forme var identificateur = expression. Si
- * expression non renseignée, l'interpréteur affichera un message d'erreur ;
- * l'instruction doit effectuer systématiquement une affectation.
+ * Tests unitaires de la classe InstructionVar
+ * <p>
+ * Instruction de déclaration et d'affectation de variables. 
+ * La syntaxe de cette expression est de la forme :
+ *      var identificateur = expression.
+ * <p>
+ * Si l'expression est non renseignée, l'interpréteur affichera un 
+ * message d'erreur ; l'instruction doit effectuer systématiquement 
+ * une affectation.
+ * 
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
@@ -31,7 +38,7 @@ public class InstructionVar extends Instruction {
         super(arguments, contexte);
         
         if (arguments == null || arguments.isBlank() 
-                || Expression.detecterCaractere(arguments, '=') <= 0)
+                || ExpressionChaine.indexOperateur(arguments, '=') <= 0)
             throw new InterpreteurException("erreur de syntaxe");
         
         aExecuter = Expression.determinerTypeExpression(arguments.trim());

@@ -19,7 +19,7 @@ import interpreteurlir.programmes.Programme;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
-public abstract class Commande {
+public class Commande {
     
     /** référence du programme global */
     protected static Programme programmeGlobal;
@@ -52,7 +52,10 @@ public abstract class Commande {
      * @return true si la commande affiche un feedback directement sur la sortie
      *         standard, sinon false
      */
-    public abstract boolean executer();
+    public boolean executer() {
+        // pas de comportement pour une Commande générale
+        return false; // pas de feedback
+    }
     
     /**
      * Référence le programme pour accéder et modifier le programme chargé.

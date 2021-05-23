@@ -35,6 +35,7 @@ public class TestExpression {
         new ExpressionChaine("$toto +\"titi\""),
         new ExpressionChaine("\"toto\"+ $titi"),
         new ExpressionChaine("$toto +    $titi"), 
+        // TODO expression entière
     };
     
     /**

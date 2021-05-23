@@ -7,8 +7,11 @@ package interpreteurlir.expressions;
 import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.donnees.Identificateur;
+import interpreteurlir.donnees.IdentificateurChaine;
 import interpreteurlir.donnees.IdentificateurEntier;
+import interpreteurlir.donnees.litteraux.Chaine;
 import interpreteurlir.donnees.litteraux.Entier;
+import interpreteurlir.donnees.litteraux.Litteral;
 
 /**
  * Expression de type Entier qui peut être calculer.
@@ -31,6 +34,7 @@ public class ExpressionEntier extends Expression {
     private static final String OPERANDE_D_MANQUANT = 
             " : opérande droit attendu";
     
+    private char operateur;
 
     /**
      * Initalise une expression de type Entier avec les liens nécessaires à son
@@ -45,9 +49,8 @@ public class ExpressionEntier extends Expression {
         String droite;
         String aTraiter;
         
-        if (texteExpression == null || texteExpression.isBlank()) {
+        if (texteExpression == null || texteExpression.isBlank())
             throw new InterpreteurException(ERREUR_VIDE);
-        }
         
         aTraiter = texteExpression.trim();
         
@@ -55,8 +58,7 @@ public class ExpressionEntier extends Expression {
         int indexEgal = aTraiter.indexOf('=');
         if (indexEgal > 0) {
             identificateursOperandes[INDEX_AFFECTATION] = 
-                    new IdentificateurEntier(aTraiter.substring(0, indexEgal)
-                                                     .trim());
+                new IdentificateurEntier(aTraiter.substring(0, indexEgal).trim());
         
             aTraiter = aTraiter.substring(indexEgal + 1).trim();
         }
@@ -65,12 +67,11 @@ public class ExpressionEntier extends Expression {
         int indexOperateur = detecterOperateur(aTraiter);
         gauche = aTraiter.trim();
         if (indexOperateur > 0) {
-            operateur[INDEX_OPERATEUR_G] = aTraiter.charAt(indexOperateur);
+            operateur = aTraiter.charAt(indexOperateur);
             gauche = aTraiter.substring(0, indexOperateur).trim();
             
-            if (aTraiter.length() - 1 <= indexOperateur) {
+            if (aTraiter.length() - 1 <= indexOperateur)
                 throw new ExecutionException(aTraiter + OPERANDE_D_MANQUANT);
-            }
             
             droite = aTraiter.substring(indexOperateur + 1).trim();
             initialiserOperande(droite, INDEX_OPERANDE_D);
@@ -87,11 +88,9 @@ public class ExpressionEntier extends Expression {
      */
     private static int detecterOperateur(String expression) {
         for (int i = 1 ; i < expression.length() ; i++) {
-            for (char operateur : OPERATEURS) {
-                if (operateur == expression.charAt(i)) {
+            for (char operateur : OPERATEURS)
+                if (operateur == expression.charAt(i))
                     return i;
-                }
-            }
         }
         
         return -1;
@@ -99,21 +98,32 @@ public class ExpressionEntier extends Expression {
 
     /**
      * Initialise l'opérande à sa place dans l'expression.
-     * @param operande opérande à initialiser
-     * @param index de l'opérande
+     * @param droite
+     * @param indexOperandeD
      */
     private void initialiserOperande(String operande, int index) {
         if (INDEX_OPERANDE_G != index && INDEX_OPERANDE_D != index) {
             throw new IllegalArgumentException("index invalide");
         }
         
-        if (Entier.isEntier(operande)) {
+        if (operandeEstLitteral(operande)) {
             litterauxOperandes[index] = new Entier(operande);
         } else {
             identificateursOperandes[index] = 
                     new IdentificateurEntier(operande);
         }
         
+    }
+
+    /**
+     * Détermine si l'opérande est un littéral de type entier
+     * @param operande à tester
+     * @return true si l'operande commence par +, - ou un chiffre,
+     *         false dans le cas contraire.
+     */
+    private static boolean operandeEstLitteral(String operande) {
+        char aTester = operande.charAt(0);
+        return Character.isDigit(aTester) || aTester == '-' || aTester == '+';
     }
 
     /* non javadoc
@@ -144,7 +154,7 @@ public class ExpressionEntier extends Expression {
         /* Calcul de la valeur */
         valeur = operandeD == null 
                  ? operandeG 
-                 : switch (operateur[INDEX_OPERATEUR_G]) {
+                 : switch (operateur) {
                    case '+' -> Entier.somme(operandeG, operandeD);
                    case '-' -> Entier.soustrait(operandeG, operandeD);
                    case '*' -> Entier.multiplie(operandeG, operandeD);
@@ -162,4 +172,30 @@ public class ExpressionEntier extends Expression {
         return valeur;
     }
 
+    /*
+     * Non - javadoc
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        StringBuilder resultat = new StringBuilder("");
+        
+        Identificateur affect = identificateursOperandes[INDEX_AFFECTATION];
+        resultat.append(affect == null ? "" : (affect.toString() + " = "));
+        
+        Identificateur gaucheId = identificateursOperandes[INDEX_OPERANDE_G];
+        Litteral gaucheLitteral = litterauxOperandes[INDEX_OPERANDE_G];
+        resultat.append(gaucheId != null ? gaucheId.toString()
+                                         : gaucheLitteral.toString());
+        
+        Identificateur droiteId = identificateursOperandes[INDEX_OPERANDE_D];
+        Litteral droiteLitteral = litterauxOperandes[INDEX_OPERANDE_D];
+        if (droiteId != null || droiteLitteral != null) {
+            resultat.append(" " + operateur + " ");
+            resultat.append(droiteId != null ? droiteId.toString()
+                                             : droiteLitteral.toString());
+        }
+        
+        return resultat.toString();
+    }
 }

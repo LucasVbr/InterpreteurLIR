@@ -17,13 +17,27 @@ import interpreteurlir.InterpreteurException;
  * @author Lucas Vabre
  */
 public class Entier extends Litteral {
+
+    private static final int LONG_CH_MAX = 11;
+
+    /** Valeur entière minimale */
+    public static int VALEUR_MIN = Integer.MIN_VALUE;
+    
+    /** Valeur entière minimale */
+    public static int VALEUR_MAX = Integer.MAX_VALUE;
     
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
      * @param unEntier
+     * @throws InterpreteurException lorsque entier n'est pas un Entier
      */
+    @SuppressWarnings("boxing")
     public Entier(int unEntier) {
     
+        if (! isEntier(unEntier)) {
+            throw new InterpreteurException("Erreur. " + unEntier 
+                                            + " n'est pas un entier. ");
+        }
         super.valeur = unEntier;
     }
 
@@ -40,23 +54,36 @@ public class Entier extends Litteral {
         valeur = Integer.valueOf(uneValeur);
     }
     
-    /** 
-     * Prédicat de validité d'une chaîne en tant que nombre entier signé
-     * @param uneValeur la chaîne à tester
-     * @return true si uneValeur est un entier sinon false
-     */
-    public static boolean isEntier(String uneValeur) {
-        if (uneValeur == null) {
-            return false;
+    private static boolean isEntier(String uneValeur) {
+        if (uneValeur != null && !uneValeur.isBlank() 
+            && uneValeur.length() <= LONG_CH_MAX
+            && (isChiffre(uneValeur.charAt(0)) 
+                || uneValeur.length() > 1 && (uneValeur.charAt(0) == '-' 
+                                           || uneValeur.charAt(0) == '+'))) {
+          int i;
+          for (i = 1; i < uneValeur.length() && isChiffre(uneValeur.charAt(i)); 
+               i++)
+              ; /* corps vide */
+          if ((uneValeur.startsWith("+214748364") 
+                  || uneValeur.startsWith("214748364"))
+                  && uneValeur.charAt(uneValeur.length() - 1) > '7'
+              || uneValeur.startsWith("-214748364") 
+                  && uneValeur.charAt(uneValeur.length() - 1) > '8'
+                  )
+                      return false;
+          
+          return i >= uneValeur.length();
         }
         
-        try {
-            Integer.valueOf(uneValeur.trim());
-        } catch (NumberFormatException lancee) {
-            return false;
-        }
-        
-        return true;
+        return false;
+    }
+
+    private static boolean isChiffre(char caractere) {
+        return '0' <= caractere && caractere <= '9';
+    }
+
+    private static boolean isEntier(int entier) {
+        return VALEUR_MIN <= entier && entier <= VALEUR_MAX;
     }
 
     /* non javadoc
@@ -141,13 +168,5 @@ public class Entier extends Litteral {
             throw new ExecutionException("Erreur. Division par 0. ");
         }
         return new Entier((int) premier.getValeur() % (int) second.getValeur());
-    }
-
-    /* non javadoc
-     * @see Litteral#compareTo(Litteral)
-     */
-    @Override
-    public int compareTo(Litteral autre) {
-        return ((Integer)valeur).compareTo((Integer)autre.valeur);
     }
 }

@@ -6,6 +6,7 @@ package interpreteurlir.motscles.instructions;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
+import interpreteurlir.programmes.Programme;
 
 /**
  * Instruction stop servant à marquer la fin d'un programme de l'interpréteur
@@ -22,7 +23,6 @@ public class InstructionStop extends Instruction {
     /** Message d'erreur si instruction passée avec des arguments */
     private static final String ERREUR_ARGUMENTS = 
             "l'instruction stop n'accepte pas d'arguments";
-    
     /**
      * Initialise cette instruction stop à partir des arguments, du contexte
      * et du programme passés en paramètres. Cette instruction ne modifie que

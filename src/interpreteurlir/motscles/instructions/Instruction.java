@@ -17,7 +17,7 @@ import interpreteurlir.motscles.Commande;
  * @author Heïa Dexter
  * @author Lucas Vabre
  */
-public abstract class Instruction extends Commande {
+public class Instruction extends Commande {
 
     /** Contexte d'exécution de cette instruction */
     protected Contexte contexteGlobal;
@@ -41,12 +41,16 @@ public abstract class Instruction extends Commande {
      * @see interpreteurlir.motscles.Commande#executer()
      */
     @Override
-    public abstract boolean executer();
+    public boolean executer() {
+        return super.executer();
+    }
 
     /*
      * Non - javadoc
      * @see java.lang.Object#toString()
      */
     @Override
-    public abstract String toString();
+    public String toString() {
+        return getClass().getSimpleName() + " " + aExecuter; 
+    }
 }

@@ -118,10 +118,12 @@ public class TestVariable {
     public static void testGetIdentificateurEntier() {
 //        fixtureReload();
 //
-//        for (int i = 0; i < VALEURS_ENTIER.length; i++ ) {
+//        for (int i = 0; i < VALEURS_Entier.length; i++ ) {
 //            assertTrue(ID_ENTIER[i].compareTo(fixtureEntier[i]
 //                                              .getIdentificateur()) == 0);
 //        }
+        
+        echec();
     }
     
     /** 

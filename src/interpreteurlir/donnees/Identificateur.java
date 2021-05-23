@@ -1,5 +1,5 @@
 /*
- * Identificateur.java , 8 mai 2021
+ * Identificateur.java , 08/05/2021
  * IUT Rodez 2020-2021, info1
  * pas de copyright, aucun droits
  */
@@ -9,19 +9,19 @@ package interpreteurlir.donnees;
 import interpreteurlir.InterpreteurException;
 
 /**
- * Identificateur d'une variable.
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
  * @author Heia Dexter
  * @author Lucas Vabre
  */
-public abstract class Identificateur implements Comparable<Identificateur> {
+public class Identificateur /* extends Variable */
+implements Comparable<Identificateur> {
 
     /** Longueur maximale d'un identificateur (ne prend pas en compte le $) */
     public static final int LONGUEUR_MAX = 25;
 
-    /** Nom de cet identificateur */
+    /** Nom identificateur */
     private String nom;
 
     /**
@@ -33,7 +33,7 @@ public abstract class Identificateur implements Comparable<Identificateur> {
         identificateur = identificateur.trim();
         if(!isIdentificateur(identificateur)) {
             throw new InterpreteurException(identificateur
-                                            + " n'est pas un identificateur");
+                    + " n'est pas un identificateur");
         }
 
         nom = identificateur;
@@ -77,15 +77,17 @@ public abstract class Identificateur implements Comparable<Identificateur> {
     public static boolean isAlphanumerique(String aTester) {
         int index;
         for (index = 0 ;
-             index < aTester.length()
-             && Character.isLetterOrDigit(aTester.charAt(index)) ;
-             index++)
-            ; /* empty body */
+            index < aTester.length()
+            && Character.isLetterOrDigit(aTester.charAt(index)) ;
+            index++)
+            ;    // Corps vide
 
-        return index >= aTester.length();
+            return index >= aTester.length();
     }
 
-    /**  @return la valeur de nom */
+    /**
+     * @return la valeur de nom
+     */
     public String getNom() {
         return nom;
     }

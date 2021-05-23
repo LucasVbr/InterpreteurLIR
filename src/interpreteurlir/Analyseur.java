@@ -1,5 +1,5 @@
 /**
- * Analyseur.java                                9 mai 2021
+ * Analyseur.java                              9 mai 2021
  * IUT Rodez info1 2020-2021, pas de copyright, aucun droit
  */
 package interpreteurlir;
@@ -11,6 +11,8 @@ import interpreteurlir.expressions.Expression;
 import interpreteurlir.motscles.Commande;
 import interpreteurlir.motscles.instructions.Instruction;
 import interpreteurlir.programmes.*;
+
+import interpreteurlir.tests.ProgrammeDeTest; // TODO supprimer
 
 /**
  * Analyseur de l'entrée standard du programme interpréteur LIR.
@@ -50,6 +52,7 @@ public class Analyseur {
         Expression.referencerContexte(contexteGlobal);
         programme = new Programme();
         Commande.referencerProgramme(programme);
+        ProgrammeDeTest.genererProgramme(programme, contexteGlobal); // TODO retirer après les tests
     }
 
     /**
