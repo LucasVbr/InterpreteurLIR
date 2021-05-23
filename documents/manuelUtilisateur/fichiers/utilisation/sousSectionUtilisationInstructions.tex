@@ -1,0 +1,63 @@
+\begin{description}
+	\item [\textbf{Var :}] L'interpréteur enregistre dans la variable spécifiée l'expression.\\
+	Syntaxe :
+	\verb|<etiquette> var <identificateur> = <expression>|\\
+
+	Exemple: \\
+	Pour une variable de chaine de caractère :
+	\verb|5 var $varChaine = "chaine"| \\
+	Pour une variable d'entier :
+	\verb|5 var varEntier = 42| 
+
+	\item [\textbf{Entre :}] Lorsque la valeur est saisie, elle est stockée dans la variable déterminée dans dans le contexte, sous réserve que les types concordes.\\
+	Syntaxe :
+	\verb|<etiquette> entre <identificateur>|\\
+
+	Exemple: \\
+	Pour une variable de chaine de caractère :
+	\verb|10 entre $varChaine| \\
+	Pour une variable d'entier :
+	\verb|10 entre varEntier|
+
+	\item [\textbf{Affiche :}] L'interpréteur évalue dans l'expression spécifiée la valeur de celle-ci et renvoie cette valeur sur la console. Si cette commande n'as pas d'argument elle effectue un saut de ligne.\\
+	Syntaxe :
+	\verb|<etiquette> affiche [identificateur]|\\
+
+	Exemple: \\
+	Sans argument:
+	\verb|15 affiche|\\
+	Pour une variable de chaine de caractère (\$varChaine = une):
+	\verb|15 affiche $varChaine| \\
+	Pour une variable d'entier (varEntier = 12):
+	\verb|15 affiche varEntier + 5|
+
+	\item [\textbf{Vaen :}] Lors de l'exécution de l'instruction, le programme ignorera les lignes suivantes et sautera directement à la ligne indiquée.\\
+	Syntaxe :
+	\verb|<etiquette> vaen <etiquette>|\\
+
+	Exemple: \verb|20 vaen 30|
+
+	\item [\textbf{Si ... vaen :}] Lors de l'execution de l'instruction, le programme igorera les lignes suivantes et sautera directement à la ligne indiquée si et seulement si la condition (booléenne) imposée est valide.\\
+	Syntaxe :
+	\verb|<etiquette> si <condition> vaen <etiquette>|\\
+
+	Exemple: \verb|25 si varEntier <> 8 vaen 35|
+
+	\item [\textbf{Procedure :}] L'interpréteur vas chercher la ligne qui a pour identificateur celui référencé en étiquette et vas l'exéctuer jusqu'à la fin de la séquence.\\
+	Syntaxe :
+	\verb|<etiquette> procedure <etiquette>|\\
+
+	Exemple: \verb|30 procedure 60|
+
+	\item [\textbf{Retour :}] L'interpréteur vas chercher la ligne qui suivait l'instruction "procedure" et va l'exécuter jusqu'à la fin de la séquence.\\
+	Syntaxe :
+	\verb|<etiquette> retour|\\
+
+	Exemple: \verb|70 retour|
+
+	\item [\textbf{Stop :}] A son exécution, le programme s'arrête lorsqu'il a atteint l'étiquette spécifiée.\\
+	Syntaxe :
+	\verb|<etiquette> stop|\\
+
+	Exemple: \verb|40 stop|
+\end{description}
