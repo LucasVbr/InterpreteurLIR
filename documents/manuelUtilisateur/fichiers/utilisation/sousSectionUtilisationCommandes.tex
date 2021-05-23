@@ -1,0 +1,22 @@
+\begin{description}
+	\item[\textbf{Debut :}] Sur un programme chargé en mémoire centrale j'efface toutes les lignes de code et variables déclarées avec la commande \verb|debut|.
+	
+	\item[\textbf{Fin :}] Je suis en train d'utiliser l'interpréteur, je quitte l'interpréteur pour la session courante en exécutant la commande \verb|fin|.
+	
+	\item[\textbf{Defs :}] Les variables sont définies dans la session courante de l'interpréteur j'affiche le contexte actuel en exécutant la commande \verb|defs|.
+	
+	\item[\textbf{Lance :}] A partir de lignes d'instructions chargées dans la session courante de l'interpréteur LIR lorsque j'entre la commande \verb|lance| sans arguments et la valide, le programme s'exécute à partir de l'étiquette la plus petite.\\
+	 Et avec argument les lignes d'instructions chargées dans la session courante de l'interpréteur LIR et lorsque j'entre la commande \verb|lance| sans arguments et la valide le programme s'exécute à partir de l'étiquette passé en argument.\\
+	
+	Exemple : \verb|lance| <étiquette début> : <étiquette fin>
+	
+	\item[\textbf{Efface :}] A partir d'une ou plusieurs lignes de programme mémorisées et leur étiquettes\\ on tape la commande: \verb|efface| <étiquette début> : <étiquette fin>.\\
+	L'interpréteur effacera alors les lignes de programme dont le numéro d'étiquette est compris dans la plage.
+	
+	\item[\textbf{Liste :}] Affiche toutes les lignes de programme mémorisées dans l'ordre\\ croissant entre les numéros de ligne de l'intervalle étiquette début et fin donné en argument. Sans argument Affiche toutes les lignes de \\programme dans l'ordre croissant des numéros de ligne.
+	
+	\item[\textbf{Sauve :}] Sauvegarde un programme LIR dans un fichier.
+	
+	\item[\textbf{Charge :}] Charge un programme LIR préalablement enregistré \\ dans un fichier.
+	
+\end{description} 
