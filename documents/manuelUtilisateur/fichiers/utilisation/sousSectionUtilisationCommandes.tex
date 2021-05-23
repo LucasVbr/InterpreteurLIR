@@ -13,10 +13,17 @@
 	\item[\textbf{Efface :}] A partir d'une ou plusieurs lignes de programme mémorisées et leur étiquettes\\ on tape la commande: \verb|efface| <étiquette début> : <étiquette fin>.\\
 	L'interpréteur effacera alors les lignes de programme dont le numéro d'étiquette est compris dans la plage.
 	
-	\item[\textbf{Liste :}] Affiche toutes les lignes de programme mémorisées dans l'ordre\\ croissant entre les numéros de ligne de l'intervalle étiquette début et fin donné en argument. Sans argument Affiche toutes les lignes de \\programme dans l'ordre croissant des numéros de ligne.
+	\item[\textbf{Liste :}]  J'entre la commande \verb| liste <etiquette_debut>:<etiquette_fin> | l'interpréteur va afficher toutes les lignes de programme mémorisées, dans l'ordre croissant de leur étiquette et dont les étiquettes sont situées dans cet intervalle donné. Et sans argument la commande \verb| liste | affiche toutes les lignes de programme mémorisées, dans l'ordre croissant de leur étiquette.
 	
-	\item[\textbf{Sauve :}] Sauvegarde un programme LIR dans un fichier.
+	\item[\textbf{Sauve :}] Quand programme (avec des étiquettes) ai été saisi, lorsque on entre la commande \verb|sauve| avec en argument le chemin du fichier (dans lequel on souhaite sauvegarder le travail),
+	\verb|sauve <cheminFichier>| les lignes de codes tapées dans l'interpréteur s'enregistres dans le fichier passé en argument de la commande
+	pour pouvoir être rechargées plus tard par l'interpréteur LIR avec la commande \verb|charge <cheminFichier>|.
 	
-	\item[\textbf{Charge :}] Charge un programme LIR préalablement enregistré \\ dans un fichier.
+	
+	
+	\item[\textbf{Charge :}] On a un fichier contenant un programme LIR dans notre ordinateur lorsque j'entre la commande \verb|charge| avec en argument le chemin de ce fichier les lignes de codes enregistrées dans le chier sont chargée dans le
+	programme pour pouvoir être exécutées et/ou modifiées par l'interpréteur LIR.
+	
+	Exemple : \verb|sauve <D:\leCheminDuFichier\leFichier.LextensionDuFichier>| OU \verb|sauve <leFichier.LextensionDuFichier>.
 	
 \end{description} 
