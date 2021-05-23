@@ -47,7 +47,7 @@
         \end{flushright}
         \hrule
         \begin{flushleft}
-            \MakeUppercase{Projet proposé par Frédérique Barrios}
+            \MakeUppercase{Projet proposé par Frédéric Barrios}
         \end{flushleft}
         \vspace*{2cm}
         \begin{center}\Large
@@ -74,35 +74,69 @@
     % TODO Plan
 
     \chapter{Installation}
+        \input{fichiers/installation/chapInstallation.tex}
 
     \chapter{Éléments de langage}
-    \section{Mots-clés}
-    \section{Étiquettes}
-    \section{Constantes littérales}
-        \subsection{Type entier signé}
-        \subsection{Type chaîne}
+        \input{fichiers/elementDeLangage/chapElementsDeLangage.tex}
 
-    \section{Identificateurs}
-        \subsection{Identificateurs d'entier}
-        \subsection{Identificateurs de chaîne}
+        \section{Mots-clés}
+            \input{fichiers/elementDeLangage/sectionMotsCles.tex}
 
-    \section{Expressions}
-        \subsection{Expressions arithmétiques}
-        \subsection{Expressions sur chaînes}
-        \subsection{Expressions logiques}
+            \subsection{Commandes générales}
+                \input{fichiers/elementDeLangage/souSectionCommandesGenerales.tex}
 
-    \section{Instructions de programmation}
+            \subsection{Instructions de programmation}
+                \input{fichiers/elementDeLangage/instructionsProgrammation.tex}
 
-    \section{Commandes générales}
+        \section{Étiquettes}
+            \input{fichiers/elementDeLangage/sectionEtiquettes.tex}
+
+        \section{Constantes littérales}
+             \input{fichiers/elementDeLangage/sectionConstantesLitterales.tex}
+
+             \subsection{Entiers}
+                \input{fichiers/elementDelangage/sousSectionEntier.tex}
+
+             \subsection{Chaînes de caractères}
+                \input{fichiers/elementDelangage/sousSectionChaine.tex}
+
+        \section{Identificateurs}
+             \input{fichiers/elementDeLangage/sectionIdentificateurs.tex}
+
+             \subsection{Identificateurs d'entiers}
+                \input{fichiers/elementDeLangage/sousSectionIdentificateurEntier.tex}
+
+             \subsection{Identificateurs de Chaînes}
+                \input{fichiers/elementDeLangage/sousSectionIdentificateurChaine.tex}
+
+        \section{Expressions}
+            \input{fichiers/elementDeLangage/sectionExpressions.tex}
+
+            \subsection{Expression entière}
+                \input{fichiers/elementDeLangage/sousSectionExpressionEntiere.tex}
+
+            \subsection{Expression sur chaînes}
+                \input{fichiers/elementDeLangage/sousSectionExpressionChaine.tex}
+
+            \subsection{Conditions}
+                \input{fichiers/elementDeLangage/sousSectionExpressionBooleenne.tex}
 
     \chapter{Utilisation}
+        \input{fichiers/utilisation/chapUtilisation.tex}
 
-    \section{Ouverture d'une session}
+        \section{Utilisation des commandes et instructions}
+            \input{fichiers/utilisation/sectionUtilisationCommandesInstructions.tex}
 
-    \section{Utilisation des commandes et instructions}
+            \subsection{Commandes}
+                \input{fichiers/utilisation/sousSectionUtilisationCommandes.tex}
 
-    \section{Programmation en LIR}
-        \subsection{Écriture d'un programme}
-        \subsection{Exécution d'un programme}
-        \subsection{Sauvegarde et chargement d'un programme}
+            \subsection{Instructions}
+            \input{fichiers/utilisation/sousSectionUtilisationInstructions.tex}
+
+        \section{Programmation en LIR}
+            \input{fichiers/utilisation/sectionProgrammationLIR.tex}
+
+    \chapter{Exemples d'utilisation}
+        \input{fichiers/exemplesUtilisation/programmesExemples.tex}
+
 \end{document}
