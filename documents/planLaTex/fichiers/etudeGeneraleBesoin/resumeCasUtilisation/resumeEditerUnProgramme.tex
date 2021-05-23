@@ -1,18 +1,18 @@
 
-\title{Résumé de cas d'utilisation --- Éditer un programme} % à remplacer
+\title{Résumé de cas d'utilisation --- Éditer une ligne de code} % à remplacer
 
 
         \subparagraph{Acteurs}
-            Programmeur : Il écrit ou modifie un programme à faire exécuter par
-            l'interpréteur.
+            Programmeur : Il écrit ou modifie une ligne de code dans un
+            programme à faire exécuter par l'interpréteur.
 
         \subparagraph{Objectifs}
-            Écrire un nouveau programme ou en modifier un existant dans le
-            but de l'exécuter ou de le sauvegarder.
+            Écrire une une ligne de code dans nouveau programme ou un
+            existant afin d'exécuter ou de sauvegarder ce programme.
 
         \subparagraph{Pré-conditions}
-                L'interpréteur LIR est en mode édition. Un code vierge est
-                affiché ou un code préexistant est chargé depuis un fichier.
+                Le curseur est derrière l'invite suivi d'une étiquette correspondant
+                au numéro de la ligne de code à éditer.
 
         \subparagraph{Post-conditions}
                 Le code source édité est prêt à être exécuté, abandonné ou sauvegardé,
@@ -20,8 +20,7 @@
 
         \subparagraph{Scénario nominal (grandes étapes)}
             \begin{enumerate}
-                \item Le programmeur écrit une ligne de code par instruction, en la
-                      faisant précéder de son étiquette.
+                \item Le programmeur écrit une instruction ou commande par ligne de code, en la faisant précéder de son étiquette.
 
                 \item Le programmeur consulte le code déjà écrit à tout moment avec la
                       commande \verb|liste|. Selon la syntaxe choisie, l'interpréteur
@@ -34,8 +33,7 @@
                 \item Au besoin, le programmeur efface une ou plusieurs lignes avec la
                       commande \verb|efface|.
 
-                \item Au besoin, le programmeur efface les lignes de code et identificateurs
-                      mémorisés et commence un nouveau code avec la commande \verb|debut|.
+                \item Au besoin, le programmeur efface les lignes de code et identificateurs mémorisés et commence un nouveau code avec la commande \verb|debut|.
             \end{enumerate}
 
         \subparagraph{Scénarios d'échec}
