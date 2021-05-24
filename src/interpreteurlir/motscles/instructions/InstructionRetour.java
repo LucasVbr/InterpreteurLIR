@@ -32,7 +32,7 @@ public class InstructionRetour extends Instruction {
     public InstructionRetour(String arguments, Contexte contexte) {
         super(arguments, contexte);
         
-        final String ERREUR_ARG = "L'instruction retour n'a pas d'arguments";
+        final String ERREUR_ARG = "l'instruction retour n'a pas d'arguments";
         
         if (!arguments.isBlank()) {
             throw new InterpreteurException(ERREUR_ARG);

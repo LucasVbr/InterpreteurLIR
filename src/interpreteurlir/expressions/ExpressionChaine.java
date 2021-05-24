@@ -19,8 +19,11 @@ import interpreteurlir.donnees.litteraux.Chaine;
  */
 public class ExpressionChaine extends Expression {
 
+    /** Opérateur possible pour ce type d'expression */
+    private static final char OPERATEUR = '+';
+    
     /**
-     * Initalise une expression de type Chaine 
+     * Initialise une expression de type Chaine 
      * avec les liens nécessaires à son calcul.
      * @param texteExpression texte suivant la syntaxe d'une expression
      * @throws InterpreteurException si texteExpression n'est pas valide
@@ -50,37 +53,16 @@ public class ExpressionChaine extends Expression {
         }
         
         /* Traitement du nombre d'opérande */
-        int indexPlus = indexOperateur(aTraiter, '+');
+        int indexPlus = detecterCaractere(aTraiter, '+');
         gauche = aTraiter;
         if (indexPlus > -1) {
             gauche = aTraiter.substring(0, indexPlus);
             droite = aTraiter.substring(indexPlus + 1, aTraiter.length());
+            operateur[INDEX_OPERANDE_G] = OPERATEUR;
             initialiserOperande(droite, INDEX_OPERANDE_D);
         }
         
         initialiserOperande(gauche, INDEX_OPERANDE_G);
-    }
-
-    /**
-     * Détermine l'index de l'opérateur en dehors des constantes littérales
-     * @param aTraiter chaîne à traiter
-     * @param operateur opérateur à chercher hors guillemet
-     * @return index dans à traiter du plus sinon -1 si aucun plus
-     */
-    public static int indexOperateur(String aTraiter, char operateur) {
-        char[] aTester = aTraiter.toCharArray();
-        int indexPlus;
-        int nbGuillemet = 0;
-        for (indexPlus = 0 ; 
-             indexPlus < aTester.length 
-             && (aTester[indexPlus] != operateur || nbGuillemet % 2 != 0) ;
-             indexPlus++) {
-            
-            if (aTester[indexPlus] == '"') {
-                nbGuillemet++;
-            } 
-        }
-        return indexPlus >= aTester.length ? -1 : indexPlus;
     }
 
     /**
@@ -95,7 +77,7 @@ public class ExpressionChaine extends Expression {
             throw new IllegalArgumentException("index invalide");
         }
         
-        if (operandeEstLitteral(operande)) {
+        if (Chaine.isChaine(operande)) {
             litterauxOperandes[index] = new Chaine(operande);
         } else {
             identificateursOperandes[index] = 
@@ -103,14 +85,6 @@ public class ExpressionChaine extends Expression {
         }
     }
 
-    /**
-     * Détermine le genre de l'opérande (Chaine ou IdentificateurChaine).
-     * @param operande représentation texte de l'opérande
-     * @return true si operande est du genre Litteral sinon false
-     */
-    private static boolean operandeEstLitteral(String operande) {
-        return operande.trim().startsWith("\"");
-    }
 
     /* non javadoc
      * @see interpreteurlir.expressions.Expression#calculer()
@@ -149,6 +123,6 @@ public class ExpressionChaine extends Expression {
         }
         
         return valeur;
-    }
+    }    
 
 }

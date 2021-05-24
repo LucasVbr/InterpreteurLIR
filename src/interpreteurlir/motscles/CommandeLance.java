@@ -6,7 +6,6 @@ package interpreteurlir.motscles;
 
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
-import interpreteurlir.programmes.Programme;
 import interpreteurlir.programmes.Etiquette;
 
 /** 
@@ -25,8 +24,8 @@ public class CommandeLance extends Commande {
 
     /** 
      * Initialise la commande lance avec ses arguments et le contexte
-     * @param arguments
-     * @param contexte
+     * @param arguments vide ou étiquette de lancement
+     * @param contexte référence du contexte global
      * @throws InterpreteurException en cas d'erreur de syntaxe à
      *                               la création d'une étiquette
      */

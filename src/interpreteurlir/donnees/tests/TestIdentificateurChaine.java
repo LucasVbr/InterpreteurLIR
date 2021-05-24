@@ -31,11 +31,11 @@ public class TestIdentificateurChaine {
     };
 
     /**
-     * Tests unitaires du constructeur IdentificateurEntier(String identificateur)
+     * Tests unitaires du constructeur 
+     * IdentificateurEntier(String identificateur)
      */
     public static void testIdentificateurChaineString() {
         final String[] INVALIDE = {
-                null,
                 "",
 
                 // Commence par une lettre
@@ -62,7 +62,8 @@ public class TestIdentificateurChaine {
                 "$",
                 "$1"
         };
-
+        System.out.println("\tExécution du test de "
+                           + "IdentificateurEntier(String identificateur)");
         for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
             try {
                 new IdentificateurChaine(INVALIDE[noJeu]);
@@ -87,6 +88,7 @@ public class TestIdentificateurChaine {
                 "$jeSuisUnTresLongIdentifi"
         };
 
+        System.out.println("\tExécution du test de getNom()");
         for (int noJeu = 0 ; noJeu < NOM_VALIDES.length ; noJeu++) {
             assertEquivalence(NOM_VALIDES[noJeu], FIXTURE[noJeu].getNom());
         }

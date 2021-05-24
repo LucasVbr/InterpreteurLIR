@@ -21,10 +21,10 @@ import interpreteurlir.InterpreteurException;
 public class IdentificateurEntier extends Identificateur {
 
     /**
-     * Instantiation de cet identificateur d'entier avec le nom spécififié 
+     * Instantiation de cet identificateur d'entier avec le nom spécifié 
      * en argument. Lève une exception si l'identificateur n'est pas
      * valide.
-     * @param identificateur a instancier
+     * @param identificateur à instancier
      * @throws InterpreteurException si l'identificateur est invalide
      */
     public IdentificateurEntier(String identificateur) {
@@ -49,7 +49,7 @@ public class IdentificateurEntier extends Identificateur {
      * @return true si l'identificateur est bien un identificateur d'entier
      *                 false sinon
      */
-    private static boolean isIdentificateurEntier(String aTester) {
+    public static boolean isIdentificateurEntier(String aTester) {
         return aTester.length() <= 25 && Character.isLetter(aTester.charAt(0))
             && isAlphanumerique(aTester.substring(1));
     }

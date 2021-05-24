@@ -21,23 +21,6 @@ import interpreteurlir.Contexte;
  */
 public class TestExpression {
     
-    /** Jeu d'essai d'expression typée */
-    private Expression[] fixture = {
-        new ExpressionChaine("$chaine = \"texte\""),  
-        new ExpressionChaine("$chaine=\"tata\""),
-        new ExpressionChaine("   $tata  \t  "),
-        new ExpressionChaine("\"une chaine de texte\""),
-        new ExpressionChaine("$chaine= \"toto\"+\"titi\""),
-        new ExpressionChaine("$chaine= $toto +\"titi\""),
-        new ExpressionChaine("$chaine= \"toto\"+ $titi"),
-        new ExpressionChaine("$chaine=$toto +$titi"),
-        new ExpressionChaine("   \"toto\"+\"titi\""),
-        new ExpressionChaine("$toto +\"titi\""),
-        new ExpressionChaine("\"toto\"+ $titi"),
-        new ExpressionChaine("$toto +    $titi"), 
-        // TODO expression entière
-    };
-    
     /**
      * Tests unitaires de {@link Expression#referencerContexte(Contexte)}
      */
@@ -55,32 +38,6 @@ public class TestExpression {
         for (int numTest = 0 ; numTest < contextes.length ;  numTest++) {
             assertTrue(   Expression.referencerContexte(contextes[numTest]) 
                        == resultatAttendu[numTest]);
-        }
-    }
-    
-    /**
-     * Tests unitaires de {@link Expression#toString()}
-     */
-    public void testToString() {
-        final String[] chaineAttendue = {
-            "$chaine = \"texte\"",  
-            "$chaine = \"tata\"",
-            "$tata",
-            "\"une chaine de texte\"",
-            "$chaine = \"toto\" + \"titi\"",
-            "$chaine = $toto + \"titi\"",
-            "$chaine = \"toto\" + $titi",
-            "$chaine = $toto + $titi",
-            "\"toto\" + \"titi\"",
-            "$toto + \"titi\"",
-            "\"toto\" + $titi",
-            "$toto + $titi"       
-        };
-        
-        System.out.println("\tExécution du test de Expression#toString()");
-        for (int numTest = 0 ; numTest < chaineAttendue.length ; numTest++) {
-            assertEquivalence(chaineAttendue[numTest], 
-                              fixture[numTest].toString());
         }
     }
     

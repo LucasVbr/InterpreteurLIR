@@ -35,7 +35,6 @@ public class CommandeFin extends Commande {
             throw new InterpreteurException(ERREUR_ARGUMENTS);
         }
     }
-
     
     /**
      * Commande d'exécution de la commande.

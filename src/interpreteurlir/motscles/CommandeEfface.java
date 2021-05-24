@@ -21,7 +21,7 @@ public class CommandeEfface extends Commande {
     
     /** Erreur nombre incorrect d'arguments */
     private static final String ERREUR_NB_ARGS = 
-        "nombre d'arguments incorrect. Syntaxe attendue ==> <debut>:<fin>";
+        "usage efface <étiquette_début>:<étiquette_fin>";
     
     /** Plage de suppression des lignes de code */
     private Etiquette[] plageSuppression;
@@ -31,7 +31,7 @@ public class CommandeEfface extends Commande {
      * contexte passés en paramètres. Modifie le programme global référencé
      * par l'analyseur.
      * @param arguments lignes à effacer (tout le programme si vide)
-     * @param contexte
+     * @param contexte référence du contexte global
      */
     public CommandeEfface(String arguments, Contexte contexte) {
         super(arguments, contexte);

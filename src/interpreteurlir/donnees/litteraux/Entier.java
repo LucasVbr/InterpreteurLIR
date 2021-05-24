@@ -17,73 +17,46 @@ import interpreteurlir.InterpreteurException;
  * @author Lucas Vabre
  */
 public class Entier extends Litteral {
-
-    private static final int LONG_CH_MAX = 11;
-
-    /** Valeur entière minimale */
-    public static int VALEUR_MIN = Integer.MIN_VALUE;
-    
-    /** Valeur entière minimale */
-    public static int VALEUR_MAX = Integer.MAX_VALUE;
     
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
-     * @param unEntier
-     * @throws InterpreteurException lorsque entier n'est pas un Entier
+     * @param unEntier valeur de l'entier à construire
      */
-    @SuppressWarnings("boxing")
     public Entier(int unEntier) {
     
-        if (! isEntier(unEntier)) {
-            throw new InterpreteurException("Erreur. " + unEntier 
-                                            + " n'est pas un entier. ");
-        }
         super.valeur = unEntier;
     }
 
     /** 
      * Initialisation de cet entier avec une valeur passée en argument
-     * @param uneValeur 
+     * @param uneValeur chaîne contenant l'entier à construire
      */
     public Entier(String uneValeur) {
         if (!isEntier(uneValeur)) {
             throw new InterpreteurException(uneValeur 
-                                            + " n'est pas un nombre entier. ");
+                                            + " n'est pas un nombre entier");
         }
 
         valeur = Integer.valueOf(uneValeur);
     }
     
-    private static boolean isEntier(String uneValeur) {
-        if (uneValeur != null && !uneValeur.isBlank() 
-            && uneValeur.length() <= LONG_CH_MAX
-            && (isChiffre(uneValeur.charAt(0)) 
-                || uneValeur.length() > 1 && (uneValeur.charAt(0) == '-' 
-                                           || uneValeur.charAt(0) == '+'))) {
-          int i;
-          for (i = 1; i < uneValeur.length() && isChiffre(uneValeur.charAt(i)); 
-               i++)
-              ; /* corps vide */
-          if ((uneValeur.startsWith("+214748364") 
-                  || uneValeur.startsWith("214748364"))
-                  && uneValeur.charAt(uneValeur.length() - 1) > '7'
-              || uneValeur.startsWith("-214748364") 
-                  && uneValeur.charAt(uneValeur.length() - 1) > '8'
-                  )
-                      return false;
-          
-          return i >= uneValeur.length();
+    /** 
+     * Prédicat de validité d'une chaîne en tant que nombre entier signé
+     * @param uneValeur la chaîne à tester
+     * @return true si uneValeur est un entier sinon false
+     */
+    public static boolean isEntier(String uneValeur) {
+        if (uneValeur == null) {
+            return false;
         }
         
-        return false;
-    }
-
-    private static boolean isChiffre(char caractere) {
-        return '0' <= caractere && caractere <= '9';
-    }
-
-    private static boolean isEntier(int entier) {
-        return VALEUR_MIN <= entier && entier <= VALEUR_MAX;
+        try {
+            Integer.valueOf(uneValeur.trim());
+        } catch (NumberFormatException lancee) {
+            return false;
+        }
+        
+        return true;
     }
 
     /* non javadoc
@@ -101,10 +74,10 @@ public class Entier extends Litteral {
 
     /** 
      * Compare cet entier à un autre entier
-     * @param autre
-     * @return une valeur < 0 lorsque autre > cet entier
-     *         une valeur > 0 lorsque autre < cet entier
-     *         une valeur = 0 lorsque autre et cet entier sont égaux
+     * @param autre entier avec lequel this est comparé
+     * @return une {@code valeur < 0} lorsque {@code autre > cet entier}
+     *         une {@code valeur > 0} lorsque {@code autre < cet entier}
+     *         une {@code valeur = 0} lorsque autre et cet entier sont égaux
      */
     public int compareTo(Entier autre) {
         return ((Integer) valeur).compareTo(autre.getValeur());
@@ -151,7 +124,7 @@ public class Entier extends Litteral {
      */
     public static Entier quotient(Entier premier, Entier second) {
         if (second.compareTo(new Entier (0)) == 0) {
-            throw new ExecutionException("Erreur. Division par 0. ");
+            throw new ExecutionException("division par 0");
         }
         return new Entier((int) premier.getValeur() / (int) second.getValeur());
     }
@@ -165,8 +138,16 @@ public class Entier extends Litteral {
      */
     public static Entier reste(Entier premier, Entier second) {
         if (second.compareTo(new Entier (0)) == 0) {
-            throw new ExecutionException("Erreur. Division par 0. ");
+            throw new ExecutionException("division par 0");
         }
         return new Entier((int) premier.getValeur() % (int) second.getValeur());
+    }
+
+    /* non javadoc
+     * @see Litteral#compareTo(Litteral)
+     */
+    @Override
+    public int compareTo(Litteral autre) {
+        return ((Integer)valeur).compareTo((Integer)autre.valeur);
     }
 }

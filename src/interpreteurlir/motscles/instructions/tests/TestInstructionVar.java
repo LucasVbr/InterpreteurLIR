@@ -4,12 +4,14 @@
  */
 package interpreteurlir.motscles.instructions.tests;
 
+import static info1.outils.glg.Assertions.*;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.motscles.instructions.InstructionVar;
 
 /**
- * Tests unitaires de l'instruction var
+ * Tests unitaires de la classe InstructionVar
+ * 
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
@@ -25,59 +27,50 @@ public class TestInstructionVar {
     };
 
     /**
-     * Test du constructeur InstructionVar
+     * Test unitaire de {@link InstructionVar#InstructionVar(String, Contexte)}
      */
     public static void testInstructionVar() {
         final String[] EXPRESSIONS_INVALIDES = {
-            "bonjour", "", null, "$toto $tata", 
+            "bonjour", "", "$toto $tata",
         };
         
-        System.out.println("Test du constructeur\navec expressions invalides");
+        System.out.println("\tExécution du test de InstructionVar(String, "
+                           + "Contexte)");
+        
         for (String aTester : EXPRESSIONS_INVALIDES) {
             try {
                 new InstructionVar(aTester, new Contexte());
-                throw new RuntimeException("Echec du test");
+                echec();
             } catch (InterpreteurException lancee) {
-                System.out.println(aTester + " ==> OK");
+                // Test OK
             }
         }
         
-        System.out.println("Avec expressions valides");
-        for (String aTester : VALIDES)
-            new InstructionVar(aTester, new Contexte());
-        
-        System.out.println("Fin du test\n");
+        for (String aTester : VALIDES) {
+            try {
+                new InstructionVar(aTester, new Contexte());
+            } catch (InterpreteurException lancee) {
+                echec();
+            }
+        }
     }
     
     /**
-     * Test de toString
+     * Test unitaire de {@link InstructionVar#toString()}
      */
     public static void testToString() {
         final String[] CHAINES_ATTENDUES = {
-                "var $toto = $tata", "var entier=2+2", 
-                "var $coucou = $toto + \\\"titi\\\"", 
+                "var $toto = $tata", 
+                "var entier = 2 + 2", 
+                "var $coucou = $toto + \"titi\"", 
                 "var anneeNaissance = 1898"
         };
         
-        System.out.println("Test de toString()");
+        System.out.println("\tExécution du tes de toString()");
         for (int i = 0 ; i < VALIDES.length ; i++) {
-            
-            try {
-                assert VALIDES[i].toString().equals(CHAINES_ATTENDUES[i]);
-            } catch (AssertionError lancee) {
-                System.err.println("Echec du test à l'indice " + i);
-            }
+            InstructionVar aTester = new InstructionVar(VALIDES[i], 
+                                                        new Contexte());
+            assertTrue(CHAINES_ATTENDUES[i].equals(aTester.toString()));
         }
-        System.out.println("Fin du test\n");
     }
-    
-    /**
-     * Lancement des tests
-     * @param args
-     */
-    public static void main(String[] args) {
-        testInstructionVar();
-        testToString();
-    }
-
 }

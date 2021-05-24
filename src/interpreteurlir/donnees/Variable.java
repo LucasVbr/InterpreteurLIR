@@ -65,7 +65,7 @@ public class Variable extends Object implements Comparable<Variable> {
 
     /** 
      * Modifie la valeur de cette variable
-     * @param nouvelleValeur 
+     * @param nouvelleValeur valeur à affecter à cette variable
      */
     public void setValeur(Litteral nouvelleValeur) {
         if (isVariable(identificateur, nouvelleValeur)) {
@@ -86,6 +86,10 @@ public class Variable extends Object implements Comparable<Variable> {
         return identificateur.toString() + " = " + valeur.toString();
     }
 
+    /*
+     * non javadoc
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
     public int compareTo(Variable aComparer) {
         return identificateur.compareTo(aComparer.identificateur);
     }

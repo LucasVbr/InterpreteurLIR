@@ -8,7 +8,9 @@ import static info1.outils.glg.Assertions.*;
 
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.Contexte;
+import interpreteurlir.motscles.Commande;
 import interpreteurlir.motscles.CommandeDebut;
+import interpreteurlir.programmes.Programme;
 
 /**
  * Tests unitaires de {@link interpreteurlir.motscles.CommandeDebut}
@@ -59,6 +61,7 @@ public class TestCommandeDebut {
      * Tests unitaires de {@link CommandeDebut#executer()}
      */
     public void testExecuter() {
+        Commande.referencerProgramme(new Programme());
         System.out.println("\tExécution du test de CommandeDebut#executer()");
         for (CommandeDebut cmd : fixture) {
             assertFalse(cmd.executer());

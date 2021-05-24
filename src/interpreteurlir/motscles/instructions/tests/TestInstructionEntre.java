@@ -8,7 +8,6 @@ import interpreteurlir.motscles.instructions.InstructionEntre;
 import interpreteurlir.Contexte;
 import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
-import interpreteurlir.donnees.litteraux.Entier;
 
 import static info1.outils.glg.Assertions.*;
 /** 
@@ -117,5 +116,4 @@ public class TestInstructionEntre {
         System.out.println("Contexte : \n" + CONTEXTE_GLB);
     }
     
-
 }

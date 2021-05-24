@@ -63,36 +63,24 @@ public class TestVariable {
         new Chaine("\"titi\n\"")
     };
     
-//    /** Jeu d'entiers valides */
-//    private static final Entier[] VALEUR_ENTIER = {
-//        // TODO: jeu d'entiers valide
-//    };
-    
     /** Jeu de variables chaîne valides*/
-    private static Variable[] fixtureChaine = new Variable[ID_CHAINE.length];
-    
-    /* Jeu de variables entières valides*/
-    //private static Variable[] fixtureEntier= new Variable[ID_ENTIER.length];
+    private static Variable[] fixtureChaine = new Variable[ID_CHAINE.length];   
     
     private static void fixtureReload() {
         for (int i = 0; i < ID_CHAINE.length; i++) {
             fixtureChaine[i] = new Variable(ID_CHAINE[i], VALEURS_CHAINE[i]); 
         }
-        
-        //TODO reload fixtureEntier
     }
     
     /** 
      * Test unitaire du constructeur Variable(Identificateur, Littéral)
      */
     public static void testVariableIdentificateurChaineLitteral() {
-        
+        System.out.println("\tExécution du test de "
+                           + "Variable(Identificateur, Littéral)");
         for (int noJeu = 0; noJeu < VALEURS_CHAINE.length; noJeu++) {
             try {
-                //new Variable(ID_CHAINE[noJeu], VALEURS_CHAINE[noJeu]); // bouchon
                 new Variable(ID_ENTIER[noJeu], VALEURS_CHAINE[noJeu]);
-                // TODO tester avec la classe Entier
-                // new Variable(ID_CHAINE[noJeu], VALEURS_ENTIER[noJeu]);
                 echec();
             } catch (InterpreteurException lancee) {
                 // test OK
@@ -106,24 +94,12 @@ public class TestVariable {
     public static void testGetIdentificateurChaine() {
         fixtureReload();
         
+        System.out.println("\tExécution du test de getIdentificateur()");
+        
         for (int i = 0; i < VALEURS_CHAINE.length; i++ ) {
             assertTrue(ID_CHAINE[i].compareTo(fixtureChaine[i]
                                               .getIdentificateur()) == 0);
         }
-    }
-    
-    /** 
-     * Test unitaire de getIdentificateur() d'une variable entière
-     */
-    public static void testGetIdentificateurEntier() {
-//        fixtureReload();
-//
-//        for (int i = 0; i < VALEURS_Entier.length; i++ ) {
-//            assertTrue(ID_ENTIER[i].compareTo(fixtureEntier[i]
-//                                              .getIdentificateur()) == 0);
-//        }
-        
-        echec();
     }
     
     /** 
@@ -132,6 +108,7 @@ public class TestVariable {
     public static void testGetValeurChaine() {
         fixtureReload();
         
+        System.out.println("\tExécution du test de getValeur()");
         for (int i = 0; i < VALEURS_CHAINE.length; i++ ) {
             assertTrue(VALEURS_CHAINE[i]
                            .compareTo(fixtureChaine[i].getValeur()) == 0);
@@ -153,6 +130,7 @@ public class TestVariable {
                 new Chaine("\"-5 + 962\"")
         };
         
+        System.out.println("\tExécution du test de setValeur()");
         for (int i = 0; i < NOUVELLE_CHAINE.length; i++) {
             fixtureChaine[i].setValeur(NOUVELLE_CHAINE[i]);
             assertTrue(NOUVELLE_CHAINE[i]
@@ -178,7 +156,7 @@ public class TestVariable {
                 "$MichelSardou = \"tata\t\"",
                 "$PhilippePoutou2022 = \"titi\n\""
         };
-                
+        System.out.println("\tExécution du test de toString()");        
         for (int noJeu = 0; noJeu < fixtureChaine.length; noJeu++ ) {
             assertEquivalence(fixtureChaine[noJeu].toString(), 
                               ATTENDUS[noJeu]);
@@ -199,12 +177,12 @@ public class TestVariable {
         = new Variable(new IdentificateurChaine("$z"),
                        new Chaine("\"Max\""));
 
+        System.out.println("\tExécution du test de compareTo");
         for(int noJeu = 0;  noJeu < fixtureChaine.length; noJeu++) {
             assertTrue(fixtureChaine[noJeu].compareTo(REF_MIN) > 0);
             assertTrue(fixtureChaine[noJeu].compareTo(REF_MAX) < 0);
             assertTrue(fixtureChaine[noJeu].compareTo(fixtureChaine[noJeu]) == 0);
         }
         
-        // TODO Faire le même test pour les variables contenant des entiers
     }
 }

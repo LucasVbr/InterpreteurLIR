@@ -91,6 +91,9 @@ public class TestCommandeListe {
             "1:100000"
         };
         
+        System.out.println("\tExécution du test de "
+                + "CommandeListe#CommandeListe(String, Contexte)");
+        
         for (int i = 0; i < ARGS_INVALIDES.length; i++) {
             try {
                 new CommandeListe(ARGS_INVALIDES[i], contexteTest);
@@ -129,6 +132,9 @@ public class TestCommandeListe {
         ecrireProgrammeTest();
         Commande.referencerProgramme(programmeTest);
         Expression.referencerContexte(contexteTest);
+        
+        System.out.println("\tExécution du test de "
+                           + "CommandeListe#executer()");
         
         for (int i = 0 ; i < FIXTURE.length ; i++) {
             try {

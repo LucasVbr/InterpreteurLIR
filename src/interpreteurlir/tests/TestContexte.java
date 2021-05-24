@@ -86,7 +86,6 @@ public class TestContexte {
                 "aucune variable n'est définie\n",
                 "aucune variable n'est définie\n",
                 "aucune variable n'est définie\n",
-                // TODO refaire quand totalement fonctionnel
         };
         
         System.out.println("\tExécution du test de Contexte#toString()");
@@ -136,7 +135,8 @@ public class TestContexte {
         assertEquivalence(fixture[0].lireValeurVariable(
                 new IdentificateurChaine("$chaine")).getValeur(), "");
         assertEquivalence(fixture[0].lireValeurVariable(
-                new IdentificateurEntier("entier")).getValeur(), Integer.valueOf(0));
+                new IdentificateurEntier("entier")).getValeur(), 
+                                         Integer.valueOf(0));
         
         // lire valeur par défaut dans contexte non vide
         fixture[1].ajouterVariable(new IdentificateurChaine("$zoro"), 

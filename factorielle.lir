@@ -1,0 +1,35 @@
+10 affiche "Bienvenue dans le programme factorielle.lir !"
+20 affiche
+30 affiche "Entrez un entier : "
+40 entre entier
+45 procedure 500
+50 procedure 1000
+60 affiche entier
+70 affiche "! = "
+80 affiche factorielle
+90 affiche
+200 stop
+
+500 si entier >= 0 vaen 600
+510 affiche "n! est définie sur l'ensemble des entiers naturels"
+520 stop
+600 retour
+
+1000 var factorielle = 1
+1010 var entierCourant = 2
+1011 var ancienFactorielle = factorielle
+1012 var test = factorielle
+1015 si entierCourant > entier vaen 1100
+1016 si ancienFactorielle <> test vaen 1060
+1017 var ancienFactorielle = factorielle
+1020 var factorielle = factorielle * entierCourant
+1025 var test = factorielle / entierCourant
+1030 var entierCourant = entierCourant + 1
+1040 vaen 1015
+1050 vaen 1100
+1060 affiche "dépassement de la capacité des entiers pour "
+1070 affiche entier
+1080 affiche "!"
+1090 affiche
+1095 stop
+1100 retour

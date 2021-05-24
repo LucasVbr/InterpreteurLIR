@@ -30,7 +30,7 @@ import static interpreteurlir.programmes.Etiquette.VALEUR_ETIQUETTE_MIN;
 public class Programme {
     
     private static final String ERREUR_INTERVALLE = "erreur dans l'intervalle "
-                                                    + "d'étiquettes. "; 
+                                                    + "d'étiquettes"; 
     
     /** Pile LIFO pour la gestion des étiquettes */
     private Stack<Etiquette> compteurOrdinnal;
@@ -42,15 +42,13 @@ public class Programme {
     
     /** 
      * Initialisation de ce programme sans lignes de code
-     * <p>
-     * 
      */
     public Programme() {
         super();
+        
         lignesCode = new TreeMap<Etiquette, Instruction>();
         enExecution = false;
         compteurOrdinnal = new Stack<Etiquette>();
-        
     }
 
     /** 
@@ -91,11 +89,8 @@ public class Programme {
     @Override
     public String toString() {
         
-        Object[] tableauEtiquette 
-                = lignesCode.keySet().toArray();
-        
-        Object[] tableauInstruction
-                = lignesCode.values().toArray();
+        Object[] tableauEtiquette = lignesCode.keySet().toArray();
+        Object[] tableauInstruction = lignesCode.values().toArray();
         
         StringBuilder aAfficher = new StringBuilder("");
         
@@ -150,9 +145,8 @@ public class Programme {
             }
         } while (lignesRestantes);
         
-        return aAfficher.toString().equals("") 
-               ? "Aucune ligne de code dans cet intervalle.\n"
-               : aAfficher.toString();
+        return aAfficher.toString().equals("") ? "aucune ligne à afficher\n"
+                                               : aAfficher.toString();
     }
     
     /** 
@@ -236,8 +230,18 @@ public class Programme {
     /**
      * Change le compteur ordinal avec l'étiquette argument
      * @param destination étiquette où continuer l'exécution
+     * @throws ExecutionException si aucune instruction dans le programme
+     *                            n'a comme étiquette destination
      */
     public void vaen(Etiquette destination) {
+        final String ERR_ETIQUETTE = "vaen impossible car l'étiquette " 
+                                     + destination 
+                                     + " ne correspond à aucune instruction";
+        if (!lignesCode.containsKey(destination)) {
+            throw new ExecutionException(ERR_ETIQUETTE);
+        }
+        // else
+        
         if (!compteurOrdinnal.isEmpty()) {
             compteurOrdinnal.pop();
         }
@@ -258,12 +262,11 @@ public class Programme {
     /** 
      * Retour d'une procédure en dépilant l'étiquette de départ dans
      * le compteurOrdinal 
-     * @param depart étiquette du début de la procédure
      * @throws ExecutionException lorsque retourProcedure vide le 
      *                            compteurOrdinnal
      */
     public void retourProcedure() {
-        final String ERREUR_RETOUR = "erreur retour nécessite un appel de "
+        final String ERREUR_RETOUR = "retour nécessite un appel de "
                                      + "procédure au préalable";
         try {
             compteurOrdinnal.pop();

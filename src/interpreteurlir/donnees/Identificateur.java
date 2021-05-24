@@ -1,5 +1,5 @@
 /*
- * Identificateur.java , 08/05/2021
+ * Identificateur.java , 8 mai 2021
  * IUT Rodez 2020-2021, info1
  * pas de copyright, aucun droits
  */
@@ -9,31 +9,31 @@ package interpreteurlir.donnees;
 import interpreteurlir.InterpreteurException;
 
 /**
+ * Identificateur d'une variable.
  * @author Nicolas Caminade
  * @author Sylvan Courtiol
  * @author Pierre Debas
  * @author Heia Dexter
  * @author Lucas Vabre
  */
-public class Identificateur /* extends Variable */
-implements Comparable<Identificateur> {
+public abstract class Identificateur implements Comparable<Identificateur> {
 
     /** Longueur maximale d'un identificateur (ne prend pas en compte le $) */
     public static final int LONGUEUR_MAX = 25;
 
-    /** Nom identificateur */
+    /** Nom de cet identificateur */
     private String nom;
 
     /**
      * Instantiation de l'identificateur
-     * @param identificateur
+     * @param identificateur nom de l'identificateur
      */
     public Identificateur(String identificateur) {
         super();
         identificateur = identificateur.trim();
         if(!isIdentificateur(identificateur)) {
             throw new InterpreteurException(identificateur
-                    + " n'est pas un identificateur");
+                                            + " produit un résultat inattendu");
         }
 
         nom = identificateur;
@@ -46,7 +46,7 @@ implements Comparable<Identificateur> {
      *     <li>N'est pas une chaîne vide</li>
      *     <li>N'est pas null</li>
      * </ul>
-     * @param aTester
+     * @param aTester chaîne à tester
      * @return true si le prédicat est vérifié
      *         false sinon
      */
@@ -77,17 +77,15 @@ implements Comparable<Identificateur> {
     public static boolean isAlphanumerique(String aTester) {
         int index;
         for (index = 0 ;
-            index < aTester.length()
-            && Character.isLetterOrDigit(aTester.charAt(index)) ;
-            index++)
-            ;    // Corps vide
+             index < aTester.length()
+             && Character.isLetterOrDigit(aTester.charAt(index)) ;
+             index++)
+            ; /* empty body */
 
-            return index >= aTester.length();
+        return index >= aTester.length();
     }
 
-    /**
-     * @return la valeur de nom
-     */
+    /**  @return la valeur de nom */
     public String getNom() {
         return nom;
     }

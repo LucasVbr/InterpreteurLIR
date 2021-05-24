@@ -30,7 +30,7 @@ public class InstructionVaen extends Instruction {
     public InstructionVaen(String arguments, Contexte contexte) {
         super(arguments, contexte);
         
-        final String ERREUR_ARG = "vaen attend une étiquette en argument";
+        final String ERREUR_ARG = "usage vaen <étiquette>";
         
         if (arguments.isBlank()) {
             throw new InterpreteurException(ERREUR_ARG);
@@ -49,16 +49,15 @@ public class InstructionVaen extends Instruction {
 
     /**
      * Execution de l'instruction :
-     * Realise un saut a l'étiquette spécifiée.
-     * L'appel s'empile sur le contexte appellant pour ce qui est du
-     * compteur ordinal.
+     * Réalise un saut à l'étiquette spécifiée.
      * @return false car aucun feedback affiché directement
      * @throws RuntimeException si un programme n'est pas référencé en membre
      *                          de classe de Commande.
      */
     public boolean executer() {
         
-        final String ERREUR = "erreur exécution";
+        final String ERREUR = "Le programme doit être référencé "
+                              + "dans la classe commande";
         
         if (programmeGlobal == null) {
             throw new RuntimeException(ERREUR);

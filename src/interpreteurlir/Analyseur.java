@@ -1,5 +1,5 @@
 /**
- * Analyseur.java                              9 mai 2021
+ * Analyseur.java                                9 mai 2021
  * IUT Rodez info1 2020-2021, pas de copyright, aucun droit
  */
 package interpreteurlir;
@@ -143,6 +143,10 @@ public class Analyseur {
                                      .getConstructor(classeArg, classeContexte)
                                      .newInstance(arguments, contexteGlobal);
             feedback(cmd.executer());
+            if (motCle.equals("lance") 
+                    || (motCle.equals("affiche") && !arguments.isBlank())) {
+                System.out.println();
+            }
         } catch (  InvocationTargetException | IllegalAccessException 
                  | InstantiationException    | NoSuchMethodException 
                  | InterpreteurException     | ExecutionException lancee) {
@@ -213,14 +217,14 @@ public class Analyseur {
      * Recherche l'instruction correspondant au mot clé.
      * <ul><li>Les instructions doivent être 
      *         dans le package interpreteurlir.motscles.instructions</li>
-     * <ul>
+     * </ul>
      * La classe correspondant doit avoir un nom qui se finit avec le mot clé
      * (première lettre en majuscule)
      * @param motCle mot clé de l'instruction
      * @return Classe de cette instruction.
      * @throws InterpreteurException si motCle est vide, null ou non reconnue
      */
-    private static Class<?> rechercheInstruction(String motCle) {
+    public static Class<?> rechercheInstruction(String motCle) {
         final String ERREUR_VIDE = "ligne vide";
         final String ERREUR_INCONNU = "mot clé inconnu";
         final String CLASS_PATH_INST = 

@@ -7,7 +7,6 @@ package interpreteurlir.motscles.instructions;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.expressions.Expression;
-import interpreteurlir.expressions.ExpressionChaine;
 
 /**
  * Instruction de déclaration et d'affectation de variables. La syntaxe de
@@ -30,10 +29,11 @@ public class InstructionVar extends Instruction {
      */
     public InstructionVar(String arguments, Contexte contexte) {
         super(arguments, contexte);
+        final String USAGE = "usage var <identificateur> = <expression>";
         
         if (arguments == null || arguments.isBlank() 
-                || ExpressionChaine.indexOperateur(arguments, '=') <= 0)
-            throw new InterpreteurException("erreur de syntaxe");
+                || Expression.detecterCaractere(arguments, '=') <= 0)
+            throw new InterpreteurException(USAGE);
         
         aExecuter = Expression.determinerTypeExpression(arguments.trim());
     }

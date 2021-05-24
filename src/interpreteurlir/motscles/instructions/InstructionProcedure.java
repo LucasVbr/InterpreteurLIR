@@ -5,7 +5,6 @@
 package interpreteurlir.motscles.instructions;
 
 import interpreteurlir.Contexte;
-import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.programmes.Etiquette;
 
@@ -36,7 +35,7 @@ public class InstructionProcedure extends Instruction {
     public InstructionProcedure(String arguments, Contexte contexte) {
         super(arguments, contexte);
         
-        final String ERREUR_ARG = "procedure attend une étiquette en argument";
+        final String ERREUR_ARG = "usage procedure <étiquette>";
         
         if(arguments.isBlank()) {
             throw new InterpreteurException(ERREUR_ARG);
@@ -63,7 +62,6 @@ public class InstructionProcedure extends Instruction {
      *                          de classe de Commande.
      */
     public boolean executer() {
-        
         final String ERREUR_REFERENCEMENT = "Le programme doit être référencé "
                                             + "dans la classe commande";
         

@@ -9,10 +9,7 @@ import static info1.outils.glg.Assertions.*;
 import interpreteurlir.Contexte;
 import interpreteurlir.ExecutionException;
 import interpreteurlir.InterpreteurException;
-import interpreteurlir.donnees.Identificateur;
-import interpreteurlir.donnees.IdentificateurChaine;
 import interpreteurlir.donnees.IdentificateurEntier;
-import interpreteurlir.donnees.litteraux.Chaine;
 import interpreteurlir.donnees.litteraux.Entier;
 import interpreteurlir.expressions.Expression;
 import interpreteurlir.expressions.ExpressionEntier;
@@ -67,7 +64,8 @@ public class TestExpressionEntier {
             "divisionRatee = 5 /",
             "ratee=*7",
         };
-        
+        System.out.println("\tExécution du test de "
+                           + "ExpressionEntier#ExpressionEntier(String)");
         for (String invalide : INVALIDES) {
             try {
                 new ExpressionEntier(invalide);
@@ -98,6 +96,9 @@ public class TestExpressionEntier {
             new Entier(0),  // Bouchon
             new Entier(0)   // Bouchon
         };
+        
+        System.out.println("\tExécution du test de "
+                           + "ExpressionEntier#calculer()");
         
         /* Exception levée si contexte non référencé */
         try {
@@ -152,6 +153,9 @@ public class TestExpressionEntier {
                 "division = 12 / 0",
                 "modulo = 12 % 0"
         };
+        
+        System.out.println("\tExécution du test de "
+                           + "ExpressionEntier#toString()");
         
         for (int i = 0 ; i < FIXTURE.length ; i++) {
             assertTrue(FIXTURE[i].toString().equals(ATTENDUES[i]));

@@ -7,6 +7,7 @@ package interpreteurlir.motscles.tests;
 import interpreteurlir.Contexte;
 import interpreteurlir.InterpreteurException;
 import interpreteurlir.motscles.*;
+import interpreteurlir.programmes.Programme;
 
 /**
  * Essais des commandes (création + éxécution)
@@ -24,6 +25,7 @@ public class EssaiCommande {
      */
     public static void main(String[] args) {
         Contexte contexte = new Contexte();
+        Commande.referencerProgramme(new Programme());
         
         /* Erreur dans commande */
         System.out.println("? debut args");
@@ -49,9 +51,11 @@ public class EssaiCommande {
         System.out.println("? debut");
         feedback(new CommandeDebut("", contexte).executer());
         System.out.println("? defs");
-        feedback(new CommandeDefs( "", contexte).executer());
+        feedback(new CommandeDefs("", contexte).executer());
+        System.out.println("? liste");
+        feedback(new CommandeListe("", contexte).executer());
         System.out.println("? fin");
-        feedback(new CommandeFin(  "", contexte).executer());
+        feedback(new CommandeFin("", contexte).executer());
         
         System.err.println("Erreur, la commande fin n'a pas quitter");
 

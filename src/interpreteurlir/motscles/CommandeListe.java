@@ -28,8 +28,8 @@ public class CommandeListe extends Commande {
     /** 
      * Initialise la commande liste avec ses arguments et le contexte
      * 
-     * @param arguments
-     * @param contexte
+     * @param arguments arguments vide ou contenant les étiquettes à afficher
+     * @param contexte référence du contexte global
      * @throws InterpreteurException en cas d'erreur de syntaxe lors
      *                               de l'instanciation des étiquettes
      */
@@ -39,10 +39,10 @@ public class CommandeListe extends Commande {
         final int ARGS_DEBUT = 0;
         final int   ARGS_FIN = 1;
         
-        final String ERREUR_INTERVALLE = "usage <etiquette debut>:"
-                                         + "<etiquette fin> avec "
-                                         + "<etiquette debut> < "
-                                         + "<etiquette fin> ";
+        final String ERREUR_INTERVALLE = "usage liste <étiquette_début>:"
+                                         + "<étiquette_fin> avec "
+                                         + "<étiquette_début> <= "
+                                         + "<étiquette_fin> ";
         
         if (arguments.isBlank()) {
             debut = new Etiquette(VALEUR_ETIQUETTE_MIN);
@@ -75,12 +75,12 @@ public class CommandeListe extends Commande {
      *                          dans la classe {@link Commande}
      */
     public boolean executer() {
-
         final String ERREUR = "erreur exécution";
         
         if (programmeGlobal == null) {
             throw new RuntimeException(ERREUR);
         }
+        
         if (debut != null || fin != null) {
             System.out.print(programmeGlobal.listeBornee(debut, fin));
         }
