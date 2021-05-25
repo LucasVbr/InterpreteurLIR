@@ -1,0 +1,133 @@
+Exemples d'utilisation de l'interpréteur LIR :
+\begin{verbatim}
+	TODO
+\end{verbatim}
+
+Exemples de programmes en LIR :
+\begin{enumerate}
+	\item \textbf{Exemple d'un programme demandant un état civil simple : }
+\begin{verbatim}
+10 affiche "Entre ton nom : " 
+20 entre $nom 
+30 affiche "Bienvenue "+$nom 
+35 affiche 
+40 var an=2021 
+50 affiche "Quelle est ton année de naissance ? " 
+60 entre naissance 
+65 si naissance > an vaen 50 
+70 affiche "Tu as autour de " 
+80 affiche an-naissance 
+90 affiche "ans " 
+100 affiche 
+200 stop
+\end{verbatim}
+    \underline{Exemple d'exécution :}
+\begin{verbatim}
+? charge etatCivilSimple.lir
+ok
+? lance
+Entre ton nom : Emmanuel MACRON
+Bienvenue Emmanuel MACRON
+Quelle est ton année de naissance ? 1977
+Tu as autour de 44ans 
+\end{verbatim}
+    \item \textbf{Exemple d'un programme calculant la factorielle à partir d'un entier saisi par l'utilisateur :}
+\begin{verbatim}
+10 affiche "Bienvenue dans le programme factorielle.lir !"
+20 affiche
+30 affiche "Entrez un entier : "
+40 entre entier
+45 procedure 500
+50 procedure 1000
+60 affiche entier
+70 affiche "! = "
+80 affiche factorielle
+90 affiche
+200 stop
+    		
+500 si entier >= 0 vaen 600
+510 affiche "n! est définie sur l'ensemble des entiers naturels"
+520 stop
+600 retour 
+
+1000 var factorielle = 1
+1010 var entierCourant = 2
+1011 var ancienFactorielle = factorielle
+1012 var test = factorielle
+1015 si entierCourant > entier vaen 1100
+1016 si ancienFactorielle <> test vaen 1060
+1017 var ancienFactorielle = factorielle
+1020 var factorielle = factorielle * entierCourant
+1025 var test = factorielle / entierCourant
+1030 var entierCourant = entierCourant + 1
+1040 vaen 1015
+1050 vaen 1100
+1060 affiche "dépassement de la capacité des entiers pour "
+1070 affiche entier
+1080 affiche "!"
+1090 affiche
+1095 stop
+1100 retour
+\end{verbatim}
+    \underline{Exemple d'exécution :}
+\begin{verbatim}
+? charge factorielle.lir
+ok
+? lance
+Bienvenue dans le programme factorielle.lir !
+Entrez un entier : 10
+10! = 3628800
+\end{verbatim}
+    \item \textbf{Exemple d'un programme déterminant l'entier médian de 3 entiers saisis :}
+\begin{verbatim}
+10 affiche "Bienvenue dans le programme Median3Entiers.lir"
+20 affiche
+30 affiche "Entrez le premier entier : "
+40 entre premier
+50 affiche "Entrez le deuxième entier : "
+60 entre deuxieme
+70 affiche "Entrez le troisième entier : "
+80 entre troisieme
+90 procedure 1000
+100 affiche "Median( "
+110 affiche premier
+120 affiche ", "
+130 affiche deuxieme
+140 affiche ", "
+150 affiche troisieme
+160 affiche ") = "
+170 affiche median
+180 affiche
+250 stop
+        
+1000 si premier <= deuxieme vaen 1100
+1010 si deuxieme <= troisieme vaen 1200
+1020 vaen 1520
+        
+1100 si deuxieme <= troisieme vaen 1520
+1110 si premier <= troisieme vaen 1540
+1120 vaen 1500
+        
+1200 si premier <= troisieme vaen 1500
+1220 vaen 1540
+
+1500 var median = premier
+1510 vaen 1550
+1520 var median = deuxieme
+1530 vaen 1550
+1540 var median = troisieme
+1550 retour
+\end{verbatim}
+    \underline{Exemple d'exécution :}
+\begin{verbatim}
+? charge Median3Entiers.lir
+ok
+? lance
+Bienvenue dans le programme Median3Entiers.lir
+Entrez le premier entier : 55
+Entrez le deuxième entier : 27
+Entrez le troisième entier : 96
+Median( 55, 27, 96) = 55
+\end{verbatim}
+\end{enumerate}
+
