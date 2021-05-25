@@ -1,0 +1,6 @@
+La programmation en LIR peut s'effectuer de deux manières :
+\begin{enumerate}
+	\item \textbf{Programmation directement dans l'interpréteur.} Celle-ci s'effectue en ajoutant une étiquette, donnant l'ordre d'exécution, avant l'instruction saisie. Les lignes de code peuvent être ajoutés dans le désordre dans le programme chargé. Le remplacement d'une instruction à une certaine étiquette se fait par la saisie d'une ligne de code ayant la même étiquette. Les commandes liste et efface permettent l'édition du programme.
+	\item \textbf{Programmation dans un fichier d'extension .lir} qui sera chargé à posteriori dans l'interpréteur avec la commande charge. Une ligne saisie dans le fichier correspond à une saisie dans l'interpréteur ainsi les mêmes spécificité s'appliquent. Une ligne invalide empêche le chargement de l'entièreté du fichier. Les lignes blanches sont ignorées par l'interpréteur.
+\end{enumerate}
+Ces deux méthodes se complètent grâce aux commandes sauve et charge permettant de passer d'une méthode à l'autre.
