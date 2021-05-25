@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper,titlepage,openany, oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[top=1.5cm, bottom=4cm]{geometry}
+\usepackage{fancyhdr, graphicx, array, hyperref}
+
+\pagestyle{fancy}
+
+\title{\textsc{\textbf{Spécifications détaillées\\Interpréteur du langage LIR}}}
+\date{}
+\author{Nicolas \textsc{Caminade} \and Sylvan \textsc{Courtiol} \and
+    Pierre \textsc{Debas} \and Heïa \textsc{Dexter} \and Lucàs
+    \textsc{Vabre} }
+\begin{document}
+    \lhead{\leftmark}
+    \rhead{
+        \includegraphics[width=2cm]{./img/logoiut}
+    }
+
+    \cfoot{\thepage}
+    \headheight = 2cm
+    \headsep = 0.5cm
+
+    \begin{titlepage}
+        \fontfamily{pag}\selectfont
+
+        \begin{center}\normalsize
+            \MakeUppercase{IUT de Rodez \hfill Département informatique
+                \hfill INFO1 2020-2021}
+        \end{center}
+        \vspace*{0.1cm}
+        \hrule
+        \vspace*{0.2cm}
+        \begin{flushright}
+            \includegraphics[width=4cm]{./img/logoiut}
+        \end{flushright}
+        \vspace*{2cm}
+        \begin{flushright}\Huge
+            \textsc{\textbf{Spécifications détaillées
+                    \\Interpréteur du langage LIR}}
+        \end{flushright}
+        \hrule
+        \begin{flushleft}
+            \MakeUppercase{Projet proposé par Frédérique Barrios}
+        \end{flushleft}
+        \vspace*{2cm}
+        \begin{center}\Large
+            Nicolas \textsc{Caminade}, Sylvan \textsc{Courtiol},\\
+            Pierre \textsc{Debas}, Heïa \textsc{Dexter}, \\
+            Lucàs \textsc{Vabre}
+        \end{center}
+        \vfill
+        \begin{center}\normalsize
+            \MakeUppercase{Projet tuteuré --- Semestre 2}
+        \end{center}
+    \end{titlepage}
+
+    \renewcommand\rmdefault{pag}
+    \fontfamily{pag}\selectfont
+    \renewcommand{\sfdefault}{pag}
+
+    % Sommaire
+    \renewcommand{\contentsname}{Sommaire}
+    \tableofcontents
+
+    \Large
+    Texte. Blablabla
+
+    \chapter{Récits d'utilisation proposés lors de l'itération 1}
+
+    \small
+    \input{./iteration1/userStoryCommande.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeDebut.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeFin.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeDefs.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeAffiche.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeAfficheExpression.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeVarChaine.tex}
+    \newpage
+    \input{./iteration1/userStoryCommandeVarEntier.tex}
+    \newpage
+    \input{./iteration1/userStoryConcatenation.tex}
+    \newpage
+    \input{./iteration1/userStoryExpressionLogique.tex}
+    \newpage
+    \input{./iteration1/userStoryExpressionArithmetique.tex}
+
+    \chapter{Récits d'utilisation proposés lors de l'itération 2}
+    \chapter{Récits d'utilisation proposés lors de l'itération 3}
+
+\end{document}

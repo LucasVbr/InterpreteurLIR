@@ -1,0 +1,30 @@
+\documentclass[12pt,a5paper, notitle, oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[landscape, top=0.5cm]{geometry}
+\begin{document}
+
+    \chapter*{Récit d'utilisation}
+
+    \paragraph{Titre : } Commande liste
+    \paragraph{Récit : } Utilisation de la commande liste avec argument
+    \paragraph{En tant que : } Programmeur
+    \paragraph{Je souhaite : } que l'Interpréteur LIR affiche affiche
+    toutes les lignes de programme mémorisées dans l'ordre
+    croissant des numéros de ligne dans un intervalle donné.
+    \paragraph{Afin que : } je visualise uniquement les lignes de cet intervalle dans l'ordre croissant.
+    \newpage
+
+    \chapter*{Critères d'acceptation}
+
+    \paragraph{À partir de : } aucune ou plusieurs lignes de programme
+    à mémoriser et de leurs étiquettes et d'un intervalle d'entier passé en argument
+
+    \paragraph{Alors : } j'entre la commande \verb| liste <etiquette_debut>:<etiquette_fin> |
+
+    \paragraph{Enfin : } l'interpréteur affiche toutes les lignes
+    de programme mémorisées, s'il y en a, dans l'ordre croissant de leur
+    étiquette et dont les étiquettes sont situées dans cet intervalle donné.
+
+\end{document}

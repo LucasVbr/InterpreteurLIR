@@ -1,0 +1,27 @@
+\documentclass[12pt,a5paper, notitle, oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[landscape]{geometry}
+\begin{document}
+
+    \chapter*{Récit d'utilisation}
+
+    \paragraph{Titre : } Instruction \verb|entre|
+    \paragraph{Récit : } Affecter une valeur saisie dans l'entrée standard
+    \paragraph{En tant que : } programmeur
+    \paragraph{Je souhaite : } saisir la valeur d'une variable au clavier
+    \paragraph{Afin de : } communiquer avec le contexte de l'interpréteur
+        et le modifier
+    \newpage
+
+    \chapter*{Critères d'acceptation}
+
+    \paragraph{À partir de : } l'invite de commande
+    \paragraph{Alors : } je saisi la commande \verb|entre|, suivie d'un
+        nom de variable, afin d'inviter l'utilisateur à saisir une expression littérale.
+    \paragraph{Enfin : } lorsque la valeur est saisie, elle est affectée
+        à la variable que j'ai déterminée dans le contexte, sous réserve
+        que les types concordent.
+
+\end{document}
