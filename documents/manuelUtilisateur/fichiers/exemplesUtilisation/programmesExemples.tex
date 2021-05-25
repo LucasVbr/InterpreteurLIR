@@ -1,6 +1,66 @@
 Exemples d'utilisation de l'interpréteur LIR :
 \begin{verbatim}
-	TODO
+Interpréteur Langage IUT de Rodez, bienvenue !
+Entrez vos commandes et instructions après l’invite ? 
+
+? defs
+aucune variable n'est définie
+? liste
+aucune ligne à afficher
+? 10 var $message = "Hello World !"
+ok
+? 20 afficher $message
+nok : mot clé inconnu
+? 20 affiche message
+ok
+? 20 affiche $message
+ok
+? liste
+10 var $message = "Hello World !"
+20 affiche $message
+? liste 20:20
+20 affiche $message
+? 15 stop
+ok
+? liste
+10 var $message = "Hello World !"
+15 stop
+20 affiche $message
+? efface 11:19
+ok
+? liste
+10 var $message = "Hello World !"
+20 affiche $message
+? 30 stop
+ok
+? lance
+Hello World !
+? sauve helloWorld.lir
+ok
+? defs
+$message = "Hello World !"
+? liste
+10 var $message = "Hello World !"
+20 affiche $message
+30 stop
+? debut
+ok
+? defs
+aucune variable n'est définie
+? liste
+aucune ligne à afficher
+? charge helloWorld.lir
+ok
+? liste
+10 var $message = "Hello World !"
+20 affiche $message
+30 stop
+? var $message = "Aurevoir !"
+ok
+? lance 20
+Aurevoir !
+? fin
+Au revoir, à bientôt !
 \end{verbatim}
 
 Exemples de programmes en LIR :
