@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,titlepage,openany]{report}
+\documentclass[12pt,a4paper,titlepage,openany, oneside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -314,14 +314,21 @@
     Development) en respectant les Java Code Convention pour un modèle de cycle
     de vie itératif.
 
-    \subsection{Manuel qualité et démarche qualité à observer (suivant la politique qualité de l’organisation), suivi et contrôle qualité (organisation, fréquence, participants).}
+    %\subsection{Manuel qualité et démarche qualité à observer (suivant la politique qualité de l’organisation), suivi et contrôle qualité (organisation, fréquence, participants).}
     % TODO: À commencer
 
 
     \section{Ressources matérielles et logicielles}
-    % principaux matériels, réseaux, systèmes d’exploitation, sites intranet-internet (wiki, gestionnaire d’incident, référentiel…) et outils de génie logiciel utilisés.
+        La partie qui suit est un résumé du document de gestion de la configuration joint
+        au dossier technique. Merci de vous y référer pour plus de détails.
 
-    % TODO: ajouter le doc de Sylvan
+        La conception en langage UML sera effectuée sous Modelio. La rédaction des
+        différents documents du dossier sera faite en utilisant \LaTeX. Nous utiliserons
+        Eclipse configuré avec un \emph{workspace} similaire à celui utilisé lors de nos
+        cours de programmation. Les dépôts en ligne et le contrôle de l'historique des
+        versions seront assurées par Git, plus précisément via GitHub. Lavancement sera
+        contrôlé sur un tableau Trello. Enfin, la communication sera assurée via un
+        serveur Discord dédié ou Google Meet pour les visio-conférences.
 
     \chapter{Pilotage du projet}
     \section{Cycle de vie itératif}
@@ -395,6 +402,26 @@
         final devra pouvoir être lancé à partir d'un fichier exécutable.
 
     \section{Durée et ordonnancement des principales tâches et itérations}
+        Afin d'avoir un interpréteur LIR fonctionnel, nous avons identifié un jeu de
+        tâches critiques devant être remplies à chaque itération. Ainsi, pour la
+        présentation du premier prototype, devront être implémentés et testés les
+        littéraux, les idendificateurs, les variables, le contexte d'exécution, les
+        commandes et instructions, et l'analyseur lexicale.
+
+        Lors de la deuxième itération, devront être traités en priorité la gestion des
+        étiquettes et l'implémentation de programmes à stocker en mémoire. Enfin,
+        l'analyseur devra prendre en compte cette nouvelle fonctionnalité et référencer
+        le programme global de la session.
+
+        Pour finir, la troisième itération consistera à rajouter la possibilité au
+        programmeur d'effectuer des sauts conditionnels. Pour ce faire, les conditions
+        devront être traitées sous la forme d'une expression booléenne simple. Cela
+        implique donc la création d'un littéral de type booléen, non accessible directement
+        au programmeur dans cette version de l'interpréteur (le programmeur ne pourra donc
+        pas créer de variable de type Booléen). La troisième itération se terminera par
+        la revue du code et des jeux de tests, l'édition du manuel utilisateur, ainsi que
+        la complétion du dossier technique.
+
     \section{Identification des premiers jalons}
         Chacun des prototypes de l'interpréteur LIR devant être livré à l'issue de chaque
         itération, nous pouvons donc en déduire les premiers jalons ci-dessous. La date de
@@ -402,6 +429,8 @@
         la rédaction de ce plan. Nous ne pouvons donc en donner qu'une estimation.
 
         \begin{itemize}
+            \item Premier entretien MOA / MOE et lancement du projet :
+                  jeudi 8 avril
             \item Livraison du premier prototype : lundi 10 mai
             \item Livraison du deuxième prototype : mercredi 19 mai
             \item Livraison du prototype final : Vendredi 28 mai
@@ -436,8 +465,143 @@
         sorte que chaque membre de l'équipe ait l'occasion de travailler au moins une fois
         avec tous les autres).
 
-    \section{Suivi du projet par période}
-    Pour chaque période :
+    \section{Suivi du projet pour la première itération}
+
+    \subsection{Planification et ordonnancement des tâches}
+        Au tâches déjà spécifiées dans la section \hyperref{Durée et ordonnancement des principales tâches et itérations}, nous souhaiterions ajouter quelques
+        fonctionnalités de base de l'interpréteur LIR. La planification de cette itération
+        comprend donc l'implémentation et le test des commandes \verb|defs|, \verb|debut|
+        et \verb|fin|, ainsi que des instructions \verb|affiche| et \verb|var|.
+
+        Ce premier prototype fonctionnera uniquement avec des données de type chaîne
+        de caractère. Cela implique donc l'ajout d'identificateurs, de constantes
+        littérales et d'expressions correspondants.
+
+        \includegraphics[scale=0.75]{fichiers/planification/iteration1/iteration1Planif.png}
+
+        Le diagramme de planification de l'itération 1 suggère un total de 27 heures de
+        travail, soit l'équivalent de 10 jours.homme. En raison du nombre limité de
+        ressources de travail, toutes les tâches, notamment les instructions et commandes,
+        ne pourront être réalisées en concomitance. Certaines devront donc se voir
+        repousser le temps qu'un binôme se libère.
+
+
+
+    \subsection{Suivi d’avancement et mesure des écarts par rapport au prévisionnel}
+
+        \includegraphics[scale=0.75]{fichiers/planification/iteration1/iteration1Avancement.png}
+
+        \`{A} l'issue de cette première itération, nous constatons un volume de travail
+        total de 35 heures, soit 8 heures ou 4 jours.homme de plus que ce qui était
+        estimé. Cet écart s'explique d'une part dans une estimation trop optimiste de la
+        durée des tests unitaires d'une part et un manque d'habitude à travailler en
+        binôme d'autre part. Cette itération portant sur des aspect structurels importants
+        de l'interpréteur, il nous sera plus aisé à l'avenir de rajouter les commandes
+        et instructions.
+
+%    \subsection{Synthèse par "tableau de bord"}
+
+    \subsection{Résultats des tests et recette de prototype de la période}
+
+%    \subsection{Résultats des revues/suivis/contrôles qualité de la période}
+
+    \subsection{Identification des principaux écarts et problèmes constatés, solutions possibles}
+        \`{A} l'issue de cette première période, nous avons pu livrer un prototype
+        fonctionnel et ce malgré des difficultés liées à la conception. En revanche,
+        l'instruction \verb|affiche|, initialement prévue pour cette itération, n'a
+        pas été implémentée, faute de temps et de ressources disponibles, et a donc été
+        reportée à l'itération suivante. Cette instruction n'étant pas critique pour
+        le fonctionnement de l'application, nous pouvons donc considérer la gravité
+        de ce retard comme minime.
+
+    \subsection{Propositions de modification de la planification prévisionnelle pour tenir compte des corrections à apporter}
+        Afin de tenir compte de ce léger retard, nous rajouterons l'implémentation de
+        l'instruction \verb|affiche| aux tâches à réaliser pour la prochaine itération.
+        En plus des programmes, et l'adaptation de l'analyseur à interagir avec, nous en
+        profiterons pour implémenter un maximum de fonctionnalités, ce qui nous permettra
+        de rattraper le léger retard pris sur la planification originelle.
+
+        Nous laisserons toutefois l'instruction \verb|si..vaen| et les expressions
+        conditionnelles qu'elle utilise de côté. En effet, ces dernières nécessiteront
+        probablement un \emph{refactoring} de la classe Expression et de ses dérivées.
+
+        \includegraphics[scale=0.75]{fichiers/planification/iteration2/iteration2Planif.png}
+
+        En suivant la planification ci-dessus, la deuxième itération devrait donc occuper
+        un total de 26 heures de travail, soit une durée similaire à la précédente.
+        L'objectif du prochain prototype sera de rajouter la majorité des fonctionnalités
+        de l'interpréteur LIR, dont notamment l'arithmétique entière et toute la partie
+        d'édition et d'exécution de programmes.
+
+    \subsection{Comptes-rendus des réunions projets de la période}
+
+    \subsection{Compte-rendu du comité de pilotage de la période}
+
+    \subsection{Planification prévisionnelle révisée pour les périodes suivantes (en fonction des décisions prises)}
+        Exception faite de l'ajout de \verb|affiche|, la planification de la
+        deuxième itération ne dévie pas de l'ordonnancement initial. Elle a donc
+        été entérinée à l'unanimité.
+
+    \section{Suivi du projet pour la seconde itération}
+
+    \subsection{Suivi d’avancement et mesure des écarts par rapport au prévisionnel revu lors de la période précédente}
+
+    \includegraphics[scale=0.75]{fichiers/planification/iteration2/iteration2Avancement.png}
+
+    Au total, la seconde itération aura englobé un temps de travail total de 30,5 heures,
+    soit 4,5 heures ou 2,25 jours.homme de retard par rapport à la planification initiale. Ce
+    retard s'explique dans des difficultés à gérer les dépendances avec la classe Programme
+    et à écrire des tests concluants. Les instructions \verb|lance| et \verb|liste| sont
+    celles nous ayant posé le plus de problèmes.
+
+    Nous pouvons également remarquer, à travers ce graphe, l'étalement dans le temps
+    des tâches comparé à la planification précédente. Cela est dû à un inconvénient du
+    travail en binôme. En effet, le nombre de membres de notre équipe étant fini, il nous
+    a fallu par moments attendre que certains se libèrent d'une tâche pour entamer la
+    suivante.
+
+    En entreprise, cet inconvénient est en général mitigé par la quotité horaire
+    fixe et convenue dans le contrat de travail. Dans le cadre d'un travail étudiant, nous
+    avons aussi dû jouer avec les disponibilités de chacun, en plus des contraintes
+    imposées par le travail à deux. En dépit de ces facteurs, nous n'avons aucun écart
+    majeur à déplorer dans notre ordonnancement.
+
+    %\subsection{Synthèse par "tableau de bord"}
+
+    \subsection{Résultats des tests et recette de prototype de la période}
+
+    %\subsection{Résultats des revues/suivis/contrôles qualité de la période}
+
+    \subsection{Identification des principaux écarts et problèmes constatés, solutions possibles}
+        \`{A} ce stade du projet, aucun gros écart n'est constaté. Nous avons cependant
+        été confrontés à des difficultés à mener nos tests correctement, ce qui a fait
+        augmenter la durée de certaines tâches (non critiques).
+
+    \subsection{Propositions de modification de la planification prévisionnelle pour tenir compte des corrections à apporter}
+        La seconde itération n'ayant pas pris de retard, aucune modification ne sera
+        apportée à la planification de la troisième. Le dernier prototype inclura donc
+        toutes les fonctionnalités manquantes à ce stade, à savoir la lecture et l'écriture
+        de fichiers textes pour la sauvegarde de programmes, ainsi que les expressions
+        et sauts conditionnels. Nous profiterons du temps restant pour effectuer une
+        revue générale du code et des jeux de tests, rédiger le manuel d'utilisation et
+        achever ce plan projet.
+
+    \subsection{Comptes-rendus des réunions projets de la période}
+
+    \subsection{Compte-rendu du comité de pilotage de la période}
+
+    \subsection{Planification prévisionnelle révisée pour les périodes suivantes (en fonction des décisions prises)}
+
+    \includegraphics[scale=0.75]{fichiers/planification/iteration3/iteration3Planif.png}
+
+    Au vu des estimations effectuées, la troisième itération devrait couvrir un temps
+    de travail de 33,5 heures, soit 16,75 jours.homme. Cette itération comportant de
+    nombreuses tâches critiques (le 28 mai marquant le dernier jalon de la phase de
+    développement et la livraison du prototype final), nous avons délibérément pris des estimations potentiellement larges
+    afin de nous assurer suffisamment de temps pour mener ces tâches à bien.
+
+    \section{Suivi du projet pour la troisième itération}
+
     \subsection{Suivi d’avancement et mesure des écarts par rapport au prévisionnel revu lors de la période précédente}
 
     \subsection{Synthèse par "tableau de bord"}
@@ -455,9 +619,6 @@
     \subsection{Compte-rendu du comité de pilotage de la période}
 
     \subsection{Planification prévisionnelle révisée pour les périodes suivantes (en fonction des décisions prises)}
-
-
-    % TODO: Glossaire
 
 
     \part{Annexes}
