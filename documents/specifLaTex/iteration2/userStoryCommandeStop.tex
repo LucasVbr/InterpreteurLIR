@@ -1,24 +1,16 @@
-\documentclass[12pt,a5paper, notitle, oneside]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage[landscape]{geometry}
-\begin{document}
-
-    \chapter*{Récit d'utilisation}
+ \section{Commande stop}
+    \subsection*{Récit d'utilisation}
 
     \paragraph{Titre : } Commande stop
     \paragraph{Récit : } Utilisation de la commande stop
     \paragraph{En tant que : } Programmeur
     \paragraph{Je souhaite : } Arreter un programme
-    \paragraph{Afin de : } terminer son execution 
-    \newpage
+    \paragraph{Afin de : } terminer son execution
 
-    \chapter*{Critères d'acceptation}
+    \subsection*{Critères d'acceptation}
 
     \paragraph{À partir du fait : } Qu'un programme comporte au moins une instruction
-    \paragraph{Alors : } on tape la commande: <etiquette> stop
-    \paragraph{Enfin : } A son execution, le programme s'arrete lorsqu'il a atteind l'étiquette spécifiée.
-			      Puis il rend la main à l'utilisateur qui pourra à nouveau tapper des commandes.
-
-\end{document}
+    \paragraph{Alors : } on tape la commande: \verb|<etiquette> stop|
+    \paragraph{Enfin : } À son exécution, le programme s'arrête lorsqu'il a atteint
+                         l'étiquette indiquée.
+			             Puis l'interpréteur affiche de nouveau un invite.

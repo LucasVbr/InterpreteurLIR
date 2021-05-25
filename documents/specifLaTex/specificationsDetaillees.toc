@@ -24,7 +24,7 @@
 \contentsline {paragraph}{En tant que : }{4}{section*.26}%
 \contentsline {paragraph}{Je souhaite : }{4}{section*.27}%
 \contentsline {paragraph}{Afin de : }{4}{section*.28}%
-\contentsline {paragraph}{À partir du fait : }{4}{section*.30}%
+\contentsline {paragraph}{À partir de : }{4}{section*.30}%
 \contentsline {paragraph}{Alors : }{4}{section*.31}%
 \contentsline {paragraph}{Enfin : }{4}{section*.32}%
 \contentsline {section}{\numberline {1.4}Commande defs}{4}{section.1.4}%
@@ -100,4 +100,12 @@
 \contentsline {paragraph}{Alors : }{9}{section*.111}%
 \contentsline {paragraph}{Enfin : }{9}{section*.112}%
 \contentsline {chapter}{\numberline {2}Récits d'utilisation proposés lors de l'itération 2}{10}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Récits d'utilisation proposés lors de l'itération 3}{11}{chapter.3}%
+\contentsline {paragraph}{Titre : }{10}{section*.114}%
+\contentsline {paragraph}{Récit : }{10}{section*.115}%
+\contentsline {paragraph}{En tant que : }{10}{section*.116}%
+\contentsline {paragraph}{Je souhaite : }{10}{section*.117}%
+\contentsline {paragraph}{Afin de : }{10}{section*.118}%
+\contentsline {paragraph}{À partir de : }{11}{section*.120}%
+\contentsline {paragraph}{Alors : }{11}{section*.121}%
+\contentsline {paragraph}{Enfin : }{11}{section*.122}%
+\contentsline {chapter}{\numberline {3}Récits d'utilisation proposés lors de l'itération 3}{12}{chapter.3}%
