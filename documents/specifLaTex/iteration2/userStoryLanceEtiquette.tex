@@ -1,24 +1,17 @@
-\documentclass[12pt,a5paper, notitle, oneside]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage[landscape]{geometry}
-\begin{document}
+\section{Commande lance à partir d'une étiquette}
 
-    \chapter*{Récit d'utilisation}
+    \subsection*{Récit d'utilisation}
 
     \paragraph{Titre : } Commande lance <Étiquette>
     \paragraph{Récit : } Exécuter le programme à partir de l'étiquette argument
     \paragraph{En tant que : } Programmeur avec l'interpréteur LIR
     \paragraph{Je souhaite : } Exécuter le programme chargé avec la commande lance <étiquette>
     \paragraph{Afin de : } obtenir le comportement et objectif du programme chargé
-    \newpage
 
-    \chapter*{Critères d'acceptation}
+
+    \subsection*{Critères d'acceptation}
 
     \paragraph{À partir de : } lignes d'instructions chargé dans la session courante de l'interpréteur LIR
-    \paragraph{Alors : } lorsque j'entre la commande lance sans arguments et la valide le programme s'exécute à 
+    \paragraph{Alors : } lorsque j'entre la commande lance sans arguments et la valide le programme s'exécute à
                          partir de l'étiquette passé en argument
     \paragraph{Enfin : } le contexte de l'interpréteur contient le contexte final du programme exécuté à partir de l'étiquette spécifiée
-
-\end{document}

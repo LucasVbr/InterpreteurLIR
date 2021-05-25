@@ -1,27 +1,19 @@
-\documentclass[12pt,a5paper, notitle, oneside]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage[landscape]{geometry}
-\begin{document}
-	
-	\chapter*{Récit d'utilisation}
-	
+\section{Instruction procédure}
+
+	\subsection*{Récit d'utilisation}
+
 	\paragraph{Titre : } Procédure
-	\paragraph{Récit : } Ordonner a l'interpréteur à exécuter des lignes
-						 de code à partir de l'etiquette de l'instruction.
+	\paragraph{Récit : } Ordonner a l'interpréteur à exécuter des lignes de code à partir de l'étiquette de l'instruction.
 	\paragraph{En tant que : } Programmeur
 	\paragraph{Je souhaite : } transférer l'exécution au numéro d'étiquette spécifié.
 	\paragraph{Afin de : } exécuter le programme puis reprendre en séquence une fois le procédure terminée.
-	\newpage
-	
-	\chapter*{Critères d'acceptation}
-	
+
+	\subsection*{Critères d'acceptation}
+
 	\paragraph{À partir de : } Plusieurs lignes de code et d'identificateurs déclarés, dont la portée est globale.
-	
-	\paragraph{Alors : } En utilisant l'instruction \verb|procedure| "<etiquette>"
-	
+
+	\paragraph{Alors : } En utilisant l'instruction
+    \verb|procedure <etiquette>|
+
 	\paragraph{Enfin : } Alors l'interpréteur va chercher la ligne qui a pour identificateur celui référencé
-						 en etiquette et va l'exécuter jusqu'à'a la fin de la séquence.
-	
-\end{document}
+						 en étiquette et va l'exécuter jusqu'à'a la fin de la séquence.
