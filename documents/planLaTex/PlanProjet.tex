@@ -5,8 +5,7 @@
 \usepackage[top=1.5cm, bottom=4cm]{geometry}
 \usepackage{fancyhdr, graphicx, array, hyperref}
 \usepackage{glossaries}
-%\usepackage[onehalfspacing]{setspace}
-%\usepackage{pdfpages}
+\usepackage{pdfpages}
 
 \pagestyle{fancy}
 
@@ -326,7 +325,7 @@
         différents documents du dossier sera faite en utilisant \LaTeX. Nous utiliserons
         Eclipse configuré avec un \emph{workspace} similaire à celui utilisé lors de nos
         cours de programmation. Les dépôts en ligne et le contrôle de l'historique des
-        versions seront assurées par Git, plus précisément via GitHub. L'avancement sera
+        versions seront assurées par Git, plus précisément via GitHub. Lavancement sera
         contrôlé sur un tableau Trello. Enfin, la communication sera assurée via un
         serveur Discord dédié ou Google Meet pour les visio-conférences.
 
@@ -405,7 +404,7 @@
         Afin d'avoir un interpréteur LIR fonctionnel, nous avons identifié un jeu de
         tâches critiques devant être remplies à chaque itération. Ainsi, pour la
         présentation du premier prototype, devront être implémentés et testés les
-        littéraux, les identificateurs, les variables, le contexte d'exécution, les
+        littéraux, les idendificateurs, les variables, le contexte d'exécution, les
         commandes et instructions, et l'analyseur lexicale.
 
         Lors de la deuxième itération, devront être traités en priorité la gestion des
@@ -479,8 +478,8 @@
 
         \includegraphics[scale=0.75]{fichiers/planification/iteration1/iteration1Planif.png}
 
-        Le diagramme de planification de l'itération 1 suggère un total de 27 heures de
-        travail, soit l'équivalent de 10 jours.homme. En raison du nombre limité de
+        Le diagramme de planification de l'itération 1 suggère un total de 46 heures de
+        travail, soit l'équivalent de 23 jours.homme. En raison du nombre limité de
         ressources de travail, toutes les tâches, notamment les instructions et commandes,
         ne pourront être réalisées en concomitance. Certaines devront donc se voir
         repousser le temps qu'un binôme se libère.
@@ -492,7 +491,7 @@
         \includegraphics[scale=0.75]{fichiers/planification/iteration1/iteration1Avancement.png}
 
         \`{A} l'issue de cette première itération, nous constatons un volume de travail
-        total de 35 heures, soit 8 heures ou 4 jours.homme de plus que ce qui était
+        total de 61,5 heures, soit 15,5 heures ou 7,75 jours.homme de plus que ce qui était
         estimé. Cet écart s'explique d'une part dans une estimation trop optimiste de la
         durée des tests unitaires d'une part et un manque d'habitude à travailler en
         binôme d'autre part. Cette itération portant sur des aspect structurels importants
@@ -501,7 +500,7 @@
 
 %    \subsection{Synthèse par "tableau de bord"}
 
-    \subsection{Résultats des tests et recette de prototype de la période}
+%    \subsection{Résultats des tests et recette de prototype de la période}
 
 %    \subsection{Résultats des revues/suivis/contrôles qualité de la période}
 
@@ -528,7 +527,7 @@
         \includegraphics[scale=0.75]{fichiers/planification/iteration2/iteration2Planif.png}
 
         En suivant la planification ci-dessus, la deuxième itération devrait donc occuper
-        un total de 26 heures de travail, soit une durée similaire à la précédente.
+        un total de 42 heures de travail, soit une durée similaire à la précédente.
         L'objectif du prochain prototype sera de rajouter la majorité des fonctionnalités
         de l'interpréteur LIR, dont notamment l'arithmétique entière et toute la partie
         d'édition et d'exécution de programmes.
@@ -560,8 +559,8 @@
 
     \includegraphics[scale=0.75]{fichiers/planification/iteration2/iteration2Avancement.png}
 
-    Au total, la seconde itération aura englobé un temps de travail total de 30,5 heures,
-    soit 4,5 heures ou 2,25 jours.homme de retard par rapport à la planification initiale. Ce
+    Au total, la seconde itération aura englobé un temps de travail total de 50,5 heures,
+    soit 8,5 heures ou 4,25 jours.homme de retard par rapport à la planification initiale. Ce
     retard s'explique dans des difficultés à gérer les dépendances avec la classe Programme
     et à écrire des tests concluants. Les instructions \verb|lance| et \verb|liste| sont
     celles nous ayant posé le plus de problèmes.
@@ -580,7 +579,7 @@
 
     %\subsection{Synthèse par "tableau de bord"}
 
-    \subsection{Résultats des tests et recette de prototype de la période}
+    %\subsection{Résultats des tests et recette de prototype de la période}
 
     %\subsection{Résultats des revues/suivis/contrôles qualité de la période}
 
@@ -604,7 +603,7 @@
         Voir
         \begin{itemize}
             \item Compte rendu de la réunion MOA du 10 mai
-            \item Compte rendu de la réunion MOA du 18 mai
+            \item Compte rendu de la réunnion MOA du 18 mai
             \item Compte rendu de la réunion MOA du 19 mai
         \end{itemize}
 
@@ -614,7 +613,8 @@
     \includegraphics[scale=0.75]{fichiers/planification/iteration3/iteration3Planif.png}
 
     Au vu des estimations effectuées, la troisième itération devrait couvrir un temps
-    de travail de 33,5 heures, soit 16,75 jours.homme. Cette itération comportant de
+    de travail de 79 heures, soit 39,5 jours.homme. Ce volume important est dû aux
+    nombreuses tâches à effectuer avec l'équipe complète. Cette itération comportant de
     nombreuses tâches critiques (le 28 mai marquant le dernier jalon de la phase de
     développement et la livraison du prototype final), nous avons délibérément pris des estimations potentiellement larges
     afin de nous assurer suffisamment de temps pour mener ces tâches à bien.
@@ -625,16 +625,38 @@
 
     \includegraphics[scale=0.75]{fichiers/planification/iteration3/iteration3Avancement.png}
 
-    Cette troisième itération offre un total d'heures de travail porté à 45 contre les
-    33,5 prévues. Cela équivaut donc à un retard de 11,5 heures, soit l'équivalent de
-    5,75 jours.homme. Ce retard s'explique par deux problèmes d'envergure auxquels
+    Cette troisième itération offre un total d'heures de travail porté à 107 contre les
+    79 prévues. Cela équivaut donc à un retard de 28 heures, soit l'équivalent de
+    14 jours.homme. Ce retard s'explique par deux problèmes d'envergure auxquels
     nous avons été confrontés. Ces deux problèmes ont eu un impact direct sur le
     cheminement critique de l'ordonnancement et a par conséquent entraîné un retard qu'il a fallu compenser dans la revue de code. Nous reviendrons plus en détail sur ces
     problèmes un peu plus bas.
 
+    Voici donc un bilan des totaux des heures de travail estimées, confrontées aux heures
+    de travail réelles sur l'ensemble des trois itérations du projet.
+
+    \begin{center}
+        \begin{tabular}{|r|l|l|l|}
+            \hline
+            Itération & Estimation & Réel & Ecart\\
+            \hline
+            n°1       &  46        & 61,5   & 15,5    \\
+            \hline
+            n°2       &  42        & 50,5 & 8,5  \\
+            \hline
+            n°3       &  79      & 107   & 28 \\
+            \hline
+            total     &  167      & 219  & 52 \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Au total, nous constatons donc un écart de 52 heures de travail par rapport à nos
+    estimations. Cela correspondrait à un écart de 7,43 jours.homme.
+
     %\subsection{Synthèse par "tableau de bord"}
 
-    \subsection{Résultats des tests et recette de prototype de la période}
+    %\subsection{Résultats des tests et recette de prototype de la période}
 
     %\subsection{Résultats des revues/suivis/contrôles qualité de la période}
 
@@ -658,17 +680,17 @@
     arrivée que tardivement et il a fallu que nous prissions une décision. Nous avons
     donc opté pour la solution la moins coûteuse en durée afin de ne pas accumuler de
     retard et de pouvoir terminer le projet dans les temps. Dans une hypothétique phase
-    de maintenance du logiciel, nous pensons qu'implémenter la solution évoquée ci-dessus
+    de maintenance du logciciel, nous pensons qu'implémenter la solution évoquée ci-dessus
     serait une des premières tâches à accomplir dans le but de proposer un logiciel
     fonctionnel et plus facilement maintenable.
 
 
-    \subsection{Comptes-rendus des réunions projets de la période}
+    %\subsection{Comptes-rendus des réunions projets de la période}
 
     \subsection{Compte-rendu du comité de pilotage de la période}
         Voir
         \begin{itemize}
-            \item Compte rendu de la réunion MOA du 18 mai
+            \item Compte rendu de la réunnion MOA du 18 mai
             \item Compte rendu de la réunion MOA du 19 mai
         \end{itemize}
 
@@ -711,7 +733,7 @@
     \chapter{Bilan}
         \large
         Outre le développement en équipe d'une solution logicielle en programmation
-        orientée objet, ce projet tuteuré de fin d'année nous a donné un aperçu de ce que
+        orientée objet, ce projet tutoré de fin d'année nous a donné un aperçu de ce que
         pouvait être un travail en équipe sous la supervision d'une maîtrise d'ouvrage.
 
         Nous avons ainsi pu nous familiariser avec les postes de chef de projet, de
@@ -733,9 +755,10 @@
     \part{Annexes}
 
     \appendix
-    %\includepdf[pages=-]{fichiers/BarriosInterpreteurLIR2021}
     \chapter{Sujet Interpréteur LIR}
+    \includepdf[pages=-, nup=1]{fichiers/BarriosInterpreteurLIR2021.pdf}
 
-    \input{./fichiers/gestionConfiguration/gestionConfiguration.tex}
+    \chapter{Gestion de la configuration de l'Interpréteur LIR}
+    \includepdf[pages=-, nup=1]{./fichiers/gestionConfiguration.pdf}
 
 \end{document}
