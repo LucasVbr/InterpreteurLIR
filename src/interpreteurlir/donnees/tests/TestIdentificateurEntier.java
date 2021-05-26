@@ -51,7 +51,6 @@ public class TestIdentificateurEntier {
                 " ",
                 "\t",
                 "\n",
-                null
         };
 
         for(int noJeu = 0; noJeu < INVALIDE.length ; noJeu++) {
