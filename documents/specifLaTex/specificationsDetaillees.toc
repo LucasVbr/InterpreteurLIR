@@ -9,9 +9,9 @@
 \contentsline {paragraph}{À partir du fait : }{3}{section*.10}%
 \contentsline {paragraph}{Alors : }{3}{section*.11}%
 \contentsline {paragraph}{Enfin : }{3}{section*.12}%
-\contentsline {section}{\numberline {1.2}Commande debut}{3}{section.1.2}%
-\contentsline {paragraph}{Titre : }{3}{section*.14}%
-\contentsline {paragraph}{Récit : }{3}{section*.15}%
+\contentsline {section}{\numberline {1.2}Commande debut}{4}{section.1.2}%
+\contentsline {paragraph}{Titre : }{4}{section*.14}%
+\contentsline {paragraph}{Récit : }{4}{section*.15}%
 \contentsline {paragraph}{En tant que : }{4}{section*.16}%
 \contentsline {paragraph}{Je souhaite : }{4}{section*.17}%
 \contentsline {paragraph}{Afin de : }{4}{section*.18}%
@@ -27,9 +27,9 @@
 \contentsline {paragraph}{À partir de : }{4}{section*.30}%
 \contentsline {paragraph}{Alors : }{4}{section*.31}%
 \contentsline {paragraph}{Enfin : }{4}{section*.32}%
-\contentsline {section}{\numberline {1.4}Commande defs}{4}{section.1.4}%
-\contentsline {paragraph}{Titre : }{4}{section*.34}%
-\contentsline {paragraph}{Récit : }{4}{section*.35}%
+\contentsline {section}{\numberline {1.4}Commande defs}{5}{section.1.4}%
+\contentsline {paragraph}{Titre : }{5}{section*.34}%
+\contentsline {paragraph}{Récit : }{5}{section*.35}%
 \contentsline {paragraph}{En tant que : }{5}{section*.36}%
 \contentsline {paragraph}{Je souhaite : }{5}{section*.37}%
 \contentsline {paragraph}{Afin de : }{5}{section*.38}%
@@ -45,9 +45,9 @@
 \contentsline {paragraph}{À partir du fait : }{5}{section*.50}%
 \contentsline {paragraph}{Alors : }{5}{section*.51}%
 \contentsline {paragraph}{Enfin : }{5}{section*.52}%
-\contentsline {section}{\numberline {1.6}Commande affiche avec une expression}{5}{section.1.6}%
-\contentsline {paragraph}{Titre : }{5}{section*.54}%
-\contentsline {paragraph}{Récit : }{5}{section*.55}%
+\contentsline {section}{\numberline {1.6}Commande affiche avec une expression}{6}{section.1.6}%
+\contentsline {paragraph}{Titre : }{6}{section*.54}%
+\contentsline {paragraph}{Récit : }{6}{section*.55}%
 \contentsline {paragraph}{En tant que : }{6}{section*.56}%
 \contentsline {paragraph}{Je souhaite : }{6}{section*.57}%
 \contentsline {paragraph}{Afin de : }{6}{section*.58}%
@@ -62,9 +62,9 @@
 \contentsline {paragraph}{Afin de : }{6}{section*.68}%
 \contentsline {paragraph}{À partir du fait : }{6}{section*.70}%
 \contentsline {paragraph}{Alors : }{6}{section*.71}%
-\contentsline {paragraph}{Enfin : }{6}{section*.72}%
-\contentsline {section}{\numberline {1.8}Commande var pour un entier}{6}{section.1.8}%
-\contentsline {paragraph}{Titre : }{6}{section*.74}%
+\contentsline {paragraph}{Enfin : }{7}{section*.72}%
+\contentsline {section}{\numberline {1.8}Commande var pour un entier}{7}{section.1.8}%
+\contentsline {paragraph}{Titre : }{7}{section*.74}%
 \contentsline {paragraph}{Récit : }{7}{section*.75}%
 \contentsline {paragraph}{En tant que : }{7}{section*.76}%
 \contentsline {paragraph}{Je souhaite : }{7}{section*.77}%
@@ -79,8 +79,8 @@
 \contentsline {paragraph}{Je souhaite : }{7}{section*.87}%
 \contentsline {paragraph}{Afin de : }{7}{section*.88}%
 \contentsline {paragraph}{À partir de : }{7}{section*.90}%
-\contentsline {paragraph}{Alors : }{7}{section*.91}%
-\contentsline {paragraph}{Enfin : }{7}{section*.92}%
+\contentsline {paragraph}{Alors : }{8}{section*.91}%
+\contentsline {paragraph}{Enfin : }{8}{section*.92}%
 \contentsline {section}{\numberline {1.10}Expression logique}{8}{section.1.10}%
 \contentsline {paragraph}{Titre : }{8}{section*.94}%
 \contentsline {paragraph}{Récit : }{8}{section*.95}%
@@ -94,8 +94,8 @@
 \contentsline {paragraph}{Titre : }{8}{section*.104}%
 \contentsline {paragraph}{Récit : }{8}{section*.105}%
 \contentsline {paragraph}{En tant que : }{8}{section*.106}%
-\contentsline {paragraph}{Je souhaite : }{8}{section*.107}%
-\contentsline {paragraph}{Afin que : }{8}{section*.108}%
+\contentsline {paragraph}{Je souhaite : }{9}{section*.107}%
+\contentsline {paragraph}{Afin que : }{9}{section*.108}%
 \contentsline {paragraph}{À partir de : }{9}{section*.110}%
 \contentsline {paragraph}{Alors : }{9}{section*.111}%
 \contentsline {paragraph}{Enfin : }{9}{section*.112}%
@@ -109,10 +109,10 @@
 \contentsline {paragraph}{À partir de : }{10}{section*.120}%
 \contentsline {paragraph}{Alors : }{10}{section*.121}%
 \contentsline {paragraph}{Enfin : }{10}{section*.122}%
-\contentsline {section}{\numberline {2.2}Commande lance}{10}{section.2.2}%
-\contentsline {paragraph}{Titre : }{10}{section*.124}%
-\contentsline {paragraph}{Récit : }{10}{section*.125}%
-\contentsline {paragraph}{En tant que : }{10}{section*.126}%
+\contentsline {section}{\numberline {2.2}Commande lance}{11}{section.2.2}%
+\contentsline {paragraph}{Titre : }{11}{section*.124}%
+\contentsline {paragraph}{Récit : }{11}{section*.125}%
+\contentsline {paragraph}{En tant que : }{11}{section*.126}%
 \contentsline {paragraph}{Je souhaite : }{11}{section*.127}%
 \contentsline {paragraph}{Afin de : }{11}{section*.128}%
 \contentsline {paragraph}{À partir de : }{11}{section*.130}%
@@ -126,10 +126,10 @@
 \contentsline {paragraph}{Afin de : }{11}{section*.138}%
 \contentsline {paragraph}{À partir du fait : }{11}{section*.140}%
 \contentsline {paragraph}{Alors : }{11}{section*.141}%
-\contentsline {paragraph}{Enfin : }{11}{section*.142}%
-\contentsline {section}{\numberline {2.4}Etiquette}{11}{section.2.4}%
-\contentsline {paragraph}{Titre : }{11}{section*.144}%
-\contentsline {paragraph}{Récit : }{11}{section*.145}%
+\contentsline {paragraph}{Enfin : }{12}{section*.142}%
+\contentsline {section}{\numberline {2.4}Etiquette}{12}{section.2.4}%
+\contentsline {paragraph}{Titre : }{12}{section*.144}%
+\contentsline {paragraph}{Récit : }{12}{section*.145}%
 \contentsline {paragraph}{En tant que : }{12}{section*.146}%
 \contentsline {paragraph}{Je souhaite : }{12}{section*.147}%
 \contentsline {paragraph}{Afin de : }{12}{section*.148}%
@@ -143,11 +143,11 @@
 \contentsline {paragraph}{Je souhaite : }{12}{section*.157}%
 \contentsline {paragraph}{Afin de : }{12}{section*.158}%
 \contentsline {paragraph}{À partir de : }{12}{section*.160}%
-\contentsline {paragraph}{Alors : }{12}{section*.161}%
-\contentsline {paragraph}{Enfin : }{12}{section*.162}%
-\contentsline {section}{\numberline {2.6}Instruction vaen}{12}{section.2.6}%
-\contentsline {paragraph}{Titre : }{12}{section*.164}%
-\contentsline {paragraph}{Récit : }{12}{section*.165}%
+\contentsline {paragraph}{Alors : }{13}{section*.161}%
+\contentsline {paragraph}{Enfin : }{13}{section*.162}%
+\contentsline {section}{\numberline {2.6}Instruction vaen}{13}{section.2.6}%
+\contentsline {paragraph}{Titre : }{13}{section*.164}%
+\contentsline {paragraph}{Récit : }{13}{section*.165}%
 \contentsline {paragraph}{En tant que : }{13}{section*.166}%
 \contentsline {paragraph}{Je souhaite : }{13}{section*.167}%
 \contentsline {paragraph}{Afin de : }{13}{section*.168}%
@@ -161,10 +161,10 @@
 \contentsline {paragraph}{Je souhaite : }{13}{section*.177}%
 \contentsline {paragraph}{Afin de : }{13}{section*.178}%
 \contentsline {paragraph}{À partir de : }{13}{section*.180}%
-\contentsline {paragraph}{Alors : }{13}{section*.181}%
-\contentsline {paragraph}{Enfin : }{13}{section*.182}%
-\contentsline {section}{\numberline {2.8}Instruction procédure}{13}{section.2.8}%
-\contentsline {paragraph}{Titre : }{13}{section*.184}%
+\contentsline {paragraph}{Alors : }{14}{section*.181}%
+\contentsline {paragraph}{Enfin : }{14}{section*.182}%
+\contentsline {section}{\numberline {2.8}Instruction procédure}{14}{section.2.8}%
+\contentsline {paragraph}{Titre : }{14}{section*.184}%
 \contentsline {paragraph}{Récit : }{14}{section*.185}%
 \contentsline {paragraph}{En tant que : }{14}{section*.186}%
 \contentsline {paragraph}{Je souhaite : }{14}{section*.187}%
@@ -178,9 +178,9 @@
 \contentsline {paragraph}{En tant que : }{14}{section*.196}%
 \contentsline {paragraph}{Je souhaite : }{14}{section*.197}%
 \contentsline {paragraph}{Afin de : }{14}{section*.198}%
-\contentsline {paragraph}{À partir de : }{14}{section*.200}%
-\contentsline {paragraph}{Alors : }{14}{section*.201}%
-\contentsline {paragraph}{Enfin : }{14}{section*.202}%
+\contentsline {paragraph}{À partir de : }{15}{section*.200}%
+\contentsline {paragraph}{Alors : }{15}{section*.201}%
+\contentsline {paragraph}{Enfin : }{15}{section*.202}%
 \contentsline {section}{\numberline {2.10}Commande liste}{15}{section.2.10}%
 \contentsline {paragraph}{Titre : }{15}{section*.204}%
 \contentsline {paragraph}{Récit : }{15}{section*.205}%
@@ -195,8 +195,53 @@
 \contentsline {paragraph}{Récit : }{15}{section*.215}%
 \contentsline {paragraph}{En tant que : }{15}{section*.216}%
 \contentsline {paragraph}{Je souhaite : }{15}{section*.217}%
-\contentsline {paragraph}{Afin que : }{15}{section*.218}%
-\contentsline {paragraph}{À partir de : }{15}{section*.220}%
-\contentsline {paragraph}{Alors : }{15}{section*.221}%
+\contentsline {paragraph}{Afin que : }{16}{section*.218}%
+\contentsline {paragraph}{À partir de : }{16}{section*.220}%
+\contentsline {paragraph}{Alors : }{16}{section*.221}%
 \contentsline {paragraph}{Enfin : }{16}{section*.222}%
 \contentsline {chapter}{\numberline {3}Récits d'utilisation proposés lors de l'itération 3}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Commande sauve}{17}{section.3.1}%
+\contentsline {paragraph}{Titre : }{17}{section*.224}%
+\contentsline {paragraph}{Récit : }{17}{section*.225}%
+\contentsline {paragraph}{En tant que : }{17}{section*.226}%
+\contentsline {paragraph}{Je souhaite : }{17}{section*.227}%
+\contentsline {paragraph}{Afin de : }{17}{section*.228}%
+\contentsline {paragraph}{À partir du fait : }{17}{section*.230}%
+\contentsline {paragraph}{Alors : }{17}{section*.231}%
+\contentsline {paragraph}{Enfin : }{17}{section*.232}%
+\contentsline {section}{\numberline {3.2}Commande charge}{18}{section.3.2}%
+\contentsline {paragraph}{Titre : }{18}{section*.234}%
+\contentsline {paragraph}{Récit : }{18}{section*.235}%
+\contentsline {paragraph}{En tant que : }{18}{section*.236}%
+\contentsline {paragraph}{Je souhaite : }{18}{section*.237}%
+\contentsline {paragraph}{Afin de : }{18}{section*.238}%
+\contentsline {paragraph}{À partir du fait : }{18}{section*.240}%
+\contentsline {paragraph}{Alors : }{18}{section*.241}%
+\contentsline {paragraph}{Enfin : }{18}{section*.242}%
+\contentsline {section}{\numberline {3.3}Instruction si... vaen}{18}{section.3.3}%
+\contentsline {paragraph}{Titre : }{18}{section*.244}%
+\contentsline {paragraph}{Récit : }{18}{section*.245}%
+\contentsline {paragraph}{En tant que : }{18}{section*.246}%
+\contentsline {paragraph}{Je souhaite : }{18}{section*.247}%
+\contentsline {paragraph}{Afin de : }{18}{section*.248}%
+\contentsline {paragraph}{À partir de : }{19}{section*.250}%
+\contentsline {paragraph}{Alors : }{19}{section*.251}%
+\contentsline {paragraph}{Enfin : }{19}{section*.252}%
+\contentsline {section}{\numberline {3.4}Instruction procedure}{19}{section.3.4}%
+\contentsline {paragraph}{Titre : }{19}{section*.254}%
+\contentsline {paragraph}{Récit : }{19}{section*.255}%
+\contentsline {paragraph}{En tant que : }{19}{section*.256}%
+\contentsline {paragraph}{Je souhaite : }{19}{section*.257}%
+\contentsline {paragraph}{Afin de : }{19}{section*.258}%
+\contentsline {paragraph}{À partir de : }{19}{section*.260}%
+\contentsline {paragraph}{Alors : }{19}{section*.261}%
+\contentsline {paragraph}{Enfin : }{19}{section*.262}%
+\contentsline {section}{\numberline {3.5}Instruction retour}{19}{section.3.5}%
+\contentsline {paragraph}{Titre : }{19}{section*.264}%
+\contentsline {paragraph}{Récit : }{19}{section*.265}%
+\contentsline {paragraph}{En tant que : }{19}{section*.266}%
+\contentsline {paragraph}{Je souhaite : }{20}{section*.267}%
+\contentsline {paragraph}{Afin de : }{20}{section*.268}%
+\contentsline {paragraph}{À partir de : }{20}{section*.270}%
+\contentsline {paragraph}{Alors : }{20}{section*.271}%
+\contentsline {paragraph}{Enfin : }{20}{section*.272}%
