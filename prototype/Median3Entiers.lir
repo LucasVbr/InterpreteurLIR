@@ -1,0 +1,37 @@
+10 affiche "Bienvenue dans le programme Median3Entiers.lir"
+20 affiche
+30 affiche "Entrez le premier entier : "
+40 entre premier
+50 affiche "Entrez le deuxième entier : "
+60 entre deuxieme
+70 affiche "Entrez le troisième entier : "
+80 entre troisieme
+90 procedure 1000
+100 affiche "Median( "
+110 affiche premier
+120 affiche ", "
+130 affiche deuxieme
+140 affiche ", "
+150 affiche troisieme
+160 affiche ") = "
+170 affiche median
+180 affiche
+250 stop
+
+1000 si premier <= deuxieme vaen 1100
+1010 si deuxieme <= troisieme vaen 1200
+1020 vaen 1520
+
+1100 si deuxieme <= troisieme vaen 1520
+1110 si premier <= troisieme vaen 1540
+1120 vaen 1500
+
+1200 si premier <= troisieme vaen 1500
+1220 vaen 1540
+
+1500 var median = premier
+1510 vaen 1550
+1520 var median = deuxieme
+1530 vaen 1550
+1540 var median = troisieme
+1550 retour
