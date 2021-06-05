@@ -1,0 +1,48 @@
+% \chapter{Tests du paquetage interpreteurlir.motscles}
+
+\section{Commande}
+
+Le développement de la classe Commande a été mené lors de l'itération 1
+en TDD, en effet la classe a été passée en classe abstraite lors de
+l'itération 3. Les tests mené ont été conservés en commentaire.
+
+\section{EssaiCommande}
+
+Lors de l'itération 1, avant l'implémentation de classe Analyseur, pour
+l'intégration des premières commandes debut, defs et fin nous avons utilisé
+une classe EssaiCommande. Une fois la classe Analyseur implémentée, l'intégration
+des autres commandes a été par la suite testée avec.
+
+\section{CommandeCharge}
+
+Le développement de charge n'a pas été simple, en effet, son implémentation
+a soulevé un problème de conception. La commande charge doit faire appel à
+l'Analyseur cependant celui-ci n'a pas été conçu de façon assez générale pour
+prendre en compte ce cas de figure. Au vu des délais à tenir, nous avons choisi
+la solution qui nous paraissait la plus viable. Celle-ci impliquait de recréer
+des parties de la classe Analyseur au sein même de la classe CommandeCharge.
+\\ Les tests de charge ont encore une particularité, en effet, ils dépendent
+de la machine sur laquelle les tests sont effectués, il faut donc adapter les
+tests à la machine utilisée. Cela consiste à avoir sur la machine utilisée des
+chemins d'accès et des fichiers coïncidant avec ceux des tests.
+
+\section{CommandeDebut}
+La commande debut a évolué entre l'itération 1 et 2 avec l'ajout de la remise
+à zéro du programme en plus de celle du contexte.
+
+\section{CommandeDefs et CommandeFin}
+
+Le développement de ces commandes n'a pas posé de problème, aussi leurs
+tests ont été concluants.
+
+\section{CommandeEfface, CommandeLance et CommandeListe}
+
+Le développement de ces trois commandes n'a pas posé de problème particulier.
+Leurs tests ont permis de tester par la même occasion les méthodes de la classe
+Programme.
+
+\section{CommandeSauve}
+
+Le développement de ces commandes n'a pas posé de problème.
+À l'instar de charge, la commande sauve nécessite que les chemins pour les tests
+soient accessibles sur la machine utilisée.

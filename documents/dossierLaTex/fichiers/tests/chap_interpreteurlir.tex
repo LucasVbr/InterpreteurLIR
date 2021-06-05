@@ -1,0 +1,21 @@
+% \chapter{Tests du paquetage interpreteurlir}
+
+\section{InterpreteurException et ExecuteurException}
+
+Ces deux exceptions sont héritées de RuntimeException et n'ajoute aucun
+comportement supplémentaire. Par conséquent, leurs tests n'étaient pas
+déterminants pour la suite du développement de l'interpréteur.
+
+\section{Contexte}
+
+Le développement de la classe Contexte s'est déroulé sans difficultés.
+Aussi les tests ont été concluants.
+
+\section{Analyseur}
+
+L'Analyseur n'a pas de tests unitaires car tous les tests ont été menés
+lors de l'intégration. Tests d'intégration effectués en deux parties,
+la première lors de l'itération 1 avec le test de la prise en charge
+des commandes et d'instructions exécutées directement, la seconde lors de
+l'itération 2 pour l'édition de programme.
+
