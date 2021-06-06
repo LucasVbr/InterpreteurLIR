@@ -70,20 +70,25 @@
     \normalsize
     % Début du corps de votre document ...............................
     \part{ Plan projet}
+    \setcounter{chapter}{0}
     \part{ Spécifications détaillées}
+    \setcounter{chapter}{0}
     \part{ Conception}
+    \setcounter{chapter}{0}
     \part{ Codage}
+    \setcounter{chapter}{0}
     \part{ Tests}
-    \input{./fichiers/tests/docTests}
+    \setcounter{chapter}{0}
+    \input{fichiers/tests/docTests}
+
     \part{ Conclusion}
+    \setcounter{chapter}{0}
+    \input{fichiers/conclusion/conclu.tex}
 
     % Fin du corps de votre document .................................
 
     \appendix
     % Annexes jointes au dossier .....................................
-    % TODO Annexe 1 CD
-    \part{CD}
-    % TODO Manuel utilisateur
     \part{Manuel utilisateur}
 
 \end{document}

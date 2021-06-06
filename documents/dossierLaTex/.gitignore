@@ -1,0 +1,6 @@
+# ignore les fichiers non nécessaires TexStudio
+*.synctex.gz
+*.aux
+*.log
+*.out
+*.toc

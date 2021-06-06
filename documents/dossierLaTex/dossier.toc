@@ -4,6 +4,7 @@
 \contentsline {part}{III\hspace {1em} Conception}{5}{part.3}%
 \contentsline {part}{IV\hspace {1em} Codage}{6}{part.4}%
 \contentsline {part}{V\hspace {1em} Tests}{7}{part.5}%
+\contentsline {chapter}{Démarche globale}{8}{chapter*.2}%
 \contentsline {chapter}{\numberline {1}Tests du paquetage interpreteurlir.donnees.litteraux}{9}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Litteral}{9}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Chaine}{9}{section.1.2}%
@@ -40,5 +41,12 @@
 \contentsline {section}{\numberline {7.3}InstructionProcedure, InstructionRetour, InstructionStop et InstructionVaen}{16}{section.7.3}%
 \contentsline {section}{\numberline {7.4}InstructionVar}{16}{section.7.4}%
 \contentsline {part}{VI\hspace {1em} Conclusion}{17}{part.6}%
-\contentsline {part}{VII\hspace {1em}CD}{18}{part.7}%
-\contentsline {part}{VIII\hspace {1em}Manuel utilisateur}{19}{part.8}%
+\contentsline {chapter}{\numberline {1}Conception et implémentation}{18}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Le livrable}{18}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Conception}{18}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Organisation du groupe}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Travail en binôme}{19}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Répartition de la charge de travail}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Communication}{20}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Conclusion générale}{21}{chapter.3}%
+\contentsline {part}{VII\hspace {1em}Manuel utilisateur}{22}{part.7}%
