@@ -306,4 +306,4 @@
 \contentsline {section}{\numberline {13.2}Répartition de la charge de travail}{61}{section.13.2}%
 \contentsline {section}{\numberline {13.3}Communication}{62}{section.13.3}%
 \contentsline {chapter}{\numberline {14}Conclusion générale}{63}{chapter.14}%
-\contentsline {part}{VII\hspace {1em}Manuel utilisateur}{64}{part.7}%
+\contentsline {part}{VII\hspace {1em}Manuel utilisateur\\(annexe)}{64}{part.7}%
