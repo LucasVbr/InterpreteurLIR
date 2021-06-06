@@ -1,0 +1,118 @@
+    \chapter*{Introduction}
+    \addcontentsline{toc}{chapter}{Introduction}
+    \Large
+    Le projet interpréteur LIR a été réalisé selon un modèle de cycle
+    de vie itératif. Dans ce document des spécifications détaillées du
+    projet seront présentés les fonctionnalités ajoutées à l'interpréteur
+    au cours de chaque itération avec les récits d'utilisation des
+    fonctionnalités ajoutées ou des éléments nécessaires au bon
+    fonctionnement de l'interpréteur LIR.
+
+
+    \large
+    \chapter{Première itération}
+
+    \section*{Contenu de la première itération}
+    Dans cette première itération, l'objectif est d'avoir un
+    prototype de l'interpréteur avec des fonctionnalités de base.
+    Ces premières fonctionnalités sont les commandes et instructions suivantes :
+    \begin{itemize}
+        \item Commande \verb|debut| qui efface toutes les lignes de
+              programme mémorisées ainsi que tous les identificateurs
+              mémorisés.
+        \item Commande \verb|fin| qui quitte l'interpréteur.
+        \item Commande \verb|defs| qui affiche le contexte de
+              l'interpréteur, i.e. affiche la liste des identificateurs
+              définis durant la session avec leur valeur.
+        \item Instruction \verb|affiche| qui évalue la valeur de
+              l'expression et l'affiche sur la sortie texte courante ou
+              alors provoque un saut de ligne sur la sortie texte
+              courante.
+        \item Instruction \verb|var| qui affecte la valeur de
+              l'expression à la variable nommée par l’identificateur.
+    \end{itemize}
+
+
+    \footnotesize
+    \chapter*{Récits d'utilisation proposés lors de l'itération 1}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommande.tex}
+    \newpage
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeDebut.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeFin.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeDefs.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeAffiche.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeAfficheExpression.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeVarChaine.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryCommandeVarEntier.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryConcatenation.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryExpressionLogique.tex}
+    \input{fichiers/specifLaTex/iteration1/userStoryExpressionArithmetique.tex}
+
+    \large
+    \chapter{Deuxième itération}
+    \section*{Contenu de la deuxième itération}
+    Dans cette deuxième itération, l'objectif est d'ajouter des
+    fonctionnalités permettant l'écriture de programmes simple
+    en LIR, à savoir :
+    \begin{itemize}
+        \item Commande \verb|efface| qui efface toutes les lignes
+              de programme dont le numéro d’étiquette est dans la
+              plage comprise entre \verb|<etiquette_debut>| et
+              \verb|<etiquette_fin>|.
+        \item Commande \verb|lance| qui démarre l’exécution d’un
+              programme à partir de son plus petit numéro d’étiquette
+              ou du numéro d'étiquette indiqué par l'utilisateur.
+        \item Commande \verb|liste| qui affiche toutes les lignes de
+              programme mémorisées dans l'ordre croissant des numéros
+              de ligne.
+        \item Instruction \verb|stop| qui arrête l'exécution du programme.
+        \item Instruction \verb|vaen| qui continue l'exécution à partir
+              du numéro spécifié par étiquette.
+        \item Instruction \verb|procedure| qui transfère l'exécution du
+              programme au numéro d’étiquette spécifié et qui reprendra
+              en séquence lorsque la procédure sera terminée.
+        \item Instruction \verb|retour| qui, rencontrée après un appel
+              de procédure, provoque un retour à l'instruction qui suit
+              son appel.
+    \end{itemize}
+
+    \footnotesize
+    \chapter*{Récits d'utilisation proposés lors de l'itération 2}
+    \input{fichiers/specifLaTex/iteration2/userStoryCommandeEfface.tex}
+    \newpage
+    \input{fichiers/specifLaTex/iteration2/userStoryCommandeLance.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryCommandeStop.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryEtiquette.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryInstruction.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryInstructionVaen.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryLanceEtiquette.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryProcedure.tex}
+    \input{fichiers/specifLaTex/iteration2/userStoryRetour.tex}
+    \input{fichiers/specifLaTex/iteration2/userStroryListeArgument.tex}
+    \input{fichiers/specifLaTex/iteration2/userStroryListeVoid.tex}
+
+    \large
+    \chapter{Troisième itération}
+    \section*{Contenu de la première itération}
+    Dans cette troisième itération, l'objectif est de couvrir toutes
+    les fonctionnalités attendues. Ces dernières  concernent la
+    lecture et l'écriture de fichier et l'ajout d'une structure de
+    contrôle à l'interpréteur :
+    \begin{itemize}
+        \item Commande \verb|sauve| qui sauvegarde les lignes de
+              programme dans le fichier texte indiqué en argument.
+        \item Commande \verb|charge| qui charge dans le contexte
+              les lignes de programme sauvegardées dans le fichier
+              texte indiqué en argument.
+        \item Instruction \verb|si... vaen| : si la condition est
+              vraie alors l'exécution continuera à partir du numéro
+              de ligne spécifié par l’étiquette, sinon l'exécution
+              continuera en séquence.
+    \end{itemize}
+
+    \footnotesize
+    \chapter*{Récits d'utilisation proposés lors de l'itération 3}
+    \input{fichiers/specifLaTex/iteration3/userStoryCommandeSauve.tex}
+    \newpage
+    \input{fichiers/specifLaTex/iteration3/userStoryCommandeCharge.tex}
+    \input{fichiers/specifLaTex/iteration3/userStoryInstructionSiVaen.tex}

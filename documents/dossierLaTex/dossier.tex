@@ -1,9 +1,10 @@
-\documentclass[12pt,a4paper,titlepage,openright]{report}
+\documentclass[12pt,a4paper,titlepage,oneside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage[top=1.5cm, bottom=5cm]{geometry}
-\usepackage{fancyhdr, graphicx, array, hyperref}
+\usepackage{fancyhdr, graphicx, array, pdfpages}
+\usepackage[breaklinks]{hyperref}
 
 \pagestyle{fancy}
 
@@ -61,7 +62,6 @@
         \end{center}
     \end{titlepage}
 
-    % Sommaire à conserver ou supprimer ..............................
     \renewcommand{\contentsname}{Sommaire}
     \tableofcontents
 
@@ -69,20 +69,23 @@
 
     \normalsize
     % Début du corps de votre document ...............................
-    \part{ Plan projet}
-    \setcounter{chapter}{0}
+    \addcontentsline{toc}{part}{Sommaire}
+    \part{Plan projet\\(annexe)}
+%    \setcounter{chapter}{0}
     \part{ Spécifications détaillées}
-    \setcounter{chapter}{0}
+%    \setcounter{chapter}{0}
+    \input{fichiers/specifLaTex/specificationsDetaillees.tex}
     \part{ Conception}
     \setcounter{chapter}{0}
-    \part{ Codage}
-    \setcounter{chapter}{0}
-    \part{ Tests}
-    \setcounter{chapter}{0}
+    \input{fichiers/dossierPartieConception/Conception.tex}
+    \part{Codage\\(annexe)}
+%    \setcounter{chapter}{0}
+    \part{Tests}
+%    \setcounter{chapter}{0}
     \input{fichiers/tests/docTests}
 
-    \part{ Conclusion}
-    \setcounter{chapter}{0}
+    \part{Conclusion}
+%    \setcounter{chapter}{0}
     \input{fichiers/conclusion/conclu.tex}
 
     % Fin du corps de votre document .................................
