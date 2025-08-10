@@ -1,0 +1,13 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+**/build
+**/.antlr
+
+# Ignore MacOS system files
+**/.DS_Store
+
+# Ignore IDE project files
+.idea
+.vscode
